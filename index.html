@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Clario | Mini-formations digitales simples et concrètes</title>
+
+  <meta
+    name="description"
+    content="Clario propose des mini-formations digitales simples, concrètes et structurées pour apprendre vite, appliquer rapidement et transformer des problèmes concrets en actions claires."
+  />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Clario" />
+  <meta name="theme-color" content="#050505" />
+
+  <style>
+    :root {
+      --noir: #050505;
+      --noir-2: #101010;
+      --noir-3: #181818;
+      --or: #d8aa3d;
+      --or-clair: #f5d982;
+      --blanc: #ffffff;
+      --gris: #cfcfcf;
+      --gris-2: #8f8f8f;
+      --vert: #8be28b;
+      --rouge: #ff7474;
+      --bleu: #6ea8ff;
+      --ombre: 0 24px 80px rgba(0, 0, 0, 0.45);
+      --rayon: 24px;
+      --largeur: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(216, 170, 61, 0.18), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(245, 217, 130, 0.08), transparent 30%),
+        var(--noir);
+      color: var(--blanc);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--largeur));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(5, 5, 5, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(216, 170, 61, 0.18);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand strong {
+      font-size: 1.25rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--or-clair);
+    }
+
+    .brand span {
+      font-size: 0.82rem;
+      color: var(--gris-2);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.95rem;
+      color: var(--gris);
+    }
+
+    .nav-links a:hover {
+      color: var(--or-clair);
+    }
+
+    .hero {
+      padding: 86px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid rgba(216, 170, 61, 0.32);
+      border-radius: 999px;
+      background: rgba(216, 170, 61, 0.08);
+      color: var(--or-clair);
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      max-width: 850px;
+      margin-bottom: 24px;
+    }
+
+    .gold {
+      color: var(--or-clair);
+    }
+
+    .hero-text {
+      max-width: 720px;
+      color: var(--gris);
+      font-size: 1.15rem;
+      margin-bottom: 32px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--or-clair), var(--or));
+      color: #141006;
+      box-shadow: 0 14px 38px rgba(216, 170, 61, 0.22);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--blanc);
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .mini-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--gris-2);
+      font-size: 0.92rem;
+    }
+
+    .mini-proof span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(216, 170, 61, 0.22);
+      border-radius: var(--rayon);
+      padding: 26px;
+      box-shadow: var(--ombre);
+    }
+
+    .hero-card h2 {
+      color: var(--or-clair);
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+    }
+
+    .hero-card p {
+      color: var(--gris);
+      margin-bottom: 18px;
+    }
+
+    .score-box {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .score-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.24);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .score-item span {
+      color: var(--gris);
+    }
+
+    .score-item strong {
+      color: var(--or-clair);
+    }
+
+    section {
+      padding: 54px 0;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-title small {
+      display: block;
+      color: var(--or-clair);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--gris);
+      font-size: 1.05rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--rayon);
+      padding: 24px;
+    }
+
+    .card .number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(216, 170, 61, 0.14);
+      color: var(--or-clair);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 1.22rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--gris);
+    }
+
+    .catalogue {
+      background: rgba(255, 255, 255, 0.035);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .formation-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .formation {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(216, 170, 61, 0.16);
+    }
+
+    .formation h3 {
+      color: var(--blanc);
+      margin-bottom: 5px;
+    }
+
+    .formation p {
+      color: var(--gris);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(139, 226, 139, 0.12);
+      color: var(--vert);
+      font-size: 0.88rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 70px 0 82px;
+    }
+
+    .cta-box {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 34px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(216, 170, 61, 0.16), rgba(255, 255, 255, 0.035)),
+        var(--noir-2);
+      border: 1px solid rgba(216, 170, 61, 0.24);
+      box-shadow: var(--ombre);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(1.9rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .cta-box p {
+      color: var(--gris);
+      max-width: 680px;
+      margin: 0 auto 24px;
+      font-size: 1.08rem;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--gris-2);
+      font-size: 0.9rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 850px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .formation {
+        grid-template-columns: 1fr;
+      }
+
+      .tag {
+        justify-content: flex-start;
+        width: fit-content;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="container nav">
+        <a href="#" class="brand" aria-label="Retour à l’accueil">
+          <strong>Clario</strong>
+          <span>Mini-formations digitales</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Navigation principale">
+          <a href="#concept">Concept</a>
+          <a href="#catalogue">Catalogue</a>
+          <a href="#methode">Méthode</a>
+          <a href="#demarrer">Démarrer</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="badge">Base stable · simple · évolutive</div>
+
+            <h1>
+              Apprends vite.
+              <span class="gold">Applique simplement.</span>
+              Avance avec clarté.
+            </h1>
+
+            <p class="hero-text">
+              Clario est une plateforme de mini-formations digitales conçue pour
+              transformer des problèmes concrets en actions simples, utiles et
+              applicables rapidement.
+            </p>
+
+            <div class="actions">
+              <a class="btn btn-primary" href="#catalogue">Voir le catalogue</a>
+              <a class="btn btn-secondary" href="#concept">Comprendre le concept</a>
+            </div>
+
+            <div class="mini-proof" aria-label="Points clés">
+              <span>Achat unique</span>
+              <span>Formations courtes</span>
+              <span>Actions concrètes</span>
+              <span>Sans complication</span>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Résumé de la plateforme">
+            <h2>Le système de départ</h2>
+            <p>
+              Cette première version sert à bâtir une base propre avant d’ajouter
+              les pages avancées, les paiements, les accès clients et le catalogue complet.
+            </p>
+
+            <div class="score-box">
+              <div class="score-item">
+                <span>Priorité</span>
+                <strong>Stabilité</strong>
+              </div>
+
+              <div class="score-item">
+                <span>Structure</span>
+                <strong>Simple</strong>
+              </div>
+
+              <div class="score-item">
+                <span>Objectif</span>
+                <strong>Vendre mieux</strong>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="concept">
+        <div class="container">
+          <div class="section-title">
+            <small>Concept</small>
+            <h2>Des mini-formations pensées pour passer à l’action.</h2>
+            <p>
+              Chaque formation doit aider une personne à comprendre un problème,
+              choisir une action claire et obtenir un petit résultat mesurable.
+            </p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <div class="number">1</div>
+              <h3>Un problème clair</h3>
+              <p>
+                Chaque formation part d’un problème réel : manque de temps,
+                confusion, mauvaise organisation, difficulté à vendre ou à décider.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="number">2</div>
+              <h3>Une méthode simple</h3>
+              <p>
+                Le contenu doit rester court, direct et applicable. L’objectif est
+                d’éviter la surcharge et de guider vers une action précise.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="number">3</div>
+              <h3>Un résultat concret</h3>
+              <p>
+                La personne doit repartir avec une checklist, un plan ou une action
+                qu’elle peut utiliser immédiatement dans sa réalité.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalogue" id="catalogue">
+        <div class="container">
+          <div class="section-title">
+            <small>Catalogue</small>
+            <h2>Premières formations à préparer.</h2>
+            <p>
+              Cette section est volontairement simple. Elle pourra devenir une vraie
+              page catalogue plus tard, quand la base sera parfaitement stable.
+            </p>
+          </div>
+
+          <div class="formation-list">
+            <article class="formation">
+              <div>
+                <h3>Utiliser l’IA pour sauver 3 heures par semaine</h3>
+                <p>
+                  Une mini-formation pour apprendre à déléguer des tâches simples
+                  à l’IA et gagner du temps sans se compliquer la vie.
+                </p>
+              </div>
+              <span class="tag">À préparer</span>
+            </article>
+
+            <article class="formation">
+              <div>
+                <h3>Écrire un bon courriel de vente avec ChatGPT</h3>
+                <p>
+                  Une méthode simple pour transformer une idée en message clair,
+                  persuasif et utile pour vendre une offre digitale.
+                </p>
+              </div>
+              <span class="tag">Prioritaire</span>
+            </article>
+
+            <article class="formation">
+              <div>
+                <h3>Créer une checklist d’action en 20 minutes</h3>
+                <p>
+                  Une formation courte pour transformer un contenu flou en plan
+                  d’exécution simple, étape par étape.
+                </p>
+              </div>
+              <span class="tag">Bientôt</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="methode">
+        <div class="container">
+          <div class="section-title">
+            <small>Méthode</small>
+            <h2>La règle de construction : petit, propre, stable.</h2>
+            <p>
+              Le site doit d’abord fonctionner avec une seule page. Ensuite, on ajoute
+              les pages une par une : catalogue, formation, paiement, merci, support,
+              conditions et confidentialité.
+            </p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <div class="number">A</div>
+              <h3>Un fichier au départ</h3>
+              <p>
+                Cette version utilise seulement <strong>index.html</strong>.
+                Aucun fichier externe n’est nécessaire pour éviter les erreurs 404.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="number">B</div>
+              <h3>Aucun lien cassé</h3>
+              <p>
+                Tous les boutons restent dans la même page pour éviter les erreurs
+                pendant que les autres pages ne sont pas encore créées.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="number">C</div>
+              <h3>Évolution contrôlée</h3>
+              <p>
+                Quand cette page fonctionne parfaitement, tu ajoutes une seule page,
+                tu testes, puis tu fais un commit clair.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta" id="demarrer">
+        <div class="container">
+          <div class="cta-box">
+            <h2>Construis stable maintenant. Agrandis ensuite.</h2>
+            <p>
+              La première mission de Clario n’est pas d’être énorme. La première
+              mission est d’être propre, rapide, lisible et impossible à casser facilement.
+            </p>
+
+            <div class="actions" style="justify-content: center;">
+              <a class="btn btn-primary" href="#catalogue">Revoir les formations</a>
+              <a class="btn btn-secondary" href="#concept">Retour au concept</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <span>© 2026 Clario. Tous droits réservés.</span>
+        <span>Mini-formations digitales simples et concrètes.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
