@@ -193,6 +193,27 @@
       border-color: rgba(255, 255, 255, 0.14);
     }
 
+    .btn-achat {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      min-height: 44px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      background: linear-gradient(135deg, var(--or-clair), var(--or));
+      color: #141006;
+      border: none;
+      white-space: nowrap;
+      box-shadow: 0 8px 24px rgba(216, 170, 61, 0.22);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-achat:hover {
+      transform: translateY(-2px);
+    }
+
     .mini-proof {
       display: flex;
       flex-wrap: wrap;
@@ -208,6 +229,7 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
+    /* ─── CORRECTION 1 : Hero card ─────────────────────────────── */
     .hero-card {
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
       border: 1px solid rgba(216, 170, 61, 0.22);
@@ -250,6 +272,8 @@
     .score-item strong {
       color: var(--or-clair);
     }
+
+    /* ─── FIN CORRECTION 1 ────────────────────────────────────── */
 
     section {
       padding: 54px 0;
@@ -326,6 +350,7 @@
       gap: 14px;
     }
 
+    /* ─── CORRECTION 2 : Formation avec prix + bouton achat ────── */
     .formation {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -344,6 +369,32 @@
 
     .formation p {
       color: var(--gris);
+      margin-bottom: 10px;
+    }
+
+    .formation-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .prix {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--or-clair);
+    }
+
+    .categorie {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(110, 168, 255, 0.12);
+      color: var(--bleu);
+      font-size: 0.82rem;
+      font-weight: 700;
     }
 
     .tag {
@@ -358,6 +409,7 @@
       font-weight: 800;
       white-space: nowrap;
     }
+    /* ─── FIN CORRECTION 2 ────────────────────────────────────── */
 
     .cta {
       text-align: center;
@@ -444,7 +496,7 @@
   <div class="page">
     <header>
       <div class="container nav">
-        <a href="#" class="brand" aria-label="Retour à l’accueil">
+        <a href="#" class="brand" aria-label="Retour à l'accueil">
           <strong>Clario</strong>
           <span>Mini-formations digitales</span>
         </a>
@@ -462,7 +514,7 @@
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <div class="badge">Base stable · simple · évolutive</div>
+            <div class="badge">Achat unique · Sans abonnement · Sans coaching</div>
 
             <h1>
               Apprends vite.
@@ -489,30 +541,37 @@
             </div>
           </div>
 
+          <!-- ─── CORRECTION 1 : Hero card — contenu client ─── -->
           <aside class="hero-card" aria-label="Résumé de la plateforme">
-            <h2>Le système de départ</h2>
+            <h2>Pourquoi Clario ?</h2>
             <p>
-              Cette première version sert à bâtir une base propre avant d’ajouter
-              les pages avancées, les paiements, les accès clients et le catalogue complet.
+              Chaque mini-formation règle un problème précis. Tu achètes ce dont
+              tu as besoin. Tu appliques. Tu avances. Simple.
             </p>
 
             <div class="score-box">
               <div class="score-item">
-                <span>Priorité</span>
-                <strong>Stabilité</strong>
+                <span>Format</span>
+                <strong>Court et direct</strong>
               </div>
 
               <div class="score-item">
-                <span>Structure</span>
-                <strong>Simple</strong>
+                <span>Prix</span>
+                <strong>À partir de 15 $</strong>
               </div>
 
               <div class="score-item">
-                <span>Objectif</span>
-                <strong>Vendre mieux</strong>
+                <span>Accès</span>
+                <strong>Immédiat après achat</strong>
+              </div>
+
+              <div class="score-item">
+                <span>Garantie</span>
+                <strong>Satisfait ou remboursé 14 jours</strong>
               </div>
             </div>
           </aside>
+          <!-- ─── FIN CORRECTION 1 ─────────────────────────── -->
         </div>
       </section>
 
@@ -520,7 +579,7 @@
         <div class="container">
           <div class="section-title">
             <small>Concept</small>
-            <h2>Des mini-formations pensées pour passer à l’action.</h2>
+            <h2>Des mini-formations pensées pour passer à l'action.</h2>
             <p>
               Chaque formation doit aider une personne à comprendre un problème,
               choisir une action claire et obtenir un petit résultat mesurable.
@@ -532,7 +591,7 @@
               <div class="number">1</div>
               <h3>Un problème clair</h3>
               <p>
-                Chaque formation part d’un problème réel : manque de temps,
+                Chaque formation part d'un problème réel : manque de temps,
                 confusion, mauvaise organisation, difficulté à vendre ou à décider.
               </p>
             </article>
@@ -541,8 +600,8 @@
               <div class="number">2</div>
               <h3>Une méthode simple</h3>
               <p>
-                Le contenu doit rester court, direct et applicable. L’objectif est
-                d’éviter la surcharge et de guider vers une action précise.
+                Le contenu doit rester court, direct et applicable. L'objectif est
+                d'éviter la surcharge et de guider vers une action précise.
               </p>
             </article>
 
@@ -551,7 +610,7 @@
               <h3>Un résultat concret</h3>
               <p>
                 La personne doit repartir avec une checklist, un plan ou une action
-                qu’elle peut utiliser immédiatement dans sa réalité.
+                qu'elle peut utiliser immédiatement dans sa réalité.
               </p>
             </article>
           </div>
@@ -562,104 +621,119 @@
         <div class="container">
           <div class="section-title">
             <small>Catalogue</small>
-            <h2>Premières formations à préparer.</h2>
+            <h2>Formations disponibles.</h2>
             <p>
-              Cette section est volontairement simple. Elle pourra devenir une vraie
-              page catalogue plus tard, quand la base sera parfaitement stable.
+              Des mini-formations courtes sur l'IA, la productivité, les finances
+              et le business. Un achat unique. Un accès immédiat.
             </p>
           </div>
 
+          <!-- ─── CORRECTION 2 : Prix + boutons d'achat ─────── -->
           <div class="formation-list">
             <article class="formation">
               <div>
-                <h3>Utiliser l’IA pour sauver 3 heures par semaine</h3>
+                <h3>Utiliser l'IA pour sauver 3 heures par semaine</h3>
                 <p>
-                  Une mini-formation pour apprendre à déléguer des tâches simples
-                  à l’IA et gagner du temps sans se compliquer la vie.
+                  Apprends à déléguer des tâches simples à l'IA et gagne du temps
+                  sans te compliquer la vie.
                 </p>
+                <div class="formation-meta">
+                  <span class="prix">15 $</span>
+                  <span class="categorie">IA</span>
+                </div>
               </div>
-              <span class="tag">À préparer</span>
+              <a class="btn-achat" href="#">Acheter →</a>
             </article>
 
             <article class="formation">
               <div>
                 <h3>Écrire un bon courriel de vente avec ChatGPT</h3>
                 <p>
-                  Une méthode simple pour transformer une idée en message clair,
-                  persuasif et utile pour vendre une offre digitale.
+                  Transforme une idée en message clair, persuasif et utile
+                  pour vendre une offre digitale.
                 </p>
+                <div class="formation-meta">
+                  <span class="prix">15 $</span>
+                  <span class="categorie">IA</span>
+                </div>
               </div>
-              <span class="tag">Prioritaire</span>
+              <a class="btn-achat" href="#">Acheter →</a>
             </article>
 
             <article class="formation">
               <div>
-                <h3>Créer une checklist d’action en 20 minutes</h3>
+                <h3>Créer une checklist d'action en 20 minutes</h3>
                 <p>
-                  Une formation courte pour transformer un contenu flou en plan
-                  d’exécution simple, étape par étape.
+                  Transforme un contenu flou en plan d'exécution simple,
+                  étape par étape.
                 </p>
+                <div class="formation-meta">
+                  <span class="prix">15 $</span>
+                  <span class="categorie">Productivité</span>
+                </div>
               </div>
-              <span class="tag">Bientôt</span>
+              <a class="btn-achat" href="#">Acheter →</a>
             </article>
           </div>
+          <!-- ─── FIN CORRECTION 2 ────────────────────────── -->
         </div>
       </section>
 
+      <!-- ─── CORRECTION 3 : Section Méthode — langage client ─── -->
       <section id="methode">
         <div class="container">
           <div class="section-title">
             <small>Méthode</small>
-            <h2>La règle de construction : petit, propre, stable.</h2>
+            <h2>Apprendre autrement. Avancer vraiment.</h2>
             <p>
-              Le site doit d’abord fonctionner avec une seule page. Ensuite, on ajoute
-              les pages une par une : catalogue, formation, paiement, merci, support,
-              conditions et confidentialité.
+              Clario est conçu pour les gens qui veulent des résultats rapides
+              sans passer des heures à regarder des vidéos ou lire des livres entiers.
             </p>
           </div>
 
           <div class="cards">
             <article class="card">
               <div class="number">A</div>
-              <h3>Un fichier au départ</h3>
+              <h3>Tu choisis ton problème</h3>
               <p>
-                Cette version utilise seulement <strong>index.html</strong>.
-                Aucun fichier externe n’est nécessaire pour éviter les erreurs 404.
+                Parcours le catalogue, trouve la formation qui correspond exactement
+                à ce que tu veux régler aujourd'hui. Pas de superflu.
               </p>
             </article>
 
             <article class="card">
               <div class="number">B</div>
-              <h3>Aucun lien cassé</h3>
+              <h3>Tu achètes une seule fois</h3>
               <p>
-                Tous les boutons restent dans la même page pour éviter les erreurs
-                pendant que les autres pages ne sont pas encore créées.
+                Aucun abonnement, aucune surprise. Tu paies une fois, tu accèdes
+                au contenu immédiatement et tu le gardes pour toujours.
               </p>
             </article>
 
             <article class="card">
               <div class="number">C</div>
-              <h3>Évolution contrôlée</h3>
+              <h3>Tu passes à l'action</h3>
               <p>
-                Quand cette page fonctionne parfaitement, tu ajoutes une seule page,
-                tu testes, puis tu fais un commit clair.
+                Chaque formation se termine avec une action claire que tu peux
+                appliquer dans les 24 heures. Résultat garanti ou remboursé.
               </p>
             </article>
           </div>
         </div>
       </section>
+      <!-- ─── FIN CORRECTION 3 ───────────────────────────────── -->
 
       <section class="cta" id="demarrer">
         <div class="container">
           <div class="cta-box">
-            <h2>Construis stable maintenant. Agrandis ensuite.</h2>
+            <h2>Prêt à régler ton prochain problème ?</h2>
             <p>
-              La première mission de Clario n’est pas d’être énorme. La première
-              mission est d’être propre, rapide, lisible et impossible à casser facilement.
+              Choisis une formation, achète-la en moins de 2 minutes et applique
+              ce que tu apprends dès aujourd'hui. Simple, rapide, concret.
             </p>
 
             <div class="actions" style="justify-content: center;">
-              <a class="btn btn-primary" href="formations.html">Revoir les formations</a>
+              <a class="btn btn-primary" href="formations.html">Voir toutes les formations</a>
               <a class="btn btn-secondary" href="#concept">Retour au concept</a>
             </div>
           </div>
