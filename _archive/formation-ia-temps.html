@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Utiliser l’IA pour sauver 3 heures par semaine | Clario</title>
+
+  <meta
+    name="description"
+    content="Mini-formation Clario pour apprendre à utiliser l’IA afin de sauver 3 heures par semaine grâce à une méthode simple, concrète et applicable rapidement."
+  />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Clario" />
+  <meta name="theme-color" content="#050505" />
+
+  <style>
+    :root {
+      --noir: #050505;
+      --noir-2: #101010;
+      --noir-3: #181818;
+      --or: #d8aa3d;
+      --or-clair: #f5d982;
+      --blanc: #ffffff;
+      --gris: #cfcfcf;
+      --gris-2: #8f8f8f;
+      --vert: #8be28b;
+      --bleu: #6ea8ff;
+      --rouge: #ff7474;
+      --rayon: 24px;
+      --largeur: 1080px;
+      --ombre: 0 24px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(216, 170, 61, 0.16), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(245, 217, 130, 0.07), transparent 30%),
+        var(--noir);
+      color: var(--blanc);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--largeur));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(216, 170, 61, 0.18);
+      background: rgba(5, 5, 5, 0.92);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .brand strong {
+      display: block;
+      color: var(--or-clair);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 1.2rem;
+    }
+
+    .brand span {
+      color: var(--gris-2);
+      font-size: 0.9rem;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.05);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(245, 217, 130, 0.6);
+      color: var(--or-clair);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--or-clair), var(--or));
+      color: #141006;
+      border-color: transparent;
+      box-shadow: 0 14px 38px rgba(216, 170, 61, 0.22);
+    }
+
+    .btn-primary:hover {
+      color: #141006;
+    }
+
+    main {
+      padding: 72px 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(216, 170, 61, 0.1);
+      border: 1px solid rgba(216, 170, 61, 0.3);
+      color: var(--or-clair);
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4.6rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+      margin-bottom: 20px;
+    }
+
+    .gold {
+      color: var(--or-clair);
+    }
+
+    .hero p {
+      color: var(--gris);
+      font-size: 1.12rem;
+      max-width: 760px;
+      margin-bottom: 26px;
+    }
+
+    .hero-card {
+      padding: 24px;
+      border-radius: var(--rayon);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035));
+      border: 1px solid rgba(216, 170, 61, 0.22);
+      box-shadow: var(--ombre);
+    }
+
+    .hero-card h2 {
+      color: var(--or-clair);
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.24);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .info-item span {
+      color: var(--gris);
+    }
+
+    .info-item strong {
+      color: var(--or-clair);
+      text-align: right;
+    }
+
+    section {
+      margin: 28px 0;
+    }
+
+    .section-title {
+      margin-bottom: 20px;
+    }
+
+    .section-title small {
+      display: block;
+      color: var(--or-clair);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--gris);
+      max-width: 780px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: var(--rayon);
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .card .number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(216, 170, 61, 0.14);
+      color: var(--or-clair);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.22rem;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--gris);
+    }
+
+    .module {
+      padding: 24px;
+      border-radius: var(--rayon);
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(216, 170, 61, 0.16);
+      margin-bottom: 16px;
+    }
+
+    .module h3 {
+      color: var(--or-clair);
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .module p {
+      color: var(--gris);
+      margin-bottom: 14px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+    }
+
+    .check {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(110, 168, 255, 0.08);
+      border: 1px solid rgba(110, 168, 255, 0.18);
+      color: var(--gris);
+    }
+
+    .check strong {
+      color: var(--bleu);
+    }
+
+    .warning {
+      padding: 22px;
+      border-radius: var(--rayon);
+      background: rgba(255, 116, 116, 0.08);
+      border: 1px solid rgba(255, 116, 116, 0.22);
+      color: var(--gris);
+    }
+
+    .warning strong {
+      color: var(--rouge);
+    }
+
+    .cta-box {
+      text-align: center;
+      padding: 34px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(216, 170, 61, 0.16), rgba(255, 255, 255, 0.035)),
+        var(--noir-2);
+      border: 1px solid rgba(216, 170, 61, 0.24);
+      box-shadow: var(--ombre);
+      margin-top: 46px;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(1.8rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .cta-box p {
+      color: var(--gris);
+      max-width: 720px;
+      margin: 0 auto 24px;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--gris-2);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        padding: 48px 0;
+      }
+
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-item {
+        flex-direction: column;
+      }
+
+      .info-item strong {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Retour à l’accueil">
+        <strong>Clario</strong>
+        <span>Mini-formation IA</span>
+      </a>
+
+      <div class="nav-actions">
+        <a class="btn" href="formations.html">Catalogue</a>
+        <a class="btn" href="index.html">Accueil</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div>
+          <div class="badge">Formation 01 · IA · Productivité</div>
+
+          <h1>
+            Utiliser l’IA pour
+            <span class="gold">sauver 3 heures</span>
+            par semaine.
+          </h1>
+
+          <p>
+            Une mini-formation simple pour apprendre à confier des tâches répétitives
+            à l’IA, réduire la perte de temps et créer une méthode de travail plus claire.
+          </p>
+
+          <div class="nav-actions">
+            <a class="btn btn-primary" href="#formation">Commencer la formation</a>
+            <a class="btn" href="formations.html">Retour au catalogue</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>Résumé rapide</h2>
+          <p>
+            L’objectif n’est pas de devenir expert en IA. L’objectif est de récupérer
+            du temps chaque semaine avec des actions simples et répétables.
+          </p>
+
+          <div class="info-list">
+            <div class="info-item">
+              <span>Durée estimée</span>
+              <strong>20 à 35 minutes</strong>
+            </div>
+
+            <div class="info-item">
+              <span>Niveau</span>
+              <strong>Débutant</strong>
+            </div>
+
+            <div class="info-item">
+              <span>Résultat visé</span>
+              <strong>3 h/semaine</strong>
+            </div>
+
+            <div class="info-item">
+              <span>Prix suggéré</span>
+              <strong>15 $</strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <small>Objectif</small>
+          <h2>Ce que tu vas apprendre.</h2>
+          <p>
+            Cette formation te montre comment utiliser l’IA comme assistant simple,
+            pas comme outil compliqué. Tu vas apprendre à identifier les tâches à
+            déléguer, à écrire une demande claire et à transformer le résultat en action.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="number">1</div>
+            <h3>Repérer les tâches répétitives</h3>
+            <p>
+              Tu vas identifier les tâches qui reviennent souvent et qui peuvent être
+              préparées, résumées, corrigées ou structurées avec l’aide de l’IA.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">2</div>
+            <h3>Donner une demande claire</h3>
+            <p>
+              Tu vas apprendre à écrire une consigne simple avec un rôle, un objectif,
+              un contexte et un format de réponse.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">3</div>
+            <h3>Transformer la réponse en résultat</h3>
+            <p>
+              Tu vas éviter de seulement lire la réponse. Tu vas apprendre à l’utiliser
+              pour produire un courriel, une checklist, un plan ou une décision.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="formation">
+        <div class="section-title">
+          <small>Formation</small>
+          <h2>La méthode simple en 4 étapes.</h2>
+          <p>
+            Suis ces étapes dans l’ordre. Le but est de créer une méthode que tu peux
+            répéter chaque semaine sans réfléchir trop longtemps.
+          </p>
+        </div>
+
+        <article class="module">
+          <h3>Étape 1 — Fais la liste de ce qui te fait perdre du temps</h3>
+          <p>
+            Avant d’utiliser l’IA, tu dois savoir où ton temps disparaît. Pendant 5 minutes,
+            écris les petites tâches qui reviennent souvent dans ta semaine.
+          </p>
+          <ul>
+            <li>Répondre à des messages répétitifs.</li>
+            <li>Écrire des courriels.</li>
+            <li>Résumer des idées ou des notes.</li>
+            <li>Créer des publications.</li>
+            <li>Structurer une offre, une page ou une checklist.</li>
+            <li>Corriger un texte ou le rendre plus clair.</li>
+          </ul>
+        </article>
+
+        <article class="module">
+          <h3>Étape 2 — Choisis 3 tâches à déléguer à l’IA</h3>
+          <p>
+            Ne commence pas avec 25 tâches. Choisis seulement 3 tâches simples que tu fais
+            souvent. Ce sont elles qui vont créer ton premier gain de temps.
+          </p>
+          <ul>
+            <li>Une tâche d’écriture.</li>
+            <li>Une tâche d’organisation.</li>
+            <li>Une tâche de clarification.</li>
+          </ul>
+        </article>
+
+        <article class="module">
+          <h3>Étape 3 — Utilise le prompt de base</h3>
+          <p>
+            Copie ce modèle et adapte-le selon ta tâche.
+          </p>
+
+          <div class="warning">
+            <strong>Prompt simple :</strong><br><br>
+            Agis comme un assistant clair, structuré et efficace. Voici mon contexte :
+            [écris ton contexte]. Mon objectif est : [écris le résultat voulu].
+            Aide-moi à produire : [courriel, checklist, plan, résumé, idée, structure].
+            Donne-moi une réponse simple, concrète, directement utilisable et divisée
+            en étapes.
+          </div>
+        </article>
+
+        <article class="module">
+          <h3>Étape 4 — Transforme la réponse en action réelle</h3>
+          <p>
+            Le piège est de demander une réponse à l’IA, puis de ne rien faire avec.
+            Dès que tu obtiens une bonne réponse, transforme-la en action.
+          </p>
+          <ul>
+            <li>Si l’IA écrit un courriel, copie-le, ajuste-le et envoie-le.</li>
+            <li>Si l’IA crée une checklist, fais la première action tout de suite.</li>
+            <li>Si l’IA structure une idée, transforme-la en fichier ou en page.</li>
+            <li>Si l’IA résume un problème, décide de la prochaine étape.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <small>Checklist</small>
+          <h2>Ton plan d’action de 20 minutes.</h2>
+          <p>
+            Utilise cette checklist pour appliquer la formation immédiatement.
+          </p>
+        </div>
+
+        <div class="checklist">
+          <div class="check">
+            <strong>1.</strong> Écris 10 tâches qui te font perdre du temps chaque semaine.
+          </div>
+
+          <div class="check">
+            <strong>2.</strong> Choisis les 3 tâches les plus faciles à déléguer à l’IA.
+          </div>
+
+          <div class="check">
+            <strong>3.</strong> Utilise le prompt de base pour chaque tâche.
+          </div>
+
+          <div class="check">
+            <strong>4.</strong> Améliore la réponse avec une deuxième demande : “Rends ça plus simple et plus concret.”
+          </div>
+
+          <div class="check">
+            <strong>5.</strong> Transforme au moins une réponse en action réelle aujourd’hui.
+          </div>
+
+          <div class="check">
+            <strong>6.</strong> Répète cette méthode 3 fois cette semaine.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <small>Erreurs à éviter</small>
+          <h2>Ce qui fait perdre du temps avec l’IA.</h2>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="number">!</div>
+            <h3>Demander trop vague</h3>
+            <p>
+              Une demande vague donne souvent une réponse vague. Ajoute toujours ton
+              contexte, ton objectif et le format désiré.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">!</div>
+            <h3>Tout recommencer à zéro</h3>
+            <p>
+              Garde tes meilleurs prompts. Si une demande fonctionne bien, transforme-la
+              en modèle réutilisable.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">!</div>
+            <h3>Ne pas appliquer</h3>
+            <p>
+              L’IA ne sauve pas du temps si tu ne transformes pas la réponse en action,
+              en message, en fichier, en décision ou en système.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-box">
+        <h2>Ton objectif cette semaine : récupérer 3 heures.</h2>
+        <p>
+          Choisis 3 tâches répétitives, crée 3 prompts simples et utilise l’IA pour
+          produire un résultat concret. La victoire n’est pas de tout automatiser.
+          La victoire est de sauver du temps sans te compliquer la vie.
+        </p>
+
+        <div class="nav-actions" style="justify-content: center;">
+          <a class="btn btn-primary" href="formations.html">Retour au catalogue</a>
+          <a class="btn" href="index.html">Retour à l’accueil</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Clario. Tous droits réservés.
+    </div>
+  </footer>
+</body>
+</html>
+

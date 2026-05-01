@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clario | Catalogue des mini-formations</title>
-  <meta name="description" content="Toutes les mini-formations digitales Clario : IA, productivité, apprentissage, business, finances, relations, bonheur et santé. Achat unique." />
+  <title>Clario | Formation</title>
+  <meta name="description" content="Mini-formation Clario : méthode appliquable, outils prêts à copier, résultat observable sous 24 à 72 heures." />
   <meta name="theme-color" content="#050505" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23050505'/%3E%3Cpath d='M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z' fill='%23f5d982'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23d8aa3d'/%3E%3C/svg%3E" />
 
   <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/catalogue.css" />
+  <link rel="stylesheet" href="css/formation.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
@@ -30,62 +30,12 @@
     </div>
   </header>
 
-  <main>
-    <section class="catalogue-header">
-      <div class="container">
-        <h1>Catalogue Clario</h1>
-        <p>Choisis un sujet précis. Applique aujourd'hui. Garde l'outil.</p>
-      </div>
-    </section>
-
+  <main class="formation-page">
     <div class="container">
-      <div class="categories" aria-label="Filtrer par catégorie">
-        <button class="pill active" data-cat="tous">Toutes</button>
-        <button class="pill" data-cat="ia">IA</button>
-        <button class="pill" data-cat="pro">Productivité</button>
-        <button class="pill" data-cat="app">Apprentissage</button>
-        <button class="pill" data-cat="bus">Business</button>
-        <button class="pill" data-cat="fin">Finances</button>
-        <button class="pill" data-cat="rel">Relations</button>
-        <button class="pill" data-cat="bon">Bonheur</button>
-        <button class="pill" data-cat="san">Santé</button>
-      </div>
-    </div>
-
-    <div class="catalogue-filters">
-      <div class="container">
-        <div class="filters-row">
-          <div class="search-box">
-            <input id="filter-search" type="search" placeholder="Rechercher un sujet, un mot-clé…" autocomplete="off" />
-          </div>
-          <select id="filter-prix" class="filter-select" aria-label="Filtrer par prix">
-            <option value="tous">Tous les prix</option>
-            <option value="5">5 $</option>
-            <option value="15">15 $</option>
-            <option value="25">25 $</option>
-            <option value="50">50 $</option>
-            <option value="160">160 $</option>
-            <option value="320">320 $</option>
-          </select>
-          <select id="filter-niveau" class="filter-select" aria-label="Filtrer par niveau">
-            <option value="tous">Tous les niveaux</option>
-            <option value="micro">Micro</option>
-            <option value="essentiel">Essentiel</option>
-            <option value="approfondi">Approfondi</option>
-            <option value="complet">Complet</option>
-            <option value="premium">Premium</option>
-            <option value="expert">Expert</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <p id="results-count" class="results-count">Chargement…</p>
-      <div id="formation-grid" class="formation-grid">
+      <div id="formation-root">
         <div class="loading">
           <div class="loading-spinner"></div>
-          <span>Chargement du catalogue…</span>
+          <span>Chargement de la formation…</span>
         </div>
       </div>
     </div>
@@ -99,7 +49,6 @@
             <span class="logo-mark"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z" fill="#050505"/></svg></span>
             <span class="brand-text"><strong>Clario</strong><span>Mini-formations digitales</span></span>
           </a>
-          <p style="margin-top:14px">Apprends vite. Applique aujourd'hui. Avance pour de vrai.</p>
         </div>
         <div>
           <h4>Site</h4>
@@ -114,8 +63,8 @@
           <ul>
             <li><a href="formations.html?cat=ia">IA</a></li>
             <li><a href="formations.html?cat=pro">Productivité</a></li>
-            <li><a href="formations.html?cat=app">Apprentissage</a></li>
             <li><a href="formations.html?cat=bus">Business</a></li>
+            <li><a href="formations.html?cat=fin">Finances</a></li>
           </ul>
         </div>
         <div>
@@ -135,6 +84,6 @@
 
   <script src="js/main.js" defer></script>
   <script src="js/navigation.js" defer></script>
-  <script src="js/catalogue.js" defer></script>
+  <script src="js/formation-loader.js" defer></script>
 </body>
 </html>

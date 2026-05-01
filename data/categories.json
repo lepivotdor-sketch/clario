@@ -1,0 +1,74 @@
+[
+  {
+    "code": "IA",
+    "prefixe": "ia",
+    "nom": "IA",
+    "nom_complet": "Intelligence artificielle",
+    "description": "ChatGPT, Claude, prompts, automatisation simple, outils IA, assistants IA, création de contenu avec IA, workflows IA.",
+    "couleur": "#d8aa3d",
+    "ordre": 1
+  },
+  {
+    "code": "PROD",
+    "prefixe": "pro",
+    "nom": "Productivité",
+    "nom_complet": "Productivité",
+    "description": "Organisation, routine, priorités, gestion du temps, concentration, planification, tâches importantes, tableau de suivi.",
+    "couleur": "#9cc4ff",
+    "ordre": 2
+  },
+  {
+    "code": "APP",
+    "prefixe": "app",
+    "nom": "Apprentissage",
+    "nom_complet": "Apprentissage",
+    "description": "Apprendre plus vite, résumer, mémoriser, comprendre un sujet, méthode d'étude, lecture, synthèse.",
+    "couleur": "#9ff0a4",
+    "ordre": 3
+  },
+  {
+    "code": "BUS",
+    "prefixe": "bus",
+    "nom": "Business",
+    "nom_complet": "Business et vente",
+    "description": "Offre, vente, client, page de vente, bio professionnelle, message de vente, positionnement, idée de produit, courriel de vente, produit digital.",
+    "couleur": "#f5d982",
+    "ordre": 4
+  },
+  {
+    "code": "FIN",
+    "prefixe": "fin",
+    "nom": "Finances",
+    "nom_complet": "Finances personnelles",
+    "description": "Budget, dépenses, factures, argent, clarté financière, dire non à une dépense, organisation financière. Éducatif uniquement.",
+    "couleur": "#9ff0a4",
+    "ordre": 5
+  },
+  {
+    "code": "REL",
+    "prefixe": "rel",
+    "nom": "Relations",
+    "nom_complet": "Relations et communication",
+    "description": "Message difficile, limite personnelle, conversation, demande claire, réaction impulsive, communication. Éducatif uniquement.",
+    "couleur": "#ffb8d9",
+    "ordre": 6
+  },
+  {
+    "code": "BON",
+    "prefixe": "bon",
+    "nom": "Bonheur",
+    "nom_complet": "Bonheur et clarté mentale",
+    "description": "Clarté mentale, gratitude, comparaison, bilan personnel, calme, recul, habitudes de bien-être. Éducatif uniquement.",
+    "couleur": "#c4a8ff",
+    "ordre": 7
+  },
+  {
+    "code": "SAN",
+    "prefixe": "san",
+    "nom": "Santé",
+    "nom_complet": "Santé et habitudes",
+    "description": "Marche, sommeil, eau, routine simple, habitudes santé, semaine plus saine. Éducatif uniquement.",
+    "couleur": "#a8e6cf",
+    "ordre": 8
+  }
+]

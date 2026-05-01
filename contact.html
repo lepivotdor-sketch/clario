@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clario | Contact</title>
+  <meta name="description" content="Une question avant d'acheter une mini-formation Clario ? Contacte-nous par courriel." />
+  <meta name="theme-color" content="#050505" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23050505'/%3E%3Cpath d='M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z' fill='%23f5d982'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23d8aa3d'/%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    .contact-wrap { padding: 80px 0; }
+    .contact-card {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 48px 40px;
+      border-radius: var(--rayon);
+      background: var(--verre);
+      border: 1px solid var(--ligne-or);
+      box-shadow: var(--ombre);
+      text-align: center;
+    }
+    .contact-card h1 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      color: var(--ivoire);
+      margin-bottom: 14px;
+    }
+    .contact-card p { color: var(--gris); margin-bottom: 22px; }
+    .contact-card a.email {
+      font-size: 1.3rem;
+      color: var(--or-clair);
+      letter-spacing: 0.02em;
+      display: inline-block;
+      margin: 14px 0 22px;
+      padding: 12px 22px;
+      border: 1px solid var(--ligne-or);
+      border-radius: 999px;
+      transition: var(--transition);
+    }
+    .contact-card a.email:hover { background: rgba(245,217,130,0.08); }
+    .formation-context {
+      margin-top: 28px;
+      padding: 18px;
+      border-radius: 12px;
+      background: rgba(245,217,130,0.06);
+      border: 1px solid var(--ligne-or);
+      color: var(--ivoire);
+      display: none;
+    }
+    .formation-context.visible { display: block; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="index.html" aria-label="Accueil Clario">
+          <span class="logo-mark"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z" fill="#050505"/></svg></span>
+          <span class="brand-text"><strong>Clario</strong><span>Mini-formations digitales</span></span>
+        </a>
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="formations.html">Catalogue</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-wrap">
+      <div class="container">
+        <div class="contact-card">
+          <h1>Une question avant d'acheter ?</h1>
+          <p>Écris-moi directement par courriel. Réponse en moins de 48 heures ouvrables.</p>
+          <a class="email" href="mailto:lepivotdor@gmail.com">lepivotdor@gmail.com</a>
+          <p class="muted" style="font-size:0.88rem">Aucun coaching obligatoire. Aucun rendez-vous requis. Tu peux poser ta question simplement.</p>
+
+          <div id="formation-context" class="formation-context">
+            <strong>Formation choisie :</strong>
+            <span id="formation-context-id"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Clario.</span>
+        <span><a href="conditions.html">Conditions</a> · <a href="confidentialite.html">Confidentialité</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script>
+    // Si l'URL contient ?formation=xxx, l'afficher en contexte
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var fid = params.get("formation");
+      if (fid) {
+        var box = document.getElementById("formation-context");
+        var idSpan = document.getElementById("formation-context-id");
+        idSpan.textContent = fid;
+        box.classList.add("visible");
+      }
+    })();
+  </script>
+</body>
+</html>

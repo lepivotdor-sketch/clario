@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clario | Merci</title>
+  <meta name="description" content="Merci pour ton achat sur Clario. Tu vas recevoir l'accès à ta formation par courriel." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#050505" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23050505'/%3E%3Cpath d='M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z' fill='%23f5d982'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23d8aa3d'/%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    .merci-wrap { padding: 100px 0; text-align: center; }
+    .merci-card {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      border-radius: var(--rayon);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(245, 217, 130, 0.18), transparent 60%),
+        var(--verre);
+      border: 1px solid var(--ligne-or);
+      box-shadow: var(--ombre-or);
+    }
+    .merci-icon {
+      width: 80px; height: 80px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--or-clair), var(--or));
+      display: grid; place-items: center;
+      color: var(--noir);
+      font-size: 2.4rem;
+      font-weight: 700;
+    }
+    .merci-card h1 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      color: var(--ivoire);
+      margin-bottom: 14px;
+    }
+    .merci-card p { color: var(--gris); margin-bottom: 12px; }
+    .merci-actions { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="index.html">
+          <span class="logo-mark"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z" fill="#050505"/></svg></span>
+          <span class="brand-text"><strong>Clario</strong><span>Mini-formations digitales</span></span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="merci-wrap">
+      <div class="container">
+        <div class="merci-card">
+          <div class="merci-icon">✓</div>
+          <h1>Merci pour ton achat.</h1>
+          <p>Ta formation est en route. Tu vas recevoir l'accès complet par courriel dans les prochaines minutes.</p>
+          <p class="muted" style="font-size:0.88rem; margin-top:14px">Si tu ne vois rien dans 15 minutes, vérifie ton dossier de courriels indésirables ou écris à <a href="mailto:lepivotdor@gmail.com" style="color:var(--or-clair)">lepivotdor@gmail.com</a>.</p>
+          <div class="merci-actions">
+            <a class="btn btn-primary" href="formations.html">Voir d'autres formations</a>
+            <a class="btn btn-secondary" href="index.html">Retour à l'accueil</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Clario.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
