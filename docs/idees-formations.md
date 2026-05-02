@@ -115,3 +115,4 @@ Exemple :
 ```
 - [x] **IA-002** : Écrire un courriel de vente clair avec l'IA *(15 $, publié)*
 ```
+
