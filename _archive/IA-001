@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Maîtriser l’IA pour reprendre 3 heures par semaine | Clario</title>
+
+  <meta
+    name="description"
+    content="Mini-formation Clario pour utiliser l’IA avec méthode, clarté et précision afin de reprendre du temps sur les tâches répétitives."
+  />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Clario" />
+  <meta name="theme-color" content="#050505" />
+
+  <style>
+    :root {
+      --noir: #050505;
+      --noir-2: #0d0d0d;
+      --noir-3: #161616;
+      --or: #d8aa3d;
+      --or-clair: #f6dc8f;
+      --or-doux: rgba(216, 170, 61, 0.18);
+      --blanc: #fff8e6;
+      --gris: #d8cfb8;
+      --gris-2: #b8a982;
+      --texte-luxe: #fff4c2;
+      --texte-doux: #e6d8b7;
+      --texte-muted: #b8a982;
+      --vert: #8be28b;
+      --bleu: #7eb2ff;
+      --rouge: #ff7d7d;
+      --rayon: 26px;
+      --largeur: 1080px;
+      --ombre: 0 26px 80px rgba(0, 0, 0, 0.55);
+      --ombre-douce: 0 16px 42px rgba(0, 0, 0, 0.34);
+      --bordure-or: rgba(246, 220, 143, 0.22);
+      --bordure-verre: rgba(255, 255, 255, 0.095);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(246, 220, 143, 0.16), transparent 34%),
+        radial-gradient(circle at 85% 10%, rgba(216, 170, 61, 0.10), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(245, 217, 130, 0.08), transparent 32%),
+        linear-gradient(180deg, #050505 0%, #090909 45%, #030303 100%);
+      color: var(--blanc);
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 68px 68px;
+      opacity: 0.28;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--largeur));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(246, 220, 143, 0.16);
+      background: rgba(5, 5, 5, 0.84);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header::after {
+      content: "";
+      display: block;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(246, 220, 143, 0.56), transparent);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .brand strong {
+      display: block;
+      color: transparent;
+      background: linear-gradient(135deg, #fff4c2, var(--or-clair) 48%, var(--or));
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.42rem;
+      font-weight: 800;
+      letter-spacing: 0.015em;
+      line-height: 1;
+    }
+
+    .brand span {
+      color: rgba(246, 220, 143, 0.72);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 21px;
+      border-radius: 999px;
+      font-weight: 850;
+      color: var(--or-clair);
+      border: 1px solid rgba(246, 220, 143, 0.28);
+      background:
+        linear-gradient(180deg, rgba(246, 220, 143, 0.13), rgba(216, 170, 61, 0.055)),
+        rgba(0, 0, 0, 0.22);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(246, 220, 143, 0.66);
+      color: #fff2bf;
+      background:
+        linear-gradient(180deg, rgba(246, 220, 143, 0.2), rgba(216, 170, 61, 0.09)),
+        rgba(0, 0, 0, 0.3);
+      box-shadow: 0 14px 34px rgba(216, 170, 61, 0.13);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ffeeb1, var(--or-clair) 30%, var(--or));
+      color: #141006;
+      border-color: transparent;
+      box-shadow: 0 18px 46px rgba(216, 170, 61, 0.22);
+    }
+
+    .btn-primary:hover {
+      color: #141006;
+      box-shadow: 0 20px 52px rgba(216, 170, 61, 0.3);
+    }
+
+    main {
+      padding: 72px 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 48px;
+      padding: clamp(24px, 4vw, 40px);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(246, 220, 143, 0.16), transparent 32%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
+        rgba(10, 10, 10, 0.78);
+      border: 1px solid var(--bordure-or);
+      box-shadow: var(--ombre);
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(216, 170, 61, 0.11);
+      border: 1px solid rgba(246, 220, 143, 0.32);
+      color: var(--or-clair);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 6vw, 4.75rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      margin-bottom: 20px;
+    }
+
+    .gold {
+      color: transparent;
+      background: linear-gradient(135deg, #fff3bd, var(--or-clair) 45%, var(--or));
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--gris);
+      font-size: 1.12rem;
+      max-width: 760px;
+      margin-bottom: 26px;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 24px;
+      border-radius: var(--rayon);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
+        rgba(0, 0, 0, 0.26);
+      border: 1px solid var(--bordure-or);
+      box-shadow: var(--ombre-douce);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(246, 220, 143, 0.14), transparent 42%);
+      pointer-events: none;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card h2 {
+      color: var(--or-clair);
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px;
+      border-radius: 17px;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .info-item span {
+      color: var(--gris);
+    }
+
+    .info-item strong {
+      color: var(--or-clair);
+      text-align: right;
+    }
+
+    section {
+      margin: 28px 0;
+      padding: clamp(22px, 3vw, 30px);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)),
+        rgba(255, 255, 255, 0.018);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .hero,
+    .cta-box {
+      padding: clamp(24px, 4vw, 40px);
+    }
+
+    .section-title {
+      margin-bottom: 20px;
+    }
+
+    .section-title small {
+      display: block;
+      color: var(--or-clair);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 950;
+      margin-bottom: 8px;
+      font-size: 0.78rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--gris);
+      max-width: 780px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      padding: 24px;
+      border-radius: var(--rayon);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025)),
+        rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--bordure-verre);
+      box-shadow: var(--ombre-douce);
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 24px;
+      right: 24px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(246, 220, 143, 0.48), transparent);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(246, 220, 143, 0.26);
+    }
+
+    .card .number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(246, 220, 143, 0.18), rgba(216, 170, 61, 0.08));
+      color: var(--or-clair);
+      border: 1px solid rgba(246, 220, 143, 0.18);
+      font-weight: 950;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.22rem;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--gris);
+    }
+
+    .module {
+      padding: 24px;
+      border-radius: var(--rayon);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.02)),
+        rgba(0, 0, 0, 0.24);
+      border: 1px solid rgba(246, 220, 143, 0.15);
+      box-shadow: var(--ombre-douce);
+      margin-bottom: 16px;
+    }
+
+    .module h3 {
+      color: var(--or-clair);
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .module p {
+      color: var(--gris);
+      margin-bottom: 14px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+    }
+
+    .check {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(126, 178, 255, 0.08);
+      border: 1px solid rgba(126, 178, 255, 0.18);
+      color: var(--gris);
+    }
+
+    .check strong {
+      color: var(--bleu);
+    }
+
+    .warning {
+      padding: 22px;
+      border-radius: var(--rayon);
+      background:
+        linear-gradient(180deg, rgba(255, 125, 125, 0.09), rgba(255, 125, 125, 0.04)),
+        rgba(0, 0, 0, 0.24);
+      border: 1px solid rgba(255, 125, 125, 0.22);
+      color: var(--gris);
+    }
+
+    .warning strong {
+      color: var(--rouge);
+    }
+
+    .cta-box {
+      text-align: center;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at top, rgba(246, 220, 143, 0.16), transparent 40%),
+        linear-gradient(135deg, rgba(216, 170, 61, 0.14), rgba(255, 255, 255, 0.035)),
+        var(--noir-2);
+      border: 1px solid var(--bordure-or);
+      box-shadow: var(--ombre);
+      margin-top: 46px;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(1.8rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .cta-box p {
+      color: var(--gris);
+      max-width: 720px;
+      margin: 0 auto 24px;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--gris-2);
+      font-size: 0.9rem;
+    }
+
+    /* Couleurs de texte premium */
+    body {
+      color: var(--texte-doux);
+    }
+
+    h1,
+    .section-title h2,
+    .cta-box h2 {
+      color: var(--texte-luxe);
+      text-shadow: 0 12px 38px rgba(216, 170, 61, 0.12);
+    }
+
+    .hero p,
+    .hero-card p,
+    .section-title p,
+    .card p,
+    .card li,
+    .module p,
+    .module li,
+    .check,
+    .warning,
+    .cta-box p,
+    li {
+      color: var(--texte-doux);
+    }
+
+    .hero-card h2,
+    .card h3,
+    .module h3,
+    .section-title small,
+    .info-item strong,
+    .warning strong,
+    .check strong {
+      color: var(--texte-luxe);
+    }
+
+    .info-item span,
+    footer {
+      color: var(--texte-muted);
+    }
+
+    .check {
+      background: rgba(216, 170, 61, 0.075);
+      border-color: rgba(246, 220, 143, 0.18);
+    }
+
+    .warning {
+      background:
+        linear-gradient(180deg, rgba(216, 170, 61, 0.10), rgba(246, 220, 143, 0.04)),
+        rgba(0, 0, 0, 0.24);
+      border-color: rgba(246, 220, 143, 0.22);
+    }
+
+    @media (max-width: 900px) {
+      main {
+        padding: 48px 0;
+      }
+
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-item {
+        flex-direction: column;
+      }
+
+      .info-item strong {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Retour à l’accueil">
+        <strong>Clario</strong>
+        <span>IA appliquée · Méthode · Clarté</span>
+      </a>
+
+      <div class="nav-actions">
+        <a class="btn" href="formations.html">Catalogue Clario</a>
+        <a class="btn" href="index.html">Accueil</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div>
+          <div class="badge">Formation 01 · IA appliquée · Productivité</div>
+
+          <h1>
+            Maîtriser l’IA pour
+            <span class="gold">reprendre 3 heures</span>
+            par semaine.
+          </h1>
+
+          <p>
+            Une mini-formation courte et structurée pour apprendre à déléguer les bonnes tâches à l’IA, réduire les pertes de temps et installer une méthode de travail plus nette, plus fluide et plus efficace.
+          </p>
+
+          <div class="nav-actions">
+            <a class="btn btn-primary" href="#formation">Commencer avec méthode</a>
+            <a class="btn" href="formations.html">Retour au catalogue</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>Aperçu premium</h2>
+          <p>
+            L’objectif n’est pas de devenir expert en IA. L’objectif est d’acquérir un réflexe simple : utiliser l’IA pour clarifier tes tâches, accélérer l’exécution et avancer avec plus de maîtrise.
+          </p>
+
+          <div class="info-list">
+            <div class="info-item">
+              <span>Durée idéale</span>
+              <strong>20 minutes</strong>
+            </div>
+
+            <div class="info-item">
+              <span>Niveau d’accès</span>
+              <strong>Débutant</strong>
+            </div>
+
+            <div class="info-item">
+              <span>Résultat attendu</span>
+              <strong>3 h/semaine</strong>
+            </div>
+
+            <div class="info-item">
+              <span>Prix d’accès</span>
+              <strong>5 $</strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <small>Objectif de maîtrise</small>
+          <h2>Ce que tu vas mieux maîtriser.</h2>
+          <p>
+            Cette formation te montre comment utiliser l’IA comme un assistant de clarté et d’exécution, sans complexité inutile. Tu vas apprendre à choisir les bonnes tâches, formuler une demande précise et transformer chaque réponse en action utile.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="number">1</div>
+            <h3>Repérer les tâches à haute valeur</h3>
+            <p>
+              Tu vas identifier les tâches répétitives qui peuvent être préparées, résumées, corrigées ou structurées avec plus de rapidité et de précision grâce à l’IA.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">2</div>
+            <h3>Formuler une consigne de qualité</h3>
+            <p>
+              Tu vas apprendre à écrire une consigne plus solide, avec un rôle clair, un objectif précis, un contexte utile et un format de réponse directement exploitable.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">3</div>
+            <h3>Transformer la réponse en résultat</h3>
+            <p>
+              Tu vas apprendre à ne pas seulement lire la réponse, mais à la convertir en courriel, checklist, plan, décision ou prochaine action concrète.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="formation">
+        <div class="section-title">
+          <small>Méthode guidée</small>
+          <h2>La méthode structurée en 4 étapes.</h2>
+          <p>
+            Suis ces étapes dans l’ordre. Le but est de créer une méthode simple, fiable et réutilisable chaque semaine, sans alourdir ton quotidien.
+          </p>
+        </div>
+
+        <article class="module">
+          <h3>Étape 1 — Identifie les tâches qui absorbent ton temps</h3>
+          <p>
+            Avant d’utiliser l’IA efficacement, tu dois voir où ton temps se disperse. Pendant 5 minutes, note les tâches répétitives qui reviennent souvent et qui ralentissent ton exécution.
+          </p>
+          <ul>
+            <li>Répondre à des messages récurrents avec plus de rapidité.</li>
+            <li>Rédiger des courriels plus clairs et plus efficaces.</li>
+            <li>Résumer des idées, des notes ou des échanges importants.</li>
+            <li>Préparer des publications plus claires et mieux structurées.</li>
+            <li>Structurer une offre, une page ou une checklist avec plus de précision.</li>
+            <li>Clarifier un texte pour le rendre plus fluide et plus professionnel.</li>
+          </ul>
+        </article>
+
+        <article class="module">
+          <h3>Étape 2 — Choisis 3 tâches à confier à l’IA</h3>
+          <p>
+            Ne commence pas avec trop de tâches. Choisis seulement 3 actions simples, fréquentes et faciles à répéter. Ce sont elles qui vont créer ton premier gain de temps mesurable.
+          </p>
+          <ul>
+            <li>Une tâche de rédaction claire.</li>
+            <li>Une tâche d’organisation simple.</li>
+            <li>Une tâche de clarification utile.</li>
+          </ul>
+        </article>
+
+        <article class="module">
+          <h3>Étape 3 — Utilise une consigne de départ solide</h3>
+          <p>
+            Copie ce modèle, adapte-le à ta situation, puis utilise-le comme base de travail pour obtenir une réponse plus propre dès le départ.
+          </p>
+
+          <div class="warning">
+            <strong>Consigne premium de départ :</strong><br><br>
+            Agis comme un assistant clair, structuré et efficace. Voici mon contexte :
+            [écris ton contexte]. Mon objectif est : [écris le résultat voulu].
+            Aide-moi à produire : [courriel, checklist, plan, résumé, idée, structure].
+            Donne-moi une réponse claire, concrète, directement utilisable et organisée en étapes simples, avec un résultat que je peux appliquer immédiatement.
+          </div>
+        </article>
+
+        <article class="module">
+          <h3>Étape 4 — Transforme la réponse en action réelle</h3>
+          <p>
+            Le piège est de recevoir une bonne réponse, puis de la laisser dormir. Dès que l’IA te donne une base utile, transforme-la en action, en fichier, en message ou en décision.
+          </p>
+          <ul>
+            <li>Si l’IA prépare un courriel, ajuste-le, personnalise-le et envoie-le.</li>
+            <li>Si l’IA crée une checklist, exécute la première action immédiatement.</li>
+            <li>Si l’IA structure une idée, transforme-la en document, en page ou en plan clair.</li>
+            <li>Si l’IA clarifie un problème, choisis la prochaine action à poser.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <small>Application immédiate</small>
+          <h2>Ton plan d’action de 20 minutes.</h2>
+          <p>
+            Utilise cette checklist pour appliquer la formation sans attendre et obtenir un premier résultat concret aujourd’hui.
+          </p>
+        </div>
+
+        <div class="checklist">
+          <div class="check">
+            <strong>1.</strong> Liste 10 tâches qui absorbent ton temps chaque semaine.
+          </div>
+
+          <div class="check">
+            <strong>2.</strong> Sélectionne les 3 tâches les plus simples à confier à l’IA.
+          </div>
+
+          <div class="check">
+            <strong>3.</strong> Utilise la consigne de départ pour chaque tâche sélectionnée.
+          </div>
+
+          <div class="check">
+            <strong>4.</strong> Améliore la réponse avec cette demande : “Rends ça plus clair, plus simple et directement applicable.”
+          </div>
+
+          <div class="check">
+            <strong>5.</strong> Transforme au moins une réponse en action concrète aujourd’hui.
+          </div>
+
+          <div class="check">
+            <strong>6.</strong> Répète cette méthode 3 fois cette semaine pour installer le réflexe.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <small>Erreurs à éviter</small>
+          <h2>Ce qui diminue l’impact de l’IA.</h2>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="number">!</div>
+            <h3>Faire une demande imprécise</h3>
+            <p>
+              Une demande imprécise produit souvent une réponse générique. Ajoute toujours ton contexte, ton objectif et le format attendu.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">!</div>
+            <h3>Recommencer de zéro trop souvent</h3>
+            <p>
+              Conserve tes meilleures consignes. Si une demande fonctionne bien, transforme-la en modèle réutilisable pour tes prochaines tâches.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">!</div>
+            <h3>Laisser la réponse inutilisée</h3>
+            <p>
+              L’IA ne crée pas de valeur si la réponse reste dans la conversation. Transforme-la en action, en message, en fichier, en décision ou en système.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-box">
+        <h2>Ton objectif cette semaine : reprendre 3 heures utiles.</h2>
+        <p>
+          Choisis 3 tâches récurrentes, formule 3 consignes claires et utilise l’IA pour produire un résultat réellement exploitable. L’objectif n’est pas d’automatiser à tout prix. L’objectif est de reprendre le contrôle de ton temps, avec plus de clarté, plus de maîtrise et beaucoup moins de friction.
+        </p>
+
+        <div class="nav-actions" style="justify-content: center;">
+          <a class="btn btn-primary" href="formations.html">Retour au catalogue</a>
+          <a class="btn" href="index.html">Retour à l’accueil</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Clario. Mini-formations digitales conçues pour apprendre vite, appliquer mieux et avancer avec clarté.
+    </div>
+  </footer>
+</body>
+</html>
+
+

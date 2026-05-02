@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clario | Tableau de bord interne</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Tableau de bord interne Clario : vue de toutes les formations du catalogue avec leur statut et leurs notes." />
+  <meta name="theme-color" content="#050505" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23050505'/%3E%3Cpath d='M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z' fill='%23f5d982'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23d8aa3d'/%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+
+  <style>
+    .dash { padding: 50px 0 80px; }
+    .dash-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:24px; flex-wrap:wrap; gap:14px; }
+    .dash-head h1 { color: var(--ivoire); font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    .dash-head p { color: var(--gris-2); font-size: 0.92rem; }
+    .dash-stats { display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; margin-bottom: 30px; }
+    .dash-stat { padding: 18px; border-radius: 12px; background: var(--verre); border: 1px solid var(--ligne-or); }
+    .dash-stat strong { display:block; font-size:1.6rem; color: var(--or-clair); margin-bottom: 4px; }
+    .dash-stat span { color: var(--gris-2); font-size: 0.82rem; letter-spacing: 0.04em; }
+    .dash-table-wrap { overflow-x: auto; border-radius: var(--rayon-petit); border: 1px solid var(--ligne-or); }
+    table.dash-table { width:100%; border-collapse: collapse; font-size: 0.88rem; min-width: 720px; }
+    table.dash-table th, table.dash-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid rgba(245,217,130,0.1); }
+    table.dash-table th { color: var(--or-clair); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.74rem; background: rgba(0,0,0,0.4); }
+    table.dash-table td { color: var(--gris); }
+    table.dash-table td.title { color: var(--ivoire); font-weight: 500; }
+    .badge { display:inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.74rem; letter-spacing: 0.06em; }
+    .badge-pub { background: rgba(159,240,164,0.12); color: var(--vert); border: 1px solid rgba(159,240,164,0.3); }
+    .badge-brouillon { background: rgba(245,217,130,0.1); color: var(--or-clair); border: 1px solid var(--ligne-or); }
+    .note { color: var(--ivoire); font-weight: 600; }
+    @media (max-width: 600px) {
+      .dash-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="../index.html">
+          <span class="logo-mark"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z" fill="#050505"/></svg></span>
+          <span class="brand-text"><strong>Clario</strong><span>Tableau de bord</span></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Site public</a></li>
+          <li><a href="../formations.html">Catalogue</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="dash">
+      <div class="container">
+        <div class="dash-head">
+          <div>
+            <h1>Tableau de bord interne</h1>
+            <p>Vue rapide de toutes les formations chargées depuis <code>data/formations.json</code>. Page non indexée, usage interne.</p>
+          </div>
+        </div>
+
+        <div class="dash-stats" id="dash-stats">
+          <div class="dash-stat"><strong id="stat-total">—</strong><span>Formations totales</span></div>
+          <div class="dash-stat"><strong id="stat-publiees">—</strong><span>Publiées</span></div>
+          <div class="dash-stat"><strong id="stat-brouillon">—</strong><span>Brouillons / autres</span></div>
+          <div class="dash-stat"><strong id="stat-moyenne">—</strong><span>Note qualité moyenne</span></div>
+        </div>
+
+        <div class="dash-table-wrap">
+          <table class="dash-table" id="dash-table">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Titre</th>
+                <th>Catégorie</th>
+                <th>Prix</th>
+                <th>Statut</th>
+                <th>Qualité</th>
+                <th>Mise à jour</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="7" style="text-align:center; padding: 40px; color: var(--gris-2);">Chargement…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>Tableau de bord interne — Clario.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+  <script>
+    fetch("../data/formations.json", { cache: "no-cache" })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var tbody = document.querySelector("#dash-table tbody");
+        var total = data.length;
+        var pub = data.filter(function (f) { return /publi/i.test(f.statut || ""); }).length;
+        var brouillon = total - pub;
+        var notes = data.map(function (f) { return Number(f.note_qualite) || 0; }).filter(Boolean);
+        var moyenne = notes.length ? Math.round(notes.reduce(function (a, b) { return a + b; }, 0) / notes.length) : 0;
+
+        document.getElementById("stat-total").textContent = total;
+        document.getElementById("stat-publiees").textContent = pub;
+        document.getElementById("stat-brouillon").textContent = brouillon;
+        document.getElementById("stat-moyenne").textContent = moyenne + "/100";
+
+        function escape(s) { return String(s == null ? "" : s).replace(/[<>&"]/g, function (c) { return ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'})[c]; }); }
+        var rows = data.map(function (f) {
+          var statut = (f.statut || "").toLowerCase();
+          var badgeClass = /publi/i.test(statut) ? "badge-pub" : "badge-brouillon";
+          return "<tr>" +
+            "<td><code>" + escape(f.code || "") + "</code></td>" +
+            "<td class=\"title\">" + escape(f.titre || "") + "</td>" +
+            "<td>" + escape(f.categorie || "") + "</td>" +
+            "<td>" + escape(f.prix_affiche || "") + "</td>" +
+            "<td><span class=\"badge " + badgeClass + "\">" + escape(f.statut || "—") + "</span></td>" +
+            "<td class=\"note\">" + escape(f.note_qualite || "—") + "</td>" +
+            "<td>" + escape(f.derniere_mise_a_jour || "—") + "</td>" +
+          "</tr>";
+        }).join("");
+        tbody.innerHTML = rows || "<tr><td colspan=\"7\" style=\"text-align:center; padding: 40px;\">Aucune formation.</td></tr>";
+      })
+      .catch(function (err) {
+        document.querySelector("#dash-table tbody").innerHTML =
+          "<tr><td colspan=\"7\" style=\"text-align:center; padding:40px; color:var(--rouge);\">Impossible de charger les données : " + err.message + "</td></tr>";
+      });
+  </script>
+</body>
+</html>
