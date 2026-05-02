@@ -955,5 +955,269 @@
       ],
       "conclusion": "Marcher 15 minutes par jour demande un déclencheur, un parcours fixe et un signal visible. Pour 5 $, tu reçois un petit système clair à appliquer rapidement."
     }
+  },
+{
+  "id": "bus-matrice-vente-premium",
+  "code": "BUS-160-001",
+  "titre": "Matrice de vente premium",
+  "slug": "bus-matrice-vente-premium",
+  "url": "formation.html?id=bus-matrice-vente-premium",
+  "fichier_html": "formation.html",
+  "categorie": "Business",
+  "prix_affiche": "160 $",
+  "prix_numerique": 160,
+  "type": "formation premium autonome",
+  "niveau": "premium autonome",
+  "public_cible": "Créateur de produit digital, entrepreneur ou indépendant qui veut mieux présenter une offre premium.",
+  "resume_court": "Structure ton message de vente, ta valeur, tes objections et ta page produit avec une matrice claire et réutilisable.",
+  "sous_titre": "La méthode pour présenter une offre premium avec plus de clarté, de valeur et de cohérence.",
+  "promesse": "Construis une matrice de vente claire pour présenter ton offre premium sans improviser.",
+  "resultat_concret": "Une matrice complète avec message central, angle, bénéfices, objections, page produit et plan d’amélioration.",
+  "resultat_attendu": "Une structure de vente plus claire, plus cohérente et plus facile à réutiliser.",
+  "resultat_periode": "30 à 60 jours",
+  "angle_vente": "Une bonne offre peut sembler faible si sa valeur n’est pas clairement expliquée.",
+  "duree_estimee": "4 à 8 heures",
+  "statut": "prêt à publier",
+  "version": "1.0",
+  "date_creation": "2026-05-02",
+  "derniere_mise_a_jour": "2026-05-02",
+  "prochaine_mise_a_jour": "2027-05-02",
+  "formation_suivante": "Système de conversion avancé",
+  "prix_formation_suivante": 320,
+  "note_qualite": 94,
+  "note_rentabilite": 93,
+  "note_valeur_client": 95,
+  "note_simplicite": 90,
+  "note_integration_web": 96,
+  "priorite_catalogue": "haute",
+  "potentiel_vente": "élevé",
+  "bouton_cta": "Acheter pour 160 $",
+  "tags": [
+    "business",
+    "vente",
+    "offre",
+    "conversion",
+    "page-produit",
+    "objections",
+    "premium",
+    "message"
+  ],
+  "detail": {
+    "introduction": "Vendre devient difficile quand tout repose sur l’improvisation. Tu peux avoir une bonne offre, mais si ton message est flou, la personne en face ne comprend pas assez vite pourquoi elle devrait acheter. Elle hésite, compare, remet à plus tard ou quitte la page. Le problème n’est pas toujours l’offre. Très souvent, le problème est la présentation de l’offre. Cette formation t’aide à construire une matrice complète pour organiser ton message central, ton problème principal, ta promesse réaliste, tes bénéfices, tes objections, tes réponses, ton angle de vente, ta page produit et ton plan d’amélioration.",
+    "resultat_vise": "Sur 30 à 60 jours, tu peux obtenir une structure de vente plus claire, plus cohérente et plus facile à réutiliser pour présenter ton offre premium. Le résultat attendu est une matrice complète contenant ton message central, ton problème principal, ta promesse réaliste, tes bénéfices, tes objections, ta page produit et ton tableau de bord.",
+    "demarrage_rapide": "Pendant 30 minutes, réponds à ces cinq questions : qu’est-ce que ton offre aide réellement à résoudre ? Qui a le plus besoin de cette offre maintenant ? Quelle erreur cette personne fait souvent avant d’acheter ? Qu’est-ce qui rend ton offre plus simple, plus utile ou plus complète qu’une solution improvisée ? Quelle phrase pourrait faire comprendre la valeur de ton offre en moins de 10 secondes ?",
+    "avant_apres": {
+      "avant": "Ton offre est intéressante, mais difficile à expliquer. Ton prix semble élevé parce que la valeur n’est pas assez visible. Tes arguments sont dispersés. Ta page liste du contenu au lieu de vendre un résultat. Tu réponds aux objections au hasard.",
+      "apres": "Tu as une phrase centrale claire, un angle de vente précis, une structure d’arguments, des objections préparées, une page produit structurée et un tableau de bord pour améliorer ton message."
+    },
+    "methode": [
+      {
+        "titre": "Clarifier le message central",
+        "objectif": "Créer une phrase simple qui explique ton offre, ton public cible et le résultat attendu.",
+        "explication": "Le message central est la phrase qui permet à quelqu’un de comprendre rapidement ce que tu proposes. Une bonne phrase répond à trois questions : c’est pour qui, ça aide à résoudre quoi, et ça aide à obtenir quoi comme résultat observable.",
+        "schema": "Public cible + problème précis + résultat observable + méthode claire = message central.",
+        "exemple": "Cette formation aide les créateurs de produits digitaux à structurer leur message de vente pour présenter leur offre avec plus de clarté et moins d’improvisation.",
+        "action": "Remplis cette phrase : cette offre aide [public cible] à [résoudre un problème précis] pour [obtenir un résultat observable] grâce à [méthode ou structure].",
+        "resultat": "Tu obtiens une phrase centrale que tu peux utiliser dans une page produit, un courriel, une publication ou une conversation.",
+        "erreur": "Ne vise pas trois publics différents dans la même phrase."
+      },
+      {
+        "titre": "Définir le problème principal",
+        "objectif": "Identifier le problème que ton offre doit rendre évident.",
+        "explication": "Une vente commence avec une tension. La personne doit reconnaître un blocage concret. Un bon problème est concret, fréquent et visible.",
+        "schema": "Problème flou → client ne se reconnaît pas → intérêt faible. Problème précis → client se reconnaît → intérêt naturel.",
+        "exemple": "Beaucoup de créateurs ont une bonne offre, mais leur page produit explique surtout le contenu au lieu de montrer clairement la valeur pour le client.",
+        "action": "Écris une version simple, une version précise et une version commerciale du problème.",
+        "resultat": "Tu obtiens un problème principal que tu peux mettre en début de page produit.",
+        "erreur": "Ne crée pas dix problèmes principaux."
+      },
+      {
+        "titre": "Transformer les caractéristiques en valeur",
+        "objectif": "Faire passer ton offre d’une liste de contenus à une perception de valeur.",
+        "explication": "Une caractéristique décrit ce qui est inclus. Une valeur explique pourquoi c’est utile. Une offre premium doit montrer la valeur de chaque élément.",
+        "schema": "Contenu inclus → utilité concrète → résultat observable → valeur perçue.",
+        "exemple": "Un plan d’action 60 jours n’est pas seulement un document. C’est une structure qui aide à savoir quoi appliquer en premier et quoi améliorer ensuite.",
+        "action": "Liste les éléments inclus dans ton offre et explique l’utilité concrète de chacun.",
+        "resultat": "Tu obtiens une base d’arguments pour vendre la valeur réelle de ton offre.",
+        "erreur": "Ne dis pas seulement que ton offre est complète. Explique complète pour quoi, pour qui et dans quel but."
+      },
+      {
+        "titre": "Construire la promesse réaliste",
+        "objectif": "Formuler une promesse claire sans exagération.",
+        "explication": "Une promesse de vente n’est pas une garantie. C’est une direction claire. Elle doit être spécifique, crédible et liée à un effort réel.",
+        "schema": "Direction claire + résultat observable + crédibilité = promesse réaliste.",
+        "exemple": "Structure ton message de vente pour présenter ton offre avec plus de clarté et moins d’improvisation.",
+        "action": "Écris une promesse simple, une promesse complète et une promesse catalogue.",
+        "resultat": "Tu obtiens une promesse utilisable dans ton catalogue.",
+        "erreur": "Ne promets pas un résultat qui dépend du trafic, du budget ou du marché."
+      },
+      {
+        "titre": "Créer l’angle de vente",
+        "objectif": "Trouver l’idée principale qui rend ton offre désirable.",
+        "explication": "L’angle de vente est la façon de présenter ton offre. Il peut être basé sur la clarté, la valeur, les objections ou le système.",
+        "schema": "Offre → angle choisi → message répété → meilleure cohérence.",
+        "exemple": "Ne baisse pas la valeur de ton offre parce que ton message manque de structure. Construis une matrice qui rend ton offre plus claire, plus crédible et plus facile à présenter.",
+        "action": "Choisis un angle principal pour les 30 prochains jours.",
+        "resultat": "Ton offre a une direction commerciale claire.",
+        "erreur": "Ne change pas d’angle à chaque publication."
+      },
+      {
+        "titre": "Répondre aux objections",
+        "objectif": "Préparer des réponses utiles aux hésitations normales.",
+        "explication": "Une objection n’est pas toujours un refus. Souvent, c’est une question mal formulée. Répondre à une objection signifie clarifier, pas pousser.",
+        "schema": "Objection → question cachée → réponse calme → clarté.",
+        "exemple": "Si quelqu’un dit qu’il peut trouver ça gratuitement, la réponse est : oui, tu peux trouver de l’information gratuite. Ici, tu reçois une structure organisée, des outils copiables et un plan d’application.",
+        "action": "Liste cinq objections probables et écris une réponse calme pour chacune.",
+        "resultat": "Tu obtiens une banque de réponses pour ta page produit et tes messages.",
+        "erreur": "Ne réponds pas à une objection avec de la pression."
+      },
+      {
+        "titre": "Structurer la page produit",
+        "objectif": "Créer une page produit simple qui présente l’offre dans le bon ordre.",
+        "explication": "Une page produit premium doit commencer par le problème, le résultat attendu et la valeur. Le prix arrive après que la valeur soit comprise.",
+        "schema": "Attention → problème → résultat attendu → valeur → objections → prix → action.",
+        "exemple": "Titre : Matrice de vente premium. Sous-titre : Construis une structure claire pour présenter, expliquer et vendre une offre premium sans improviser.",
+        "action": "Rédige une mini-page produit avec titre, sous-titre, problème, résultat, inclusions, valeur, objections, prix et CTA.",
+        "resultat": "Tu obtiens une page claire à intégrer dans ton site.",
+        "erreur": "Ne mets pas le prix avant la valeur."
+      },
+      {
+        "titre": "Suivre et améliorer la matrice",
+        "objectif": "Mettre en place un système simple pour améliorer ton message après publication.",
+        "explication": "Une matrice de vente s’améliore avec les retours. Observe les questions, les objections, les hésitations, les clics et les passages mal compris.",
+        "schema": "Publier → observer → comprendre → ajuster → tester encore.",
+        "exemple": "Si plusieurs personnes demandent si la formation est adaptée aux débutants, ajoute une section Pour qui plus claire.",
+        "action": "Chaque semaine, améliore un seul bloc : titre, sous-titre, objections, CTA ou valeur.",
+        "resultat": "Ton message devient plus clair avec le temps.",
+        "erreur": "Ne réécris pas tout après un seul commentaire."
+      }
+    ],
+    "exemple": "Offre exemple : créer une page produit claire. Message faible : formation pour créer une page produit. Message amélioré : une formation pour aider les créateurs de produits digitaux à construire une page produit claire, crédible et orientée achat. Problème précis : beaucoup de créateurs décrivent ce que contient leur produit, mais n’expliquent pas assez clairement pourquoi le client devrait l’acheter maintenant. Promesse réaliste : construis une page produit qui explique clairement ton offre, sa valeur et les raisons d’acheter.",
+    "outils": [
+      {
+        "titre": "Matrice centrale de vente",
+        "contenu": "Nom de l’offre : ____\nPublic cible principal : ____\nProblème principal : ____\nConséquence du problème : ____\nRésultat attendu : ____\nPromesse réaliste : ____\nMéthode utilisée : ____\nÉléments inclus : ____\nValeur principale : ____\nObjection principale : ____\nRéponse à l’objection : ____\nCTA principal : ____"
+      },
+      {
+        "titre": "Formule du message central",
+        "contenu": "Cette offre aide [public cible] à [résoudre un problème précis] pour [obtenir un résultat observable] grâce à [méthode ou structure]."
+      },
+      {
+        "titre": "Script de page produit",
+        "contenu": "1. Titre :\n2. Sous-titre :\n3. Problème principal :\n4. Pourquoi ce problème bloque :\n5. Résultat attendu :\n6. Pour qui :\n7. Ce que tu obtiens :\n8. Pourquoi c’est utile :\n9. Objections fréquentes :\n10. Prix : 160 $\n11. CTA :\n12. Phrase rassurante :"
+      }
+    ],
+    "checklist": [
+      "Choisir une seule offre à travailler.",
+      "Écrire le nom exact de l’offre.",
+      "Définir le public cible principal.",
+      "Identifier le problème le plus urgent.",
+      "Décrire la conséquence du problème.",
+      "Écrire le résultat attendu sans promesse exagérée.",
+      "Formuler une phrase centrale claire.",
+      "Lister les éléments inclus dans l’offre.",
+      "Transformer chaque élément en valeur client.",
+      "Choisir un angle de vente principal.",
+      "Rédiger une promesse réaliste.",
+      "Écrire trois bénéfices concrets.",
+      "Lister cinq objections probables.",
+      "Préparer une réponse calme pour chaque objection.",
+      "Rédiger un message court de vente.",
+      "Rédiger un message long de vente.",
+      "Structurer une mini-page produit.",
+      "Vérifier que le prix arrive après la valeur.",
+      "Ajouter une phrase rassurante.",
+      "Créer un CTA simple.",
+      "Relire la page pour supprimer les phrases floues.",
+      "Remplacer les caractéristiques seules par des bénéfices.",
+      "Vérifier que la cible est claire.",
+      "Vérifier que la promesse reste réaliste.",
+      "Préparer un tableau de suivi.",
+      "Publier une première version.",
+      "Noter les questions reçues.",
+      "Noter les objections fréquentes.",
+      "Améliorer un bloc à la fois.",
+      "Refaire un bilan après 30 jours."
+    ],
+    "plan_action": "Jours 1 à 3 : clarifie l’offre, le public, le problème et le résultat attendu.\n\nJours 4 à 7 : transforme le contenu en bénéfices et rends la valeur plus visible.\n\nSemaine 2 : choisis ton angle de vente principal et rédige ton message court.\n\nSemaine 3 : prépare tes réponses aux objections.\n\nSemaine 4 : construis ta page produit complète.\n\nJours 31 à 45 : observe les questions, objections et hésitations.\n\nJours 46 à 60 : améliore le titre, la valeur, les objections et le CTA.",
+    "erreurs_a_eviter": [
+      {
+        "erreur": "Commencer par le prix.",
+        "risque": "Le client compare avant de comprendre la valeur.",
+        "correction": "Présente d’abord le problème, le résultat attendu et les éléments utiles."
+      },
+      {
+        "erreur": "Décrire seulement le contenu.",
+        "risque": "L’offre semble ordinaire.",
+        "correction": "Explique l’utilité de chaque élément."
+      },
+      {
+        "erreur": "Viser trop large.",
+        "risque": "Personne ne se reconnaît vraiment.",
+        "correction": "Choisis un public principal."
+      },
+      {
+        "erreur": "Promettre trop fort.",
+        "risque": "La promesse semble irréaliste.",
+        "correction": "Reste sur un résultat observable."
+      },
+      {
+        "erreur": "Ignorer les objections.",
+        "risque": "Les hésitations restent présentes.",
+        "correction": "Ajoute des réponses claires."
+      },
+      {
+        "erreur": "Changer d’angle trop souvent.",
+        "risque": "Le message devient incohérent.",
+        "correction": "Garde un angle plusieurs semaines."
+      },
+      {
+        "erreur": "Confondre urgence et pression.",
+        "risque": "La vente semble forcée.",
+        "correction": "Clarifie sans pousser."
+      },
+      {
+        "erreur": "Utiliser des phrases générales.",
+        "risque": "Le message devient banal.",
+        "correction": "Utilise des situations concrètes."
+      },
+      {
+        "erreur": "Ne pas suivre les retours.",
+        "risque": "Les mêmes erreurs reviennent.",
+        "correction": "Utilise un tableau de bord."
+      },
+      {
+        "erreur": "Attendre la page parfaite.",
+        "risque": "Rien ne sort.",
+        "correction": "Publie une version claire puis améliore."
+      }
+    ],
+    "bilan_30_jours": [
+      "Est-ce que le message central est clair en une phrase ?",
+      "Est-ce que le public cible est précis ?",
+      "Est-ce que le problème principal est concret ?",
+      "Est-ce que la valeur est visible avant le prix ?",
+      "Est-ce que les objections les plus probables sont traitées ?",
+      "Est-ce que le CTA est simple ?",
+      "Est-ce que la page produit semble cohérente ?",
+      "Quelles questions reviennent le plus souvent ?",
+      "Quel bloc mérite d’être simplifié ?",
+      "Quelle amélioration prioritaire peut être faite cette semaine ?"
+    ],
+    "bilan_60_jours": [
+      "Quel message a créé le plus d’intérêt ?",
+      "Quelle objection revient encore ?",
+      "Quelle partie de la page semble la moins claire ?",
+      "Quel bénéfice semble le plus fort ?",
+      "Quel élément inclus semble le plus utile ?",
+      "Est-ce que le prix est présenté après assez de valeur ?",
+      "Est-ce que la promesse reste réaliste ?",
+      "Est-ce que la cible doit être précisée ?",
+      "Est-ce que l’angle de vente doit être gardé ou ajusté ?",
+      "Quelle version améliorée publier maintenant ?",
+      "Quelle offre complémentaire pourrait être proposée ensuite ?",
+      "Quelle action simple peut rendre la page plus claire cette semaine ?"
+    ],
+    "conclusion": "La Matrice de vente premium t’aide à transformer une offre difficile à expliquer en structure claire, cohérente et réutilisable. Tu n’as pas besoin de forcer. Tu as besoin de clarifier. Une vente plus professionnelle commence souvent par une meilleure organisation du message : qui tu aides, quel problème tu simplifies, quelle valeur tu apportes, quelles objections tu anticipes et quelle action tu proposes. Pour 160 $, tu reçois une formation autonome complète, un système structuré, des outils prêts à utiliser et un plan d’action pour appliquer étape par étape sans partir de zéro. Utilise cette matrice une première fois, puis améliore-la avec les retours."
   }
-]
+}
