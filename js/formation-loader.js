@@ -222,4 +222,266 @@
     init();
   }
 })();
+document.addEventListener("DOMContentLoaded", async () => {
+  const container = document.querySelector("#formation-detail");
 
+  if (!container) {
+    console.error("Erreur : l’élément #formation-detail est introuvable.");
+    return;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const formationId = params.get("id");
+
+  if (!formationId) {
+    afficherErreur(container, "Aucune formation sélectionnée.");
+    return;
+  }
+
+  try {
+    const response = await fetch("data/formations.json");
+
+    if (!response.ok) {
+      throw new Error("Impossible de charger data/formations.json");
+    }
+
+    const formations = await response.json();
+    const formation = formations.find((item) => item.id === formationId);
+
+    if (!formation) {
+      afficherErreur(container, "Formation introuvable.");
+      return;
+    }
+
+    document.title = `${formation.titre} | Clario`;
+    afficherFormation(container, formation);
+  } catch (error) {
+    console.error(error);
+    afficherErreur(container, "Une erreur empêche l’affichage de la formation.");
+  }
+});
+
+function afficherErreur(container, message) {
+  container.innerHTML = `
+    <section class="formation-erreur">
+      <h1>Oups.</h1>
+      <p>${echapperHTML(message)}</p>
+      <a href="formations.html" class="btn-retour">Retour au catalogue</a>
+    </section>
+  `;
+}
+
+function afficherFormation(container, formation) {
+  const detail = formation.detail || {};
+
+  container.innerHTML = `
+    <article class="formation-page">
+      ${renderHero(formation)}
+      ${renderSection("Introduction", detail.introduction)}
+      ${renderSection("Résultat visé", detail.resultat_vise)}
+      ${renderSection("Démarrage rapide", detail.demarrage_rapide)}
+      ${renderAvantApres(detail.avant_apres)}
+      ${renderMethode(detail.methode)}
+      ${renderSection("Exemple complet", detail.exemple)}
+      ${renderOutils(detail.outils || detail.outil)}
+      ${renderChecklist(detail.checklist)}
+      ${renderSection("Plan d’action", detail.plan_action)}
+      ${renderErreurs(detail.erreurs_a_eviter)}
+      ${renderListe("Bilan à 30 jours", detail.bilan_30_jours)}
+      ${renderListe("Bilan à 60 jours", detail.bilan_60_jours)}
+      ${renderListe("Bilan", detail.bilan)}
+      ${renderConclusion(detail.conclusion)}
+    </article>
+  `;
+}
+
+function renderHero(formation) {
+  return `
+    <header class="formation-hero">
+      <p class="formation-categorie">${echapperHTML(formation.categorie || "")}</p>
+      <h1>${echapperHTML(formation.titre || "Formation Clario")}</h1>
+      <p class="formation-sous-titre">${echapperHTML(formation.sous_titre || "")}</p>
+
+      <div class="formation-meta">
+        <span>${echapperHTML(formation.niveau || "")}</span>
+        <span>${echapperHTML(formation.duree_estimee || "")}</span>
+        <span>${echapperHTML(formation.prix_affiche || "")}</span>
+      </div>
+
+      <p class="formation-resume">${echapperHTML(formation.resume_court || "")}</p>
+    </header>
+  `;
+}
+
+function renderSection(titre, contenu) {
+  if (!contenu) return "";
+
+  return `
+    <section class="formation-section">
+      <h2>${echapperHTML(titre)}</h2>
+      ${paragraphes(contenu)}
+    </section>
+  `;
+}
+
+function renderAvantApres(avantApres) {
+  if (!avantApres) return "";
+
+  return `
+    <section class="formation-section">
+      <h2>Avant / Après</h2>
+      <div class="avant-apres-grid">
+        <div class="carte">
+          <h3>Avant</h3>
+          ${paragraphes(avantApres.avant || "")}
+        </div>
+        <div class="carte">
+          <h3>Après</h3>
+          ${paragraphes(avantApres.apres || "")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderMethode(methode) {
+  if (!Array.isArray(methode) || methode.length === 0) return "";
+
+  return `
+    <section class="formation-section">
+      <h2>Méthode complète</h2>
+      <div class="modules-list">
+        ${methode
+          .map((module, index) => `
+            <article class="module-carte">
+              <p class="module-numero">Module ${index + 1}</p>
+              <h3>${echapperHTML(module.titre || "")}</h3>
+              ${renderMiniBloc("Objectif", module.objectif)}
+              ${renderMiniBloc("Explication", module.explication)}
+              ${renderMiniBloc("Schéma", module.schema)}
+              ${renderMiniBloc("Exemple", module.exemple)}
+              ${renderMiniBloc("Action", module.action)}
+              ${renderMiniBloc("Résultat attendu", module.resultat)}
+              ${renderMiniBloc("Erreur à éviter", module.erreur)}
+            </article>
+          `)
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderMiniBloc(titre, contenu) {
+  if (!contenu) return "";
+
+  const isSchema = titre.toLowerCase().includes("schéma");
+
+  return `
+    <div class="mini-bloc ${isSchema ? "schema-bloc" : ""}">
+      <strong>${echapperHTML(titre)} :</strong>
+      ${isSchema ? `<pre>${echapperHTML(contenu)}</pre>` : paragraphes(contenu)}
+    </div>
+  `;
+}
+
+function renderOutils(outils) {
+  if (!outils) return "";
+
+  const listeOutils = Array.isArray(outils) ? outils : [outils];
+
+  if (listeOutils.length === 0) return "";
+
+  return `
+    <section class="formation-section">
+      <h2>Outils prêts à copier</h2>
+      <div class="outils-grid">
+        ${listeOutils
+          .map((outil, index) => `
+            <article class="outil-carte">
+              <p class="outil-numero">Outil ${index + 1}</p>
+              <h3>${echapperHTML(outil.titre || "")}</h3>
+              ${outil.description ? `<p>${echapperHTML(outil.description)}</p>` : ""}
+              <pre>${echapperHTML(outil.contenu || "")}</pre>
+            </article>
+          `)
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderChecklist(checklist) {
+  if (!Array.isArray(checklist) || checklist.length === 0) return "";
+
+  return `
+    <section class="formation-section">
+      <h2>Checklist d’action</h2>
+      <ol class="checklist">
+        ${checklist.map((item) => `<li>${echapperHTML(item)}</li>`).join("")}
+      </ol>
+    </section>
+  `;
+}
+
+function renderErreurs(erreurs) {
+  if (!Array.isArray(erreurs) || erreurs.length === 0) return "";
+
+  return `
+    <section class="formation-section">
+      <h2>Erreurs à éviter</h2>
+      <div class="erreurs-list">
+        ${erreurs
+          .map((item) => `
+            <article class="erreur-carte">
+              <h3>${echapperHTML(item.erreur || "")}</h3>
+              <p><strong>Risque :</strong> ${echapperHTML(item.risque || "")}</p>
+              <p><strong>Correction :</strong> ${echapperHTML(item.correction || "")}</p>
+            </article>
+          `)
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderListe(titre, liste) {
+  if (!Array.isArray(liste) || liste.length === 0) return "";
+
+  return `
+    <section class="formation-section">
+      <h2>${echapperHTML(titre)}</h2>
+      <ol>
+        ${liste.map((item) => `<li>${echapperHTML(item)}</li>`).join("")}
+      </ol>
+    </section>
+  `;
+}
+
+function renderConclusion(conclusion) {
+  if (!conclusion) return "";
+
+  return `
+    <section class="formation-section conclusion">
+      <h2>Conclusion</h2>
+      ${paragraphes(conclusion)}
+    </section>
+  `;
+}
+
+function paragraphes(texte) {
+  if (!texte) return "";
+
+  return String(texte)
+    .split(/\n{2,}/)
+    .map((paragraphe) => `<p>${echapperHTML(paragraphe).replace(/\n/g, "<br>")}</p>`)
+    .join("");
+}
+
+function echapperHTML(valeur) {
+  return String(valeur)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
