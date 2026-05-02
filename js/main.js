@@ -38,4 +38,29 @@
     setFooterYear();
   }
 })();
+function ouvrirDashboard() {
+  const motDePasse = document.getElementById("dashboardPassword").value;
+  const erreur = document.getElementById("dashboardError");
+  const lock = document.getElementById("dashboardLock");
+  const content = document.getElementById("dashboardContent");
 
+  const motDePasseDashboard = "clario2026";
+
+  if (motDePasse === motDePasseDashboard) {
+    lock.hidden = true;
+    content.hidden = false;
+    erreur.textContent = "";
+  } else {
+    erreur.textContent = "Mot de passe incorrect.";
+  }
+}
+
+function fermerDashboard() {
+  const lock = document.getElementById("dashboardLock");
+  const content = document.getElementById("dashboardContent");
+  const input = document.getElementById("dashboardPassword");
+
+  content.hidden = true;
+  lock.hidden = false;
+  input.value = "";
+}
