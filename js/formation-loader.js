@@ -2,10 +2,16 @@
    CLARIO - formation-loader.js
    Lit l'ID dans l'URL (?id=xxx), charge data/formations.json,
    hydrate la page formation.html avec les bonnes données + contenu détaillé.
+
+   Compatibilité :
+   - Schéma riche (resume_court, sous_titre, detail.{introduction,methode,...})
+   - Schéma simple (description, benefices[], contenu[], resultat_attendu)
    ===================================================================== */
 
 (function () {
   "use strict";
+
+  /* ---------- HELPERS ---------- */
 
   function escapeHTML(s) {
     return String(s == null ? "" : s)
@@ -15,16 +21,9 @@
       .replace(/"/g, "&quot;");
   }
 
-  function nl2list(text) {
-    if (!text) return "";
-    return text.split(/\n+/).filter(Boolean)
-      .map(function (line) { return "<li>" + escapeHTML(line.replace(/^[-•*\d.\s]+/, "")) + "</li>"; })
-      .join("");
-  }
-
   function paragraphs(text) {
     if (!text) return "";
-    return text.split(/\n\n+/).map(function (p) {
+    return String(text).split(/\n\n+/).map(function (p) {
       return "<p>" + escapeHTML(p.trim()).replace(/\n/g, "<br>") + "</p>";
     }).join("");
   }
@@ -34,14 +33,56 @@
     return (params.get("id") || "").trim();
   }
 
-  function showError(msg) {
+  function showError(msg, allowRetry) {
     var root = document.getElementById("formation-root");
     if (!root) return;
+    var retryBtn = allowRetry
+      ? '<button type="button" class="btn btn-secondary" id="retry-formation" style="margin-right:10px">Réessayer</button>'
+      : "";
     root.innerHTML =
       '<div class="error-box"><h2>Formation introuvable</h2>' +
       '<p>' + escapeHTML(msg) + '</p>' +
-      '<p style="margin-top:18px"><a class="btn btn-secondary" href="formations.html">Retour au catalogue</a></p></div>';
+      '<p style="margin-top:18px">' + retryBtn +
+      '<a class="btn btn-secondary" href="formations.html">Retour au catalogue</a></p></div>';
+    var rb = document.getElementById("retry-formation");
+    if (rb) rb.addEventListener("click", function () {
+      var r = document.getElementById("formation-root");
+      if (r) r.innerHTML = '<div class="loading"><div class="loading-spinner"></div><span>Nouvelle tentative…</span></div>';
+      init();
+    });
   }
+
+  /** fetch avec timeout (8s) + 2 retries exponentiels. */
+  function robustFetch(url) {
+    var timeoutMs = 8000, attempts = 2;
+    function attempt(i) {
+      var controller = (typeof AbortController !== "undefined") ? new AbortController() : null;
+      var to = setTimeout(function () { if (controller) controller.abort(); }, timeoutMs);
+      return fetch(url, { cache: "no-cache", signal: controller && controller.signal })
+        .then(function (r) {
+          clearTimeout(to);
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r;
+        })
+        .catch(function (err) {
+          clearTimeout(to);
+          if (i >= attempts) throw err;
+          var wait = 250 * Math.pow(3, i);
+          return new Promise(function (res) { setTimeout(res, wait); }).then(function () { return attempt(i + 1); });
+        });
+    }
+    return attempt(0);
+  }
+
+  /** Format prix : "5 $" si prix_affiche absent et prix_numerique/prix présent. */
+  function formatPrix(f) {
+    if (f.prix_affiche) return f.prix_affiche;
+    var n = (typeof f.prix_numerique === "number") ? f.prix_numerique
+          : (typeof f.prix === "number") ? f.prix : null;
+    return (n != null) ? (n + " $") : "—";
+  }
+
+  /* ---------- INIT ---------- */
 
   function init() {
     var root = document.getElementById("formation-root");
@@ -53,15 +94,15 @@
       return;
     }
 
-    fetch("data/formations.json", { cache: "no-cache" })
-      .then(function (r) {
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        return r.json();
-      })
+    robustFetch("data/formations.json")
+      .then(function (r) { return r.json(); })
       .then(function (data) {
-        var f = (data || []).find(function (x) {
-          return (x.id || "").toLowerCase() === id.toLowerCase()
-              || (x.code || "").toLowerCase() === id.toLowerCase();
+        if (!Array.isArray(data)) throw new Error("Le JSON formations.json doit être un tableau.");
+        var f = data.find(function (x) {
+          var idLower = id.toLowerCase();
+          return (x.id || "").toLowerCase() === idLower
+              || (x.code || "").toLowerCase() === idLower
+              || (x.slug || "").toLowerCase() === idLower;
         });
 
         if (!f) {
@@ -69,21 +110,104 @@
           return;
         }
 
+        // Vérifie le statut : si non publié, on protège (sauf override par paramètre)
+        var statut = (f.statut || "").toLowerCase();
+        if (statut && !/publi|en.?ligne/.test(statut)) {
+          showError("Cette formation n'est pas encore disponible. Reviens très bientôt.");
+          return;
+        }
+
+        // Met à jour titre + meta
         document.title = "Clario | " + (f.titre || "Formation");
         var metaDesc = document.querySelector('meta[name="description"]');
-        if (metaDesc && f.resume_court) metaDesc.setAttribute("content", f.resume_court);
+        var summary = f.resume_court || f.description || f.sous_titre || "";
+        if (metaDesc && summary) metaDesc.setAttribute("content", summary);
+
+        // Met à jour Open Graph
+        setMeta('meta[property="og:title"]', "Clario | " + (f.titre || "Formation"));
+        if (summary) setMeta('meta[property="og:description"]', summary);
+
+        // Injecte les données structurées (Schema.org Course + BreadcrumbList)
+        injectStructuredData(f, summary);
 
         render(root, f);
       })
       .catch(function (err) {
         console.error("Formation loader:", err);
-        showError("Impossible de charger les données. Réessaie dans quelques instants.");
+        showError("Impossible de charger les données. Vérifie ta connexion ou réessaie.", true);
       });
   }
 
+  function setMeta(selector, value) {
+    var el = document.querySelector(selector);
+    if (el && value) el.setAttribute("content", value);
+  }
+
+  function injectStructuredData(f, summary) {
+    var origin = (window.location.origin || "https://lepivotdor-sketch.github.io") +
+      window.location.pathname.replace(/[^/]*$/, "");
+    var fid = f.id || f.code || "";
+    var url = origin + "formation.html?id=" + encodeURIComponent(fid);
+    var price = (typeof f.prix_numerique === "number") ? f.prix_numerique
+              : (typeof f.prix === "number") ? f.prix : null;
+
+    var course = {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": f.titre || "Formation",
+      "description": summary || "",
+      "url": url,
+      "inLanguage": "fr-CA",
+      "provider": {
+        "@type": "Organization",
+        "name": "Clario",
+        "url": origin
+      }
+    };
+    if (price != null) {
+      course.offers = {
+        "@type": "Offer",
+        "price": price,
+        "priceCurrency": "CAD",
+        "availability": "https://schema.org/InStock",
+        "url": url
+      };
+    }
+    if (f.categorie) course.about = f.categorie;
+    var dureeStr = f.duree_estimee || f.duree;
+    if (dureeStr) {
+      var m = String(dureeStr).match(/\d+/);
+      if (m) course.timeRequired = "PT" + m[0] + "M";
+    }
+
+    var breadcrumbs = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": origin },
+        { "@type": "ListItem", "position": 2, "name": "Catalogue", "item": origin + "formations.html" },
+        { "@type": "ListItem", "position": 3, "name": f.titre || "Formation", "item": url }
+      ]
+    };
+
+    // Supprime tout JSON-LD précédent injecté (en cas de SPA)
+    var prev = document.querySelectorAll('script[type="application/ld+json"][data-clario]');
+    prev.forEach(function (n) { n.parentNode.removeChild(n); });
+
+    [course, breadcrumbs].forEach(function (obj) {
+      var s = document.createElement("script");
+      s.type = "application/ld+json";
+      s.setAttribute("data-clario", "1");
+      s.textContent = JSON.stringify(obj);
+      document.head.appendChild(s);
+    });
+  }
+
+  /* ---------- RENDU PRINCIPAL ---------- */
+
   function render(root, f) {
     var includes = [];
-    if (f.duree_estimee) includes.push("Durée : " + f.duree_estimee);
+    if (f.duree_estimee || f.duree) includes.push("Durée : " + (f.duree_estimee || f.duree));
     if (f.niveau) includes.push("Niveau : " + f.niveau);
     if (f.resultat_periode) includes.push("Résultat visé sous " + f.resultat_periode);
     if (f.formation_suivante) includes.push("Suite recommandée : " + f.formation_suivante);
@@ -91,28 +215,28 @@
     var detail = f.detail || {};
 
     var html =
-      '<nav class="breadcrumb">' +
-        '<a href="index.html">Accueil</a><span>›</span>' +
-        '<a href="formations.html">Catalogue</a><span>›</span>' +
+      '<nav class="breadcrumb" aria-label="Fil d’Ariane">' +
+        '<a href="index.html">Accueil</a><span aria-hidden="true">›</span>' +
+        '<a href="formations.html">Catalogue</a><span aria-hidden="true">›</span>' +
         '<span>' + escapeHTML(f.categorie || "") + '</span>' +
       '</nav>' +
       '<div class="formation-hero">' +
         '<div>' +
           '<div class="formation-meta">' +
-            '<span class="meta-categorie">' + escapeHTML(f.categorie || "") + '</span>' +
+            (f.categorie ? '<span class="meta-categorie">' + escapeHTML(f.categorie) + '</span>' : '') +
             (f.niveau ? '<span class="meta-niveau">Niveau : ' + escapeHTML(f.niveau) + '</span>' : '') +
-            (f.duree_estimee ? '<span class="meta-duree">' + escapeHTML(f.duree_estimee) + '</span>' : '') +
+            ((f.duree_estimee || f.duree) ? '<span class="meta-duree">' + escapeHTML(f.duree_estimee || f.duree) + '</span>' : '') +
           '</div>' +
-          '<h1>' + escapeHTML(f.titre || "") + '</h1>' +
+          '<h1>' + escapeHTML(f.titre || "Formation") + '</h1>' +
           (f.sous_titre ? '<p class="formation-soustitre">' + escapeHTML(f.sous_titre) + '</p>' : '') +
-          (f.resume_court ? '<p class="formation-resume">' + escapeHTML(f.resume_court) + '</p>' : '') +
+          (f.resume_court || f.description ? '<p class="formation-resume">' + escapeHTML(f.resume_court || f.description) + '</p>' : '') +
           (f.promesse ? '<div class="formation-promesse">' + escapeHTML(f.promesse) + '</div>' : '') +
         '</div>' +
-        '<aside class="formation-buy">' +
-          '<span class="price">' + escapeHTML(f.prix_affiche || (f.prix_numerique + " $")) + '</span>' +
+        '<aside class="formation-buy" aria-label="Bloc d’achat">' +
+          '<span class="price">' + escapeHTML(formatPrix(f)) + '</span>' +
           '<span class="price-note">Achat unique. Accès immédiat.</span>' +
-          '<ul>' + includes.map(function (x) { return '<li>' + escapeHTML(x) + '</li>'; }).join("") + '</ul>' +
-          '<a class="btn btn-primary" href="contact.html?formation=' + encodeURIComponent(f.id) + '">' + escapeHTML(f.bouton_cta || "Acheter cette formation") + '</a>' +
+          (includes.length ? '<ul>' + includes.map(function (x) { return '<li>' + escapeHTML(x) + '</li>'; }).join("") + '</ul>' : '') +
+          '<a class="btn btn-primary" href="contact.html?formation=' + encodeURIComponent(f.id || f.code || "") + '">' + escapeHTML(f.bouton_cta || "Acheter cette formation") + '</a>' +
           '<p class="reassurance">Vente finale dès activation. Aucun coaching obligatoire. Aucun rendez-vous requis.</p>' +
         '</aside>' +
       '</div>' +
@@ -122,8 +246,12 @@
     root.innerHTML = html;
   }
 
+  /* ---------- DÉTAIL : SCHÉMA RICHE OU SIMPLE ---------- */
+
   function buildDetail(f, d) {
     var sections = [];
+
+    /* Schéma riche : detail.{introduction, resultat_vise, ...} */
 
     if (d.introduction) {
       sections.push(section("Introduction", paragraphs(d.introduction)));
@@ -147,7 +275,7 @@
       sections.push(section("Outil prêt à copier", outilHTML(d.outil)));
     }
     if (d.checklist && d.checklist.length) {
-      sections.push(section("Checklist d'action", '<ul class="bloc-checklist">' + d.checklist.map(function (i) { return '<li>' + escapeHTML(i) + '</li>'; }).join("") + '</ul>'));
+      sections.push(section("Checklist d'action", listHTML(d.checklist, "bloc-checklist")));
     }
     if (d.plan_action) {
       sections.push(section("Plan d'action 24-72 h", paragraphs(d.plan_action)));
@@ -162,15 +290,39 @@
       sections.push(section("Conclusion", paragraphs(d.conclusion)));
     }
 
+    /* Schéma simple : f.benefices, f.contenu, f.resultat_attendu */
+
     if (sections.length === 0) {
-      sections.push(section("Aperçu", '<p>' + escapeHTML(f.resume_court || "Cette formation est en cours de finalisation. Reviens très bientôt.") + '</p>'));
+      if (f.description) sections.push(section("Description", paragraphs(f.description)));
+      if (f.benefices && f.benefices.length) {
+        sections.push(section("Bénéfices", listHTML(f.benefices)));
+      }
+      if (f.contenu && f.contenu.length) {
+        sections.push(section("Contenu inclus", listHTML(f.contenu)));
+      }
+      if (f.resultat_attendu) {
+        sections.push(section("Résultat attendu", paragraphs(f.resultat_attendu)));
+      }
+    }
+
+    if (sections.length === 0) {
+      sections.push(section("Aperçu", '<p>' + escapeHTML(f.resume_court || f.description || "Cette formation est en cours de finalisation. Reviens très bientôt.") + '</p>'));
     }
 
     return '<div class="formation-detail">' + sections.join("") + '</div>';
   }
 
+  /* ---------- HELPERS DE RENDU ---------- */
+
   function section(titre, html) {
     return '<section class="formation-section"><h2>' + escapeHTML(titre) + '</h2>' + html + '</section>';
+  }
+
+  function listHTML(arr, extraClass) {
+    var cls = extraClass ? ' class="' + extraClass + '"' : "";
+    return '<ul' + cls + '>' + arr.map(function (i) {
+      return '<li>' + escapeHTML(i) + '</li>';
+    }).join("") + '</ul>';
   }
 
   function avantApresHTML(ap) {
@@ -208,13 +360,18 @@
 
   function buildSuivante(f) {
     if (!f.formation_suivante) return "";
+    var prixSuivante = (f.prix_formation_suivante != null)
+      ? (f.prix_formation_suivante + " $")
+      : "tarif communiqué dans la fiche";
     return '<div class="formation-suivante">' +
       '<small>Pour aller plus loin</small>' +
       '<h3>' + escapeHTML(f.formation_suivante) + '</h3>' +
-      '<p>Une formation plus complète au prix de ' + (f.prix_formation_suivante || "—") + ' $.</p>' +
+      '<p>Une formation plus complète au prix de ' + escapeHTML(prixSuivante) + '.</p>' +
       '<a class="btn btn-secondary" href="formations.html">Voir le catalogue complet</a>' +
     '</div>';
   }
+
+  /* ---------- DÉMARRAGE ---------- */
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
@@ -222,266 +379,3 @@
     init();
   }
 })();
-document.addEventListener("DOMContentLoaded", async () => {
-  const container = document.querySelector("#formation-detail");
-
-  if (!container) {
-    console.error("Erreur : l’élément #formation-detail est introuvable.");
-    return;
-  }
-
-  const params = new URLSearchParams(window.location.search);
-  const formationId = params.get("id");
-
-  if (!formationId) {
-    afficherErreur(container, "Aucune formation sélectionnée.");
-    return;
-  }
-
-  try {
-    const response = await fetch("data/formations.json");
-
-    if (!response.ok) {
-      throw new Error("Impossible de charger data/formations.json");
-    }
-
-    const formations = await response.json();
-    const formation = formations.find((item) => item.id === formationId);
-
-    if (!formation) {
-      afficherErreur(container, "Formation introuvable.");
-      return;
-    }
-
-    document.title = `${formation.titre} | Clario`;
-    afficherFormation(container, formation);
-  } catch (error) {
-    console.error(error);
-    afficherErreur(container, "Une erreur empêche l’affichage de la formation.");
-  }
-});
-
-function afficherErreur(container, message) {
-  container.innerHTML = `
-    <section class="formation-erreur">
-      <h1>Oups.</h1>
-      <p>${echapperHTML(message)}</p>
-      <a href="formations.html" class="btn-retour">Retour au catalogue</a>
-    </section>
-  `;
-}
-
-function afficherFormation(container, formation) {
-  const detail = formation.detail || {};
-
-  container.innerHTML = `
-    <article class="formation-page">
-      ${renderHero(formation)}
-      ${renderSection("Introduction", detail.introduction)}
-      ${renderSection("Résultat visé", detail.resultat_vise)}
-      ${renderSection("Démarrage rapide", detail.demarrage_rapide)}
-      ${renderAvantApres(detail.avant_apres)}
-      ${renderMethode(detail.methode)}
-      ${renderSection("Exemple complet", detail.exemple)}
-      ${renderOutils(detail.outils || detail.outil)}
-      ${renderChecklist(detail.checklist)}
-      ${renderSection("Plan d’action", detail.plan_action)}
-      ${renderErreurs(detail.erreurs_a_eviter)}
-      ${renderListe("Bilan à 30 jours", detail.bilan_30_jours)}
-      ${renderListe("Bilan à 60 jours", detail.bilan_60_jours)}
-      ${renderListe("Bilan", detail.bilan)}
-      ${renderConclusion(detail.conclusion)}
-    </article>
-  `;
-}
-
-function renderHero(formation) {
-  return `
-    <header class="formation-hero">
-      <p class="formation-categorie">${echapperHTML(formation.categorie || "")}</p>
-      <h1>${echapperHTML(formation.titre || "Formation Clario")}</h1>
-      <p class="formation-sous-titre">${echapperHTML(formation.sous_titre || "")}</p>
-
-      <div class="formation-meta">
-        <span>${echapperHTML(formation.niveau || "")}</span>
-        <span>${echapperHTML(formation.duree_estimee || "")}</span>
-        <span>${echapperHTML(formation.prix_affiche || "")}</span>
-      </div>
-
-      <p class="formation-resume">${echapperHTML(formation.resume_court || "")}</p>
-    </header>
-  `;
-}
-
-function renderSection(titre, contenu) {
-  if (!contenu) return "";
-
-  return `
-    <section class="formation-section">
-      <h2>${echapperHTML(titre)}</h2>
-      ${paragraphes(contenu)}
-    </section>
-  `;
-}
-
-function renderAvantApres(avantApres) {
-  if (!avantApres) return "";
-
-  return `
-    <section class="formation-section">
-      <h2>Avant / Après</h2>
-      <div class="avant-apres-grid">
-        <div class="carte">
-          <h3>Avant</h3>
-          ${paragraphes(avantApres.avant || "")}
-        </div>
-        <div class="carte">
-          <h3>Après</h3>
-          ${paragraphes(avantApres.apres || "")}
-        </div>
-      </div>
-    </section>
-  `;
-}
-
-function renderMethode(methode) {
-  if (!Array.isArray(methode) || methode.length === 0) return "";
-
-  return `
-    <section class="formation-section">
-      <h2>Méthode complète</h2>
-      <div class="modules-list">
-        ${methode
-          .map((module, index) => `
-            <article class="module-carte">
-              <p class="module-numero">Module ${index + 1}</p>
-              <h3>${echapperHTML(module.titre || "")}</h3>
-              ${renderMiniBloc("Objectif", module.objectif)}
-              ${renderMiniBloc("Explication", module.explication)}
-              ${renderMiniBloc("Schéma", module.schema)}
-              ${renderMiniBloc("Exemple", module.exemple)}
-              ${renderMiniBloc("Action", module.action)}
-              ${renderMiniBloc("Résultat attendu", module.resultat)}
-              ${renderMiniBloc("Erreur à éviter", module.erreur)}
-            </article>
-          `)
-          .join("")}
-      </div>
-    </section>
-  `;
-}
-
-function renderMiniBloc(titre, contenu) {
-  if (!contenu) return "";
-
-  const isSchema = titre.toLowerCase().includes("schéma");
-
-  return `
-    <div class="mini-bloc ${isSchema ? "schema-bloc" : ""}">
-      <strong>${echapperHTML(titre)} :</strong>
-      ${isSchema ? `<pre>${echapperHTML(contenu)}</pre>` : paragraphes(contenu)}
-    </div>
-  `;
-}
-
-function renderOutils(outils) {
-  if (!outils) return "";
-
-  const listeOutils = Array.isArray(outils) ? outils : [outils];
-
-  if (listeOutils.length === 0) return "";
-
-  return `
-    <section class="formation-section">
-      <h2>Outils prêts à copier</h2>
-      <div class="outils-grid">
-        ${listeOutils
-          .map((outil, index) => `
-            <article class="outil-carte">
-              <p class="outil-numero">Outil ${index + 1}</p>
-              <h3>${echapperHTML(outil.titre || "")}</h3>
-              ${outil.description ? `<p>${echapperHTML(outil.description)}</p>` : ""}
-              <pre>${echapperHTML(outil.contenu || "")}</pre>
-            </article>
-          `)
-          .join("")}
-      </div>
-    </section>
-  `;
-}
-
-function renderChecklist(checklist) {
-  if (!Array.isArray(checklist) || checklist.length === 0) return "";
-
-  return `
-    <section class="formation-section">
-      <h2>Checklist d’action</h2>
-      <ol class="checklist">
-        ${checklist.map((item) => `<li>${echapperHTML(item)}</li>`).join("")}
-      </ol>
-    </section>
-  `;
-}
-
-function renderErreurs(erreurs) {
-  if (!Array.isArray(erreurs) || erreurs.length === 0) return "";
-
-  return `
-    <section class="formation-section">
-      <h2>Erreurs à éviter</h2>
-      <div class="erreurs-list">
-        ${erreurs
-          .map((item) => `
-            <article class="erreur-carte">
-              <h3>${echapperHTML(item.erreur || "")}</h3>
-              <p><strong>Risque :</strong> ${echapperHTML(item.risque || "")}</p>
-              <p><strong>Correction :</strong> ${echapperHTML(item.correction || "")}</p>
-            </article>
-          `)
-          .join("")}
-      </div>
-    </section>
-  `;
-}
-
-function renderListe(titre, liste) {
-  if (!Array.isArray(liste) || liste.length === 0) return "";
-
-  return `
-    <section class="formation-section">
-      <h2>${echapperHTML(titre)}</h2>
-      <ol>
-        ${liste.map((item) => `<li>${echapperHTML(item)}</li>`).join("")}
-      </ol>
-    </section>
-  `;
-}
-
-function renderConclusion(conclusion) {
-  if (!conclusion) return "";
-
-  return `
-    <section class="formation-section conclusion">
-      <h2>Conclusion</h2>
-      ${paragraphes(conclusion)}
-    </section>
-  `;
-}
-
-function paragraphes(texte) {
-  if (!texte) return "";
-
-  return String(texte)
-    .split(/\n{2,}/)
-    .map((paragraphe) => `<p>${echapperHTML(paragraphe).replace(/\n/g, "<br>")}</p>`)
-    .join("");
-}
-
-function echapperHTML(valeur) {
-  return String(valeur)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}

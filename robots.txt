@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard/
+Disallow: /templates/
+
+Sitemap: https://lepivotdor-sketch.github.io/clario/sitemap.xml

@@ -139,4 +139,3 @@ Si tu veux une image personnalisée pour cette formation :
 
 - Place-la dans `assets/images/formations/IA-008.png` (1200x800 px recommandé).
 - Le code peut la référencer plus tard via `assets/images/formations/[CODE].png`.
-

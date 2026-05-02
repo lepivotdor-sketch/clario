@@ -52,6 +52,11 @@
   .brand-text strong { font-size: 1.25rem; }
   .brand-text span { font-size: 0.7rem; }
 
+  /* Cibles tactiles minimum 44 px (accessibilité) */
+  .btn { min-height: 44px; padding: 12px 22px; }
+  .pill { min-height: 40px; }
+  .nav-toggle { min-height: 44px; min-width: 44px; }
+
   .hero { padding: 40px 0 50px; }
   .hero h1 { font-size: 1.85rem; }
   .hero p.lead { font-size: 1rem; }

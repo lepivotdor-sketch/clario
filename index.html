@@ -7,11 +7,66 @@
   <meta name="description" content="Clario propose des mini-formations digitales simples, claires et concrètes pour apprendre vite, appliquer rapidement et obtenir un résultat observable." />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#050505" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23050505'/%3E%3Cpath d='M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z' fill='%23f5d982'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23d8aa3d'/%3E%3C/svg%3E" />
+  <link rel="canonical" href="https://lepivotdor-sketch.github.io/clario/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Clario | Mini-formations digitales simples et concrètes" />
+  <meta property="og:description" content="Mini-formations digitales claires, à achat unique. Apprends vite, applique aujourd'hui, garde tes outils." />
+  <meta property="og:url" content="https://lepivotdor-sketch.github.io/clario/" />
+  <meta property="og:locale" content="fr_CA" />
+  <meta property="og:site_name" content="Clario" />
+  <meta property="og:image" content="https://lepivotdor-sketch.github.io/clario/assets/images/og-cover.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Clario | Mini-formations digitales" />
+  <meta name="twitter:description" content="Apprends vite. Applique aujourd'hui. Avance pour de vrai." />
+  <meta name="twitter:image" content="https://lepivotdor-sketch.github.io/clario/assets/images/og-cover.svg" />
+
+  <link rel="icon" href="assets/icones/favicon.svg" type="image/svg+xml" />
+
+  <!-- Pré-réchauffe la prochaine page probable -->
+  <link rel="prefetch" href="formations.html" />
+  <link rel="prefetch" href="data/formations.json" as="fetch" crossorigin="anonymous" />
+  <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23050505'/%3E%3Cpath d='M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z' fill='%23f5d982'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23d8aa3d'/%3E%3C/svg%3E" />
+  <link rel="manifest" href="manifest.json" />
 
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/accueil.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- Données structurées (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://lepivotdor-sketch.github.io/clario/#organization",
+        "name": "Clario",
+        "url": "https://lepivotdor-sketch.github.io/clario/",
+        "logo": "https://lepivotdor-sketch.github.io/clario/assets/logo/logo-clario.svg",
+        "email": "lepivotdor@gmail.com",
+        "description": "Mini-formations digitales à achat unique."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://lepivotdor-sketch.github.io/clario/#website",
+        "url": "https://lepivotdor-sketch.github.io/clario/",
+        "name": "Clario",
+        "description": "Mini-formations digitales simples et concrètes",
+        "inLanguage": "fr-CA",
+        "publisher": { "@id": "https://lepivotdor-sketch.github.io/clario/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://lepivotdor-sketch.github.io/clario/formations.html?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="topbar">
@@ -131,113 +186,14 @@
           <h2>Une expérience claire, premium et facile à suivre.</h2>
         </div>
         <div class="confiance-grid">
-  <div class="confiance-item">
-    <strong>Simple</strong>
-    <span>Contenu clair, sans distraction.</span>
-  </div>
-
-  <div class="confiance-item">
-    <strong>Autonome</strong>
-    <span>Tu avances à ton rythme.</span>
-  </div>
-
-  <div class="confiance-item">
-    <strong>Dès 5 $</strong>
-    <span>Des formations accessibles.</span>
-  </div>
-
-  <div class="confiance-item">
-    <strong>FR-CA</strong>
-    <span>Français clair et naturel.</span>
-  </div>
-</div>
+          <div class="confiance-item"><strong>0</strong><span>Pub. Aucune.</span></div>
+          <div class="confiance-item"><strong>0</strong><span>Coaching obligatoire.</span></div>
+          <div class="confiance-item"><strong>5 $</strong><span>Premier prix.</span></div>
+          <div class="confiance-item"><strong>FR-CA</strong><span>Tutoiement, ton direct.</span></div>
+        </div>
       </div>
     </section>
-    
-<!-- DASHBOARD CACHÉ -->
-<section id="dashboard-cache" class="dashboard-cache">
-  <div class="container">
-    <div class="dashboard-lock" id="dashboardLock">
-      <small>Zone interne</small>
-      <h2>Tableau de bord Clario</h2>
-      <p>Entre le mot de passe pour voir les indicateurs internes.</p>
 
-      <div class="dashboard-form">
-        <input
-          type="password"
-          id="dashboardPassword"
-          placeholder="Mot de passe"
-          autocomplete="off"
-        />
-        <button class="btn btn-primary" type="button" onclick="ouvrirDashboard()">
-          Déverrouiller
-        </button>
-      </div>
-
-      <p class="dashboard-error" id="dashboardError"></p>
-    </div>
-
-    <div class="dashboard-content" id="dashboardContent" hidden>
-      <div class="section-title">
-        <small>Dashboard interne</small>
-        <h2>8 KPI essentiels</h2>
-        <p>Vue rapide pour suivre la progression du catalogue Clario.</p>
-      </div>
-
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <strong>0</strong>
-          <span>Ventes totales</span>
-        </div>
-
-        <div class="kpi-card">
-          <strong>0 $</strong>
-          <span>Revenus générés</span>
-        </div>
-
-        <div class="kpi-card">
-          <strong>0</strong>
-          <span>Formations en ligne</span>
-        </div>
-
-        <div class="kpi-card">
-          <strong>0</strong>
-          <span>Visites du site</span>
-        </div>
-
-        <div class="kpi-card">
-          <strong>0 %</strong>
-          <span>Taux de conversion</span>
-        </div>
-
-        <div class="kpi-card">
-          <strong>0</strong>
-          <span>Clics catalogue</span>
-        </div>
-
-        <div class="kpi-card">
-          <strong>0</strong>
-          <span>Accès activés</span>
-        </div>
-
-        <div class="kpi-card">
-          <strong>0</strong>
-          <span>Demandes support</span>
-        </div>
-      </div>
-
-      <div class="dashboard-note">
-        <strong>Note interne :</strong>
-        Cette zone est seulement masquée côté navigateur. Ne pas y placer de données sensibles,
-        de mots de passe réels, de clés API, de données clients ou d’informations privées.
-      </div>
-
-      <button class="btn btn-secondary" type="button" onclick="fermerDashboard()">
-        Verrouiller
-      </button>
-    </div>
-  </div>
-</section>
     <!-- CTA -->
     <section class="cta" id="demarrer">
       <div class="container">
@@ -275,6 +231,10 @@
             <li><a href="formations.html?cat=pro">Productivité</a></li>
             <li><a href="formations.html?cat=app">Apprentissage</a></li>
             <li><a href="formations.html?cat=bus">Business</a></li>
+            <li><a href="formations.html?cat=fin">Finances</a></li>
+            <li><a href="formations.html?cat=rel">Relations</a></li>
+            <li><a href="formations.html?cat=bon">Bonheur</a></li>
+            <li><a href="formations.html?cat=san">Santé</a></li>
           </ul>
         </div>
         <div>

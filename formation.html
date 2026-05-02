@@ -3,36 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Clario | Formation</title>
-  <meta name="description" content="Formation Clario : méthode applicable, outils prêts à copier et plan d’action clair." />
+  <meta name="description" content="Mini-formation Clario : méthode appliquable, outils prêts à copier, résultat observable sous 24 à 72 heures." />
   <meta name="theme-color" content="#050505" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://lepivotdor-sketch.github.io/clario/formation.html" />
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23050505'/%3E%3Cpath d='M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z' fill='%23f5d982'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23d8aa3d'/%3E%3C/svg%3E" />
+  <!-- Open Graph (mis à jour dynamiquement par formation-loader.js) -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Clario | Formation" />
+  <meta property="og:description" content="Mini-formation Clario : méthode appliquable, outils prêts à copier, résultat observable sous 24 à 72 heures." />
+  <meta property="og:locale" content="fr_CA" />
+  <meta property="og:site_name" content="Clario" />
+  <meta property="og:image" content="https://lepivotdor-sketch.github.io/clario/assets/images/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://lepivotdor-sketch.github.io/clario/assets/images/og-cover.svg" />
+
+  <link rel="icon" href="assets/icones/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Préchargement de la donnée critique pour la fiche -->
+  <link rel="preload" href="data/formations.json" as="fetch" type="application/json" crossorigin="anonymous" />
 
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/formation.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
-
 <body>
   <header class="topbar">
     <div class="container">
       <nav class="nav" aria-label="Navigation principale">
         <a class="brand" href="index.html" aria-label="Accueil Clario">
-          <span class="logo-mark">
-            <svg viewBox="0 0 64 64" aria-hidden="true">
-              <path d="M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z" fill="#050505"/>
-            </svg>
-          </span>
-          <span class="brand-text">
-            <strong>Clario</strong>
-            <span>Mini-formations digitales</span>
-          </span>
+          <span class="logo-mark"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z" fill="#050505"/></svg></span>
+          <span class="brand-text"><strong>Clario</strong><span>Mini-formations digitales</span></span>
         </a>
-
         <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
-
         <ul class="nav-links">
           <li><a href="index.html">Accueil</a></li>
           <li><a href="formations.html">Catalogue</a></li>
@@ -44,7 +49,7 @@
 
   <main class="formation-page">
     <div class="container">
-      <div id="formation-detail">
+      <div id="formation-root">
         <div class="loading">
           <div class="loading-spinner"></div>
           <span>Chargement de la formation…</span>
@@ -58,18 +63,10 @@
       <div class="footer-grid">
         <div>
           <a class="brand" href="index.html" aria-label="Clario">
-            <span class="logo-mark">
-              <svg viewBox="0 0 64 64" aria-hidden="true">
-                <path d="M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z" fill="#050505"/>
-              </svg>
-            </span>
-            <span class="brand-text">
-              <strong>Clario</strong>
-              <span>Mini-formations digitales</span>
-            </span>
+            <span class="logo-mark"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z" fill="#050505"/></svg></span>
+            <span class="brand-text"><strong>Clario</strong><span>Mini-formations digitales</span></span>
           </a>
         </div>
-
         <div>
           <h4>Site</h4>
           <ul>
@@ -78,17 +75,19 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-
         <div>
           <h4>Catégories</h4>
           <ul>
             <li><a href="formations.html?cat=ia">IA</a></li>
             <li><a href="formations.html?cat=pro">Productivité</a></li>
+            <li><a href="formations.html?cat=app">Apprentissage</a></li>
             <li><a href="formations.html?cat=bus">Business</a></li>
             <li><a href="formations.html?cat=fin">Finances</a></li>
+            <li><a href="formations.html?cat=rel">Relations</a></li>
+            <li><a href="formations.html?cat=bon">Bonheur</a></li>
+            <li><a href="formations.html?cat=san">Santé</a></li>
           </ul>
         </div>
-
         <div>
           <h4>Légal</h4>
           <ul>
@@ -97,7 +96,6 @@
           </ul>
         </div>
       </div>
-
       <div class="footer-bottom">
         <span>© <span data-year>2026</span> Clario. Tous droits réservés.</span>
         <span>Achat unique. Accès numérique privé.</span>

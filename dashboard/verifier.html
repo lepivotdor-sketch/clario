@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clario | Vérificateur JSON</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#050505" />
+  <link rel="icon" href="../assets/icones/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <style>
+    .verif { padding: 50px 0 80px; }
+    .verif h1 { color: var(--ivoire); font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 20px; }
+    .verif p.lead { color: var(--gris-2); margin-bottom: 24px; }
+    .check-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 28px; }
+    .check {
+      padding: 18px;
+      border-radius: 12px;
+      background: var(--verre);
+      border: 1px solid var(--ligne-or);
+    }
+    .check strong { display: block; font-size: 1.4rem; margin-bottom: 4px; }
+    .check span { color: var(--gris-2); font-size: 0.82rem; letter-spacing: 0.04em; }
+    .check.ok strong { color: var(--vert); }
+    .check.ko strong { color: var(--rouge); }
+    .check.warn strong { color: var(--or-clair); }
+    .issues { margin-top: 30px; }
+    .issues h2 {
+      color: var(--or-clair);
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .issue {
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .issue.err { background: rgba(255,138,138,0.08); border: 1px solid rgba(255,138,138,0.4); color: var(--ivoire); }
+    .issue.warn { background: rgba(245,217,130,0.08); border: 1px solid var(--ligne-or); color: var(--ivoire); }
+    .issue code { color: var(--or-clair); font-size: 0.86rem; }
+    .empty-ok { padding: 18px; border-radius: 10px; background: rgba(159,240,164,0.08); border: 1px solid rgba(159,240,164,0.3); color: var(--ivoire); }
+    .actions { margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <nav class="nav" aria-label="Navigation interne">
+        <a class="brand" href="../index.html" aria-label="Accueil Clario">
+          <span class="logo-mark"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z" fill="#050505"/></svg></span>
+          <span class="brand-text"><strong>Clario</strong><span>Vérificateur interne</span></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Tableau de bord</a></li>
+          <li><a href="../formations.html">Catalogue</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="verif">
+      <div class="container">
+        <h1>Vérificateur de <code>data/formations.json</code></h1>
+        <p class="lead">Cette page contrôle la validité du fichier de données : structure, doublons, champs requis, cohérences. Aucun changement n'est fait — c'est uniquement un audit.</p>
+
+        <div class="check-grid">
+          <div class="check" id="c-total"><strong>—</strong><span>Formations totales</span></div>
+          <div class="check" id="c-publiees"><strong>—</strong><span>Publiées</span></div>
+          <div class="check" id="c-doublons"><strong>—</strong><span>Doublons d'ID</span></div>
+          <div class="check" id="c-champs"><strong>—</strong><span>Champs manquants</span></div>
+          <div class="check" id="c-prix"><strong>—</strong><span>Prix incohérents</span></div>
+          <div class="check" id="c-categorie"><strong>—</strong><span>Catégories invalides</span></div>
+        </div>
+
+        <div class="issues" id="issues-block">
+          <h2>Problèmes détectés</h2>
+          <div id="issues-list"></div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" id="btn-recheck">Re-vérifier</button>
+          <a class="btn btn-secondary" href="index.html">Retour au tableau de bord</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>Vérificateur interne — Clario.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var REQUIRED_FIELDS = ["id", "titre", "categorie", "statut"];
+      var RECOMMENDED_FIELDS = ["resume_court", "description", "niveau", "duree_estimee"];
+      var VALID_CATEGORIES = ["IA", "Productivité", "Apprentissage", "Business", "Finances", "Relations", "Bonheur", "Santé"];
+
+      function setCheck(id, value, state) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.querySelector("strong").textContent = value;
+        el.classList.remove("ok", "ko", "warn");
+        el.classList.add(state);
+      }
+
+      function pushIssue(type, html) {
+        var div = document.createElement("div");
+        div.className = "issue " + type;
+        div.innerHTML = html;
+        document.getElementById("issues-list").appendChild(div);
+      }
+
+      function escape(s) {
+        return String(s == null ? "" : s).replace(/[<>&"']/g, function (c) {
+          return ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'})[c];
+        });
+      }
+
+      function check() {
+        document.getElementById("issues-list").innerHTML = "";
+
+        fetch("../data/formations.json", { cache: "no-cache" })
+          .then(function (r) {
+            if (!r.ok) throw new Error("HTTP " + r.status);
+            return r.text();
+          })
+          .then(function (text) {
+            var data;
+            try {
+              data = JSON.parse(text);
+            } catch (e) {
+              setCheck("c-total", "ERREUR", "ko");
+              pushIssue("err", "<strong>JSON invalide :</strong> " + escape(e.message));
+              return;
+            }
+            if (!Array.isArray(data)) {
+              setCheck("c-total", "ERREUR", "ko");
+              pushIssue("err", "Le fichier doit être un tableau JSON ([…]).");
+              return;
+            }
+
+            var total = data.length;
+            var publiees = 0;
+            var doublonsId = 0;
+            var champsManquants = 0;
+            var prixIncoherents = 0;
+            var categoriesInvalides = 0;
+
+            var seenIds = {};
+            var seenCodes = {};
+
+            data.forEach(function (f, i) {
+              var label = "#" + (i + 1) + " (" + escape(f.id || f.code || "?") + ")";
+
+              // Doublons
+              if (f.id) {
+                if (seenIds[f.id]) {
+                  doublonsId++;
+                  pushIssue("err", "<strong>Doublon d'ID</strong> — <code>" + escape(f.id) + "</code> apparaît plusieurs fois.");
+                } else seenIds[f.id] = true;
+              }
+              if (f.code) {
+                if (seenCodes[f.code]) {
+                  pushIssue("err", "<strong>Doublon de code</strong> — <code>" + escape(f.code) + "</code> apparaît plusieurs fois.");
+                } else seenCodes[f.code] = true;
+              }
+
+              // Champs requis
+              REQUIRED_FIELDS.forEach(function (k) {
+                if (!f[k]) {
+                  champsManquants++;
+                  pushIssue("err", label + " : champ requis manquant <code>" + k + "</code>.");
+                }
+              });
+
+              // Champs recommandés (warn)
+              var missingReco = RECOMMENDED_FIELDS.filter(function (k) { return !f[k]; });
+              if (missingReco.length) {
+                pushIssue("warn", label + " : champs recommandés manquants <code>" + missingReco.join(", ") + "</code>.");
+              }
+
+              // Prix : si prix_numerique présent ET prix_affiche présent, ils doivent matcher
+              if (f.prix_numerique != null && f.prix_affiche) {
+                var num = parseFloat(String(f.prix_affiche).replace(/[^\d.,]/g, "").replace(",", "."));
+                if (!isNaN(num) && Number(f.prix_numerique) !== num) {
+                  prixIncoherents++;
+                  pushIssue("err", label + " : prix incohérent (numérique <code>" + f.prix_numerique + "</code> vs affiché <code>" + escape(f.prix_affiche) + "</code>).");
+                }
+              }
+              if (f.prix_numerique == null && f.prix == null) {
+                pushIssue("warn", label + " : aucun prix (ni <code>prix_numerique</code> ni <code>prix</code>).");
+              }
+
+              // Catégorie
+              if (f.categorie && VALID_CATEGORIES.indexOf(f.categorie) === -1) {
+                categoriesInvalides++;
+                pushIssue("err", label + " : catégorie inconnue <code>" + escape(f.categorie) + "</code>. Attendues : " + VALID_CATEGORIES.join(", ") + ".");
+              }
+
+              // URL cohérente avec id
+              if (f.url && f.id) {
+                if (f.url.indexOf("id=" + f.id) === -1) {
+                  pushIssue("warn", label + " : <code>url</code> ne pointe pas vers <code>id=" + escape(f.id) + "</code>.");
+                }
+              }
+
+              if (/publi|en.?ligne/i.test(f.statut || "")) publiees++;
+            });
+
+            // Affichage des compteurs
+            setCheck("c-total", String(total), "ok");
+            setCheck("c-publiees", publiees + " / " + total, publiees === 0 ? "warn" : "ok");
+            setCheck("c-doublons", String(doublonsId), doublonsId === 0 ? "ok" : "ko");
+            setCheck("c-champs", String(champsManquants), champsManquants === 0 ? "ok" : "ko");
+            setCheck("c-prix", String(prixIncoherents), prixIncoherents === 0 ? "ok" : "ko");
+            setCheck("c-categorie", String(categoriesInvalides), categoriesInvalides === 0 ? "ok" : "ko");
+
+            // Si rien à signaler
+            if (!document.getElementById("issues-list").children.length) {
+              pushIssue("warn", "<div class='empty-ok'>✓ Aucun problème détecté. Le fichier est propre.</div>");
+            }
+          })
+          .catch(function (err) {
+            setCheck("c-total", "ERREUR", "ko");
+            pushIssue("err", "<strong>Impossible de charger</strong> data/formations.json : " + escape(err.message));
+          });
+      }
+
+      document.getElementById("btn-recheck").addEventListener("click", check);
+      check();
+    })();
+  </script>
+</body>
+</html>

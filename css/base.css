@@ -31,6 +31,64 @@
 
 html { scroll-behavior: smooth; }
 
+/* Décale les ancres pour qu'elles n'apparaissent pas sous le header sticky */
+section[id], main[id], article[id] { scroll-margin-top: 100px; }
+@media (max-width: 600px) {
+  section[id], main[id], article[id] { scroll-margin-top: 80px; }
+}
+
+/* Focus accessible (clavier) */
+:focus-visible {
+  outline: 2px solid var(--or-clair);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Bouton retour haut */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--ligne-or);
+  background: linear-gradient(135deg, rgba(245, 217, 130, 0.95), rgba(216, 170, 61, 0.92));
+  color: var(--noir);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4);
+}
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover { box-shadow: 0 14px 30px rgba(216, 170, 61, 0.5); }
+
+/* Lien d'évitement clavier (skip to content) */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -50px;
+  z-index: 200;
+  padding: 10px 16px;
+  background: var(--or-clair);
+  color: var(--noir);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  transition: top 180ms ease;
+}
+.skip-link:focus { top: 12px; outline: 2px solid var(--noir); outline-offset: 2px; }
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   background:

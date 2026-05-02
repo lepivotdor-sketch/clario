@@ -1,0 +1,28 @@
+{
+  "name": "Clario",
+  "short_name": "Clario",
+  "description": "Mini-formations digitales simples, claires et concrètes. Achat unique.",
+  "start_url": "/clario/",
+  "scope": "/clario/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "lang": "fr-CA",
+  "dir": "ltr",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icones/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/logo/logo-clario.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["education", "productivity", "business"]
+}

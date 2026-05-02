@@ -18,7 +18,7 @@
     "resultat_concret": "3 tâches déléguées à l'IA et 3 prompts personnels prêts à réutiliser chaque semaine.",
     "resultat_attendu": "Une routine simple où l'IA prend en charge tes tâches d'écriture les plus répétitives.",
     "resultat_periode": "24 à 72 heures",
-    "angle_vente": "Pas besoin d'apprendre l'IA en profondeur : 3 bonnes questions suffisent pour récupérer du temps.",
+    "angle_vente": "Pas besoin d'apprendre l'IA en profondeur : 3 bonnes questions suffisent pour récupérer du temps tout de suite.",
     "duree_estimee": "10 à 20 minutes",
     "statut": "publié",
     "version": "1.0",
@@ -35,85 +35,77 @@
     "priorite_catalogue": "haute",
     "potentiel_vente": "élevé",
     "bouton_cta": "Acheter pour 5 $",
-    "tags": [
-      "ia",
-      "productivite",
-      "prompts",
-      "automatisation",
-      "gain de temps",
-      "chatgpt",
-      "claude"
-    ],
+    "tags": ["ia", "productivite", "prompts", "automatisation", "gain de temps", "chatgpt", "claude"],
     "detail": {
-      "introduction": "Tu n'as pas besoin de devenir expert en IA pour gagner du temps. Tu as besoin de repérer les bonnes tâches à confier à l'IA et de savoir comment les lui demander clairement. Le vrai problème n'est pas l'outil, c'est la formulation. Une demande floue donne un résultat flou. Une demande structurée donne un résultat plus directement utilisable.",
-      "resultat_vise": "Sous 24 à 72 heures, tu auras 3 prompts personnels pour traiter 3 tâches d'écriture récurrentes.",
-      "demarrage_rapide": "Ouvre ton outil IA habituel. Demande-lui de reformuler un courriel récent pour qu'il soit plus court, plus clair et plus direct. Garde la version si elle est meilleure.",
+      "introduction": "Tu n'as pas besoin de devenir expert en IA pour gagner du temps. Tu as besoin de repérer les bonnes tâches à confier à l'IA et de savoir comment les lui demander clairement.\n\nLe vrai problème n'est pas l'outil, c'est la formulation. Une demande floue donne un résultat flou que tu dois réécrire. Une demande structurée donne un résultat directement utilisable.\n\nDans cette mini-formation, tu vas repérer 3 tâches répétitives dans ton quotidien, écrire un prompt simple pour chacune, et tester le tout dès aujourd'hui.",
+      "resultat_vise": "Sous 24 à 72 heures, tu auras 3 prompts personnels qui automatisent 3 corvées d'écriture récurrentes. Le gain réaliste : entre 30 minutes et 3 heures par semaine selon ton volume.",
+      "demarrage_rapide": "Ouvre ton outil IA habituel maintenant. Tape : « Aide-moi à reformuler ce courriel pour qu'il soit plus court et plus clair. Voici le texte : [colle ici un courriel récent]. » Lis la version proposée. Si elle est meilleure, garde-la. Tu viens de faire ta première délégation.",
       "avant_apres": {
-        "avant": "Tu réécris les mêmes messages chaque semaine et tu perds du temps.",
-        "apres": "Tu colles ton texte, tu lances ton prompt, tu relis et tu envoies."
+        "avant": "Tu réécris les mêmes types de messages, courriels ou résumés chaque semaine. Tu sais que c'est répétitif mais tu n'as pas le temps d'y réfléchir.",
+        "apres": "Tu colles un texte, tu lances ton prompt, tu relis, tu envoies. La tâche prend 2 minutes au lieu de 15."
       },
       "methode": [
         {
-          "titre": "Repérer 3 tâches répétitives",
-          "objectif": "Identifier les corvées d'écriture qui reviennent chaque semaine.",
-          "explication": "Pense aux tâches qui reviennent souvent : courriels, résumés, réponses, reformulations ou descriptions. Ce sont les meilleures candidates pour l'IA.",
-          "action": "Note 3 tâches répétitives.",
-          "resultat": "Une liste claire de 3 tâches à déléguer."
+          "titre": "Repérer 3 tâches d'écriture répétitives",
+          "objectif": "Identifier les corvées qui reviennent chaque semaine.",
+          "explication": "Pense à ta dernière semaine. Quelles 3 tâches d'écriture t'ont demandé de l'énergie sans rien apporter de nouveau ? Exemples : reformuler un courriel client, résumer une réunion, écrire une description de produit, répondre à des questions répétitives.",
+          "action": "Note ces 3 tâches sur un papier ou dans une note rapide.",
+          "resultat": "Une liste claire de 3 tâches candidates à la délégation."
         },
         {
-          "titre": "Écrire un prompt simple",
-          "objectif": "Transformer chaque tâche en demande claire.",
-          "explication": "Un bon prompt court indique la tâche, le ton, le format et les contraintes. Plus la demande est claire, moins tu dois corriger après.",
-          "action": "Écris un prompt court pour chaque tâche.",
-          "resultat": "3 prompts prêts à utiliser."
+          "titre": "Écrire un prompt simple pour chaque tâche",
+          "objectif": "Transformer chaque tâche en demande claire que l'IA comprend.",
+          "explication": "Un bon prompt court contient 4 éléments : qui parle, ce qu'on veut, le ton souhaité, le format de sortie. Exemple : « Tu es mon assistant. Reformule ce courriel pour qu'il soit poli, court et direct. Garde le tutoiement. Donne-moi seulement le courriel reformulé. »",
+          "action": "Écris un prompt court pour chacune de tes 3 tâches en suivant le modèle.",
+          "resultat": "3 prompts personnels prêts à coller dans ton outil IA."
         },
         {
-          "titre": "Tester et ajuster",
+          "titre": "Tester et ajuster une fois",
           "objectif": "Valider que chaque prompt donne un résultat utilisable.",
-          "explication": "Teste chaque prompt avec un vrai exemple. Si le résultat est trop long, trop froid ou trop vague, ajoute une contrainte simple.",
-          "action": "Teste et améliore une seule fois.",
-          "resultat": "3 prompts validés."
+          "explication": "Lance chaque prompt avec un cas réel récent. Si le résultat n'est pas bon, ajoute une phrase au prompt qui précise ce qui manquait. Exemple : « Évite les formulations trop formelles. » Garde la version finale dans une note.",
+          "action": "Teste chaque prompt une fois et garde la version qui marche.",
+          "resultat": "3 prompts validés que tu peux réutiliser sans réfléchir."
         }
       ],
-      "exemple": "Marc répond souvent à des courriels similaires. Il crée un prompt court pour transformer chaque courriel reçu en réponse simple, claire et chaleureuse. Il garde le prompt dans une note et le réutilise chaque semaine.",
+      "exemple": "Marc gère un petit commerce. Chaque semaine, il répond à 5 courriels presque identiques sur les heures d'ouverture. Il a écrit un seul prompt : « Rédige une réponse courte et chaleureuse qui rappelle nos heures d'ouverture (lundi à vendredi 9 h à 17 h, samedi 10 h à 14 h). Adapte le ton au courriel reçu. Voici le courriel : [colle ici]. » Il colle, il lit, il envoie. Son temps de réponse hebdomadaire est passé de 35 minutes à 6 minutes.",
       "outil": {
-        "titre": "Modèle de prompt court",
-        "description": "Remplace les crochets par tes éléments.",
-        "contenu": "Tu es mon assistant. Ma tâche : [décris la tâche]. Ton souhaité : [poli, direct, chaleureux]. Format : [courriel, liste, paragraphe]. Contraintes : [maximum 100 mots, tutoiement, pas d'emojis]. Voici le contenu : [colle ton texte]."
+        "titre": "Modèle de prompt court à copier",
+        "description": "Remplace les crochets par tes éléments. Garde la structure courte.",
+        "contenu": "Tu es mon assistant.\nMa tâche : [décris la tâche en 1 phrase].\nTon souhaité : [poli, direct, chaleureux, neutre…].\nFormat de sortie : [courriel court, liste à puces, paragraphe…].\nContraintes : [garde le tutoiement / évite les emojis / max 100 mots…].\n\nVoici le contenu à traiter :\n[colle ici ton texte source]"
       },
       "checklist": [
-        "Lister 3 tâches répétitives.",
-        "Écrire un prompt court pour chacune.",
-        "Tester chaque prompt avec un vrai cas.",
-        "Ajuster si le résultat n'est pas utilisable.",
-        "Sauvegarder les prompts validés.",
-        "Réutiliser les prompts chaque semaine."
+        "Lister 3 tâches d'écriture répétitives de la semaine.",
+        "Écrire un prompt court pour chacune avec les 4 éléments du modèle.",
+        "Tester chaque prompt avec un cas réel récent.",
+        "Ajuster une seule fois si le résultat n'est pas utilisable.",
+        "Sauvegarder les 3 prompts validés dans une note réutilisable.",
+        "Réutiliser le même prompt la prochaine fois que la tâche revient."
       ],
-      "plan_action": "Jour 1 : choisis tes 3 tâches et écris tes prompts. Jour 2 : teste les prompts avec de vrais exemples. Jour 3 : sauvegarde les versions finales et réutilise-les.",
+      "plan_action": "Jour 1 : choisis tes 3 tâches et écris les prompts. Compte 20 minutes.\n\nJour 2 : teste chaque prompt en condition réelle. Ajuste si besoin.\n\nJour 3 : utilise tes prompts dès que la tâche se présente. Note le temps gagné pour mesurer.",
       "erreurs_a_eviter": [
         {
-          "erreur": "Vouloir un prompt parfait.",
-          "risque": "Tu repousses le test.",
-          "correction": "Teste une première version simple."
+          "erreur": "Vouloir un prompt parfait du premier coup.",
+          "risque": "Tu repousses le test et tu n'utilises jamais l'outil.",
+          "correction": "Lance un prompt « moyennement bon » et améliore-le seulement après un vrai test."
         },
         {
-          "erreur": "Donner une tâche trop vague.",
-          "risque": "L'IA répond trop généralement.",
-          "correction": "Ajoute le ton, le format et la longueur."
+          "erreur": "Demander à l'IA des tâches qui demandent du jugement personnel.",
+          "risque": "Le résultat est plat et tu dois tout réécrire.",
+          "correction": "Garde les tâches répétitives ou structurées pour l'IA. Garde le jugement pour toi."
         },
         {
-          "erreur": "Ne pas garder tes prompts.",
-          "risque": "Tu repars de zéro chaque fois.",
-          "correction": "Crée une note unique avec tes meilleurs prompts."
+          "erreur": "Ne pas garder tes prompts validés.",
+          "risque": "Tu réécris le même prompt chaque fois et tu perds le bénéfice.",
+          "correction": "Crée une note unique « Mes prompts » et colle chaque version finale dedans."
         }
       ],
       "bilan": [
         "Quelle tâche a donné le meilleur résultat ?",
-        "Quel prompt dois-tu améliorer ?",
-        "Quelle nouvelle tâche pourrais-tu déléguer ?",
-        "Est-ce que tes prompts sont sauvegardés ?"
+        "Combien de minutes as-tu réellement gagnées cette semaine ?",
+        "Quel prompt mérite d'être amélioré la prochaine fois ?",
+        "Quelle nouvelle tâche pourrais-tu déléguer la semaine prochaine ?"
       ],
-      "conclusion": "Tu n'as pas besoin de devenir expert en IA. Tu as besoin de 3 prompts utiles que tu peux réutiliser sans réfléchir. Pour 5 $, tu reçois un petit système clair à appliquer rapidement."
+      "conclusion": "Tu n'as pas besoin de devenir expert en IA. Tu as besoin de 3 prompts qui fonctionnent et que tu réutilises sans réfléchir. C'est exactement ce que tu viens de construire.\n\nPour 5 $, tu reçois un petit système clair à appliquer rapidement."
     }
   },
   {
@@ -152,85 +144,77 @@
     "priorite_catalogue": "haute",
     "potentiel_vente": "élevé",
     "bouton_cta": "Acheter pour 5 $",
-    "tags": [
-      "productivite",
-      "priorites",
-      "organisation",
-      "matin",
-      "focus",
-      "decision",
-      "routine"
-    ],
+    "tags": ["productivite", "priorites", "organisation", "matin", "focus", "decision", "routine"],
     "detail": {
-      "introduction": "Une longue liste de tâches ne te rend pas plus productif. Elle te rend souvent plus dispersé. Le but n'est pas de tout faire, mais de choisir ce qui compte vraiment aujourd'hui.",
-      "resultat_vise": "Sous 24 à 72 heures, tu pourras commencer ta journée avec 3 priorités claires choisies en moins de 5 minutes.",
-      "demarrage_rapide": "Écris cette question : si je ne fais qu'une seule chose aujourd'hui, laquelle aura le plus d'impact dans 7 jours ? Ta réponse devient ta priorité numéro 1.",
+      "introduction": "Une longue liste de tâches ne te rend pas plus productif. Elle te rend plus anxieux. Tu finis la journée en cochant les petites tâches faciles, et l'essentiel reste pour le lendemain.\n\nLa solution n'est pas une nouvelle application. C'est une décision : 3 priorités par jour, choisies avec une grille simple. Pas 5, pas 7. Trois.",
+      "resultat_vise": "Sous 24 à 72 heures, tu pourras commencer chaque journée avec 3 priorités claires choisies en moins de 5 minutes, et tu sauras précisément ce qu'est une vraie priorité pour toi.",
+      "demarrage_rapide": "Prends une feuille. Écris la date. Pose-toi cette question : « Si je ne fais qu'une seule chose aujourd'hui, laquelle aura le plus d'impact dans 7 jours ? » Note la réponse. Tu viens de trouver ta priorité numéro 1.",
       "avant_apres": {
-        "avant": "Tu as une liste trop longue et tu coches surtout les tâches faciles.",
-        "apres": "Tu choisis 3 priorités et tu sais quoi faire en premier."
+        "avant": "Liste de 15 tâches. Tu coches les faciles. À 17 h, l'essentiel n'est pas fait. Tu reportes au lendemain.",
+        "apres": "3 priorités écrites le matin. À 17 h, au moins 2 sont faites. Tu termines avec un sentiment de progrès réel."
       },
       "methode": [
         {
-          "titre": "Définir une vraie priorité",
+          "titre": "Définir ce qu'est une vraie priorité",
           "objectif": "Distinguer urgent et important.",
-          "explication": "Une vraie priorité est une tâche qui aura encore de l'importance dans quelques jours. Elle n'est pas seulement bruyante ou facile.",
-          "action": "Marque les tâches qui comptent vraiment.",
-          "resultat": "Tu vois l'essentiel."
+          "explication": "Une vraie priorité n'est pas la tâche la plus bruyante ou la plus rapide. C'est celle qui aura le plus de poids dans 7 jours si elle est faite, et le plus de regret si elle est ignorée.",
+          "action": "Sur ta liste actuelle, marque d'une étoile les tâches qui pèseront vraiment dans une semaine.",
+          "resultat": "Tu vois clairement quelles tâches sont vraiment importantes."
         },
         {
-          "titre": "Appliquer 3 questions",
-          "objectif": "Choisir 3 priorités rapidement.",
-          "explication": "Demande-toi : qu'est-ce qui aura le plus d'impact, qu'est-ce qui débloque la suite, qu'est-ce que je reporte depuis trop longtemps ?",
-          "action": "Écris 3 réponses maximum.",
-          "resultat": "Tes 3 priorités du jour."
+          "titre": "Appliquer la grille des 3 questions",
+          "objectif": "Choisir 3 priorités en moins de 5 minutes.",
+          "explication": "Trois questions, trois réponses : 1) Qu'est-ce qui aura le plus d'impact dans 7 jours ? 2) Qu'est-ce qui débloque autre chose ? 3) Qu'est-ce qui m'angoisse depuis trop longtemps ? Une réponse par question = tes 3 priorités.",
+          "action": "Écris tes 3 priorités du jour avec cette grille.",
+          "resultat": "Une journée structurée autour de 3 décisions claires."
         },
         {
-          "titre": "Protéger le premier créneau",
-          "objectif": "Commencer par l'essentiel.",
-          "explication": "Réserve un bloc de temps pour ta priorité numéro 1 avant de te laisser absorber par les demandes externes.",
-          "action": "Bloque 60 minutes.",
-          "resultat": "Un vrai progrès visible."
+          "titre": "Protéger ton temps de priorité",
+          "objectif": "Ne pas laisser le bruit dévorer tes priorités.",
+          "explication": "Choisis un créneau de 60 à 90 minutes en début de journée. Pas de notifications, pas de réunions. C'est le moment réservé à ta priorité numéro 1. Tout le reste passe après.",
+          "action": "Bloque ce créneau dans ton agenda dès demain matin.",
+          "resultat": "Un espace protégé pour avancer sur l'essentiel."
         }
       ],
-      "exemple": "Sophie commence la journée avec 14 tâches. Elle applique la grille et garde 3 priorités : terminer une proposition, envoyer une facture et préparer une présentation. Le reste devient secondaire.",
+      "exemple": "Sophie est consultante. Avant : liste de 14 tâches, finissait avec 9 cochées mais l'essentiel pas fait. Maintenant : chaque matin, 3 priorités sur un post-it. Question 1 « impact 7 jours » → finir la proposition pour le client X. Question 2 « débloque » → envoyer la facture en attente. Question 3 « angoisse » → préparer la présentation de vendredi. À 16 h, les 3 sont faites. Le reste devient bonus.",
       "outil": {
-        "titre": "Grille des 3 priorités",
-        "description": "À remplir chaque matin.",
-        "contenu": "1. Impact 7 jours : ________. 2. Débloque la suite : ________. 3. Tâche reportée : ________. Créneau protégé : ________."
+        "titre": "Grille des 3 priorités à recopier",
+        "description": "Imprime ou copie cette grille dans une note. Remplis-la chaque matin.",
+        "contenu": "DATE : ___________________\n\n1. IMPACT 7 JOURS\n   Si je ne fais qu'une chose qui pèsera dans une semaine :\n   → ____________________________\n\n2. DÉBLOQUE AUTRE CHOSE\n   Quelle tâche, faite aujourd'hui, déverrouille la suite :\n   → ____________________________\n\n3. ANGOISSE PERSISTANTE\n   Quelle tâche je reporte depuis trop longtemps :\n   → ____________________________\n\nCRÉNEAU PROTÉGÉ : ___________ → ___________\n(60 à 90 minutes pour la priorité 1, sans notifications)"
       },
       "checklist": [
-        "Choisir un moment fixe le matin.",
-        "Répondre aux 3 questions.",
-        "Limiter la liste à 3 priorités.",
-        "Bloquer un créneau pour la priorité 1.",
-        "Cocher les priorités terminées.",
-        "Répéter pendant 5 jours."
+        "Imprimer ou copier la grille des 3 questions.",
+        "Choisir un moment précis du matin pour la remplir (au café, avant les courriels).",
+        "Écrire 3 priorités maximum, jamais plus.",
+        "Bloquer un créneau de 60 à 90 minutes pour la priorité numéro 1.",
+        "Cocher les priorités terminées en fin de journée.",
+        "Refaire l'exercice pendant 5 jours d'affilée pour ancrer le rituel."
       ],
-      "plan_action": "Jour 1 : remplis la grille. Jour 2 : ajuste ton créneau. Jour 3 : répète et observe ce qui change.",
+      "plan_action": "Jour 1 : remplis la grille demain matin avant d'ouvrir tes courriels. Travaille sur la priorité 1 avant 11 h.\n\nJour 2 : refais l'exercice. Note ce qui a fonctionné et ce qui a coincé.\n\nJour 3 : ajuste ton créneau protégé en fonction de ton énergie réelle (matin tôt ou fin d'après-midi).",
       "erreurs_a_eviter": [
         {
-          "erreur": "Écrire trop de priorités.",
-          "risque": "Tu retombes dans une longue liste.",
-          "correction": "Limite stricte à 3."
+          "erreur": "Écrire 5, 7 ou 10 priorités.",
+          "risque": "Tu retombes dans une longue liste qui paralyse.",
+          "correction": "Limite stricte à 3. Si tu hésites, choisis celle qui pèse le plus dans 7 jours."
         },
         {
-          "erreur": "Choisir après les courriels.",
-          "risque": "Les demandes des autres décident pour toi.",
-          "correction": "Choisis avant d'ouvrir tes messages."
+          "erreur": "Choisir tes priorités à la dernière minute.",
+          "risque": "Tu choisis la tâche la plus bruyante au lieu de la plus importante.",
+          "correction": "Fais-le toujours avant d'ouvrir tes courriels ou messageries."
         },
         {
-          "erreur": "Ne pas protéger le temps.",
-          "risque": "La priorité reste théorique.",
-          "correction": "Bloque un créneau réel."
+          "erreur": "Ne pas protéger le créneau de la priorité 1.",
+          "risque": "Les réunions et urgences mangent ton temps réservé.",
+          "correction": "Bloque le créneau dans ton agenda comme un rendez-vous fixe."
         }
       ],
       "bilan": [
-        "Combien de priorités as-tu terminées ?",
-        "Quelle question t'aide le plus ?",
-        "Quel créneau fonctionne le mieux ?",
-        "Que peux-tu supprimer demain ?"
+        "Combien de priorités as-tu réellement terminées cette semaine ?",
+        "Quelle question de la grille t'aide le plus à choisir ?",
+        "À quel moment du matin la grille fonctionne-t-elle le mieux pour toi ?",
+        "Qu'est-ce que tu peux supprimer de ta journée pour mieux protéger ton créneau ?"
       ],
-      "conclusion": "Trois priorités suffisent pour donner une direction à ta journée. Pour 5 $, tu reçois un petit système clair à appliquer rapidement."
+      "conclusion": "Trois priorités, ce n'est pas peu. C'est suffisant pour finir tes semaines avec le sentiment d'avancer vraiment. Le piège n'est pas le manque de tâches, c'est leur multiplication.\n\nPour 5 $, tu reçois un petit système clair à appliquer rapidement."
     }
   },
   {
@@ -269,92 +253,84 @@
     "priorite_catalogue": "haute",
     "potentiel_vente": "moyen",
     "bouton_cta": "Acheter pour 5 $",
-    "tags": [
-      "apprentissage",
-      "lecture",
-      "resume",
-      "synthese",
-      "memoire",
-      "etudes",
-      "comprehension"
-    ],
+    "tags": ["apprentissage", "lecture", "resume", "synthese", "memoire", "etudes", "comprehension"],
     "detail": {
-      "introduction": "Lire ne suffit pas. Sans transformation active, le contenu est vite oublié. Cette méthode transforme une page de texte en résumé fidèle et réutilisable.",
-      "resultat_vise": "Sous 24 à 72 heures, tu pourras produire un résumé clair d'une page en 10 à 15 minutes.",
-      "demarrage_rapide": "Prends une page lue récemment. Écris en 3 phrases ce que tu as retenu, puis compare avec le texte original.",
+      "introduction": "Lire ne suffit pas. Tu lis une page, tu fermes le document, et trois jours plus tard tu te souviens vaguement du sujet sans pouvoir en parler.\n\nLe problème n'est pas ton attention. C'est l'absence d'étape de transformation. Sans transformer ce que tu lis en quelque chose à toi, le contenu glisse.\n\nDans cette mini-formation, tu apprends une méthode en 4 étapes pour résumer fidèlement une page de texte et garder un document que tu pourras relire dans 6 mois.",
+      "resultat_vise": "Sous 24 à 72 heures, tu seras capable de produire un résumé fidèle et structuré d'une page de texte en 10 à 15 minutes, sans rien inventer ni oublier l'essentiel.",
+      "demarrage_rapide": "Prends une page de texte que tu as lue récemment. Sans la relire, écris en 3 phrases ce que tu en as retenu. Compare avec le texte original. Les écarts que tu vois sont exactement ce que la méthode va corriger.",
       "avant_apres": {
-        "avant": "Tu lis, tu surlignes, tu oublies.",
-        "apres": "Tu sors un résumé structuré que tu peux relire plus tard."
+        "avant": "Tu lis, tu surlignes, tu fermes. Trois jours plus tard, ton souvenir est flou et tes notes ne se relisent plus.",
+        "apres": "Tu lis avec une grille. Tu sors un résumé court, structuré et fidèle. Six mois plus tard, le résumé tient encore."
       },
       "methode": [
         {
-          "titre": "Lecture active",
-          "objectif": "Capturer l'essentiel.",
-          "explication": "Souligne seulement la thèse, les arguments et les exemples importants.",
-          "action": "Limite-toi à 5 surlignages.",
-          "resultat": "Une page allégée."
+          "titre": "Lecture active avec stylo",
+          "objectif": "Capturer les points clés sans interrompre la lecture.",
+          "explication": "Lis avec un crayon ou un curseur de surlignage. Souligne uniquement : 1) la thèse principale, 2) les arguments, 3) les exemples décisifs. Pas plus de 5 surlignages par page.",
+          "action": "Lis ta page une fois en limitant tes surlignages à 5 maximum.",
+          "resultat": "Une page allégée où l'essentiel saute aux yeux."
         },
         {
-          "titre": "Repérer la structure",
-          "objectif": "Comprendre l'architecture du texte.",
-          "explication": "Identifie la thèse principale, 2 ou 3 arguments et l'exemple le plus utile.",
-          "action": "Réponds à ces 3 éléments.",
-          "resultat": "Le squelette du texte."
+          "titre": "Repérage de la structure",
+          "objectif": "Identifier l'architecture du texte.",
+          "explication": "Réponds à 3 questions : 1) Quelle est la thèse principale en 1 phrase ? 2) Quels sont les 2 ou 3 arguments qui la soutiennent ? 3) Quel est l'exemple le plus marquant ? Note les réponses dans une note séparée.",
+          "action": "Réponds aux 3 questions sans regarder le texte une fois lu.",
+          "resultat": "Le squelette du texte est extrait et tient sur 5 lignes."
         },
         {
-          "titre": "Reformuler",
-          "objectif": "T'approprier le contenu.",
-          "explication": "Ferme le texte et écris le résumé dans tes mots.",
-          "action": "Écris 80 à 150 mots.",
-          "resultat": "Un résumé personnel et fidèle."
+          "titre": "Reformulation dans tes mots",
+          "objectif": "T'approprier le contenu pour le retenir vraiment.",
+          "explication": "Ferme le texte. Écris un résumé de 80 à 150 mots qui contient : la thèse, les 2 ou 3 arguments, l'exemple. Utilise tes propres mots. Si tu n'arrives pas à reformuler, c'est que tu n'as pas compris : retourne au texte.",
+          "action": "Écris ton résumé sans regarder le texte.",
+          "resultat": "Un résumé court, fidèle et écrit dans ta voix."
         },
         {
-          "titre": "Vérifier",
-          "objectif": "Éviter les oublis et inventions.",
-          "explication": "Compare ton résumé au texte original et corrige seulement les erreurs importantes.",
-          "action": "Relis et ajuste.",
-          "resultat": "Un résumé fiable."
+          "titre": "Vérification croisée",
+          "objectif": "Détecter les inventions et les oublis.",
+          "explication": "Relis le texte original avec ton résumé sous les yeux. Vérifie : 1) Aucune affirmation qui n'est pas dans le texte ? 2) Aucun argument central oublié ? Corrige uniquement ces deux points.",
+          "action": "Compare ton résumé au texte et corrige inventions et oublis.",
+          "resultat": "Un résumé que tu peux ranger et relire dans 6 mois en toute confiance."
         }
       ],
-      "exemple": "Marie résume un article court. Elle extrait la thèse, 3 arguments et un exemple, puis écrit 110 mots de mémoire avant de vérifier.",
+      "exemple": "Marie lit un article de 2 pages sur la gestion du stress. Étape 1 : 4 surlignages (thèse + 2 techniques + 1 étude). Étape 2 : thèse = « le stress chronique se gère par micro-pauses » ; arguments = pause de 90 secondes, respiration 4-7-8, marche brève ; exemple = patients hospitaliers. Étape 3 : résumé de 110 mots écrit de mémoire. Étape 4 : elle remarque qu'elle a oublié la durée minimum de la marche (10 minutes), elle l'ajoute. Résumé final fidèle, prêt à relire dans 6 mois.",
       "outil": {
-        "titre": "Grille de résumé",
-        "description": "À utiliser pour chaque page.",
-        "contenu": "Thèse : ________. Arguments : 1) ________ 2) ________ 3) ________. Exemple : ________. Résumé : ________. Vérification : aucune invention / aucun oubli majeur."
+        "titre": "Grille de résumé en 4 étapes",
+        "description": "Imprime cette grille ou copie-la dans une note. Utilise-la chaque fois que tu veux résumer fidèlement un texte.",
+        "contenu": "TEXTE : __________________________\nDATE : ____________________\n\nÉTAPE 1 — SURLIGNAGES (max 5)\n• ___________________________\n• ___________________________\n• ___________________________\n• ___________________________\n• ___________________________\n\nÉTAPE 2 — STRUCTURE\nThèse principale (1 phrase) :\n→ __________________________\nArguments (2 à 3) :\n1) _________________________\n2) _________________________\n3) _________________________\nExemple marquant :\n→ __________________________\n\nÉTAPE 3 — RÉSUMÉ (80 à 150 mots, dans tes mots)\n___________________________\n___________________________\n___________________________\n\nÉTAPE 4 — VÉRIFICATION\n[ ] Aucune invention\n[ ] Aucun argument central oublié"
       },
       "checklist": [
-        "Limiter les surlignages.",
-        "Repérer la thèse.",
-        "Repérer les arguments.",
-        "Écrire sans regarder.",
-        "Comparer au texte.",
-        "Corriger les oublis."
+        "Limiter les surlignages à 5 maximum par page.",
+        "Répondre aux 3 questions de structure de mémoire.",
+        "Écrire le résumé sans regarder le texte.",
+        "Comparer le résumé au texte original.",
+        "Corriger inventions et oublis uniquement.",
+        "Ranger le résumé dans un dossier réutilisable."
       ],
-      "plan_action": "Jour 1 : résume une page courte. Jour 2 : applique la méthode sur un texte utile. Jour 3 : range tes résumés dans un dossier.",
+      "plan_action": "Jour 1 : applique la méthode sur une page courte (article ou chapitre court). Compte 15 minutes maximum.\n\nJour 2 : applique-la sur un texte de ton travail ou de tes études. Compare la fidélité avec ton ancienne méthode.\n\nJour 3 : crée un dossier « Mes résumés » et range les 2 résumés faits. Refais l'exercice sur un nouveau texte.",
       "erreurs_a_eviter": [
         {
-          "erreur": "Trop surligner.",
-          "risque": "Tout semble important.",
-          "correction": "Maximum 5 éléments."
+          "erreur": "Surligner trop de phrases.",
+          "risque": "Tu retombes dans la lecture passive et tu ne sais plus quoi retenir.",
+          "correction": "Maximum 5 surlignages par page, peu importe la longueur."
         },
         {
-          "erreur": "Copier au lieu de reformuler.",
-          "risque": "Tu retiens moins.",
-          "correction": "Écris dans tes mots."
+          "erreur": "Écrire le résumé en regardant le texte.",
+          "risque": "Tu recopies sans transformer, tu n'apprends rien.",
+          "correction": "Ferme toujours le texte avant la phase de reformulation."
         },
         {
-          "erreur": "Sauter la vérification.",
-          "risque": "Tu gardes des erreurs.",
-          "correction": "Compare toujours avec le texte."
+          "erreur": "Sauter l'étape de vérification.",
+          "risque": "Tu gardes des inventions ou tu oublies l'argument central.",
+          "correction": "Réserve toujours 2 minutes pour comparer ton résumé au texte."
         }
       ],
       "bilan": [
-        "Quelle étape est la plus difficile ?",
-        "As-tu oublié un argument ?",
-        "Ton résumé est-il clair après 48 heures ?",
-        "Quel texte vas-tu résumer ensuite ?"
+        "Quelle étape t'a demandé le plus d'effort ?",
+        "Combien d'oublis as-tu repérés à la vérification ?",
+        "Tes résumés sont-ils fidèles quand tu les relis 48 h plus tard ?",
+        "Quel type de texte se prête bien à cette méthode ? Lequel non ?"
       ],
-      "conclusion": "Un résumé utile est court, fidèle et relisible. Pour 5 $, tu reçois un petit système clair à appliquer rapidement."
+      "conclusion": "Résumer ne sert à rien si le résumé n'est pas fidèle. Cette méthode en 4 étapes n'est pas plus longue qu'une lecture classique, mais ce que tu produis se garde et se relit.\n\nPour 5 $, tu reçois un petit système clair à appliquer rapidement."
     }
   },
   {
@@ -376,7 +352,7 @@
     "resultat_concret": "Une bio pro de 4 phrases prête à coller sur LinkedIn, ton site et tes signatures de courriel.",
     "resultat_attendu": "Tu peux dire et écrire ce que tu fais sans hésiter, sans te perdre dans des termes vagues.",
     "resultat_periode": "24 à 72 heures",
-    "angle_vente": "Une bio claire vend mieux qu'une bio parfaite. 4 phrases suffisent.",
+    "angle_vente": "Une bio claire vend mieux qu'une bio « parfaite ». 4 phrases suffisent.",
     "duree_estimee": "10 à 20 minutes",
     "statut": "publié",
     "version": "1.0",
@@ -393,92 +369,84 @@
     "priorite_catalogue": "haute",
     "potentiel_vente": "élevé",
     "bouton_cta": "Acheter pour 5 $",
-    "tags": [
-      "business",
-      "bio",
-      "linkedin",
-      "positionnement",
-      "redaction",
-      "vente",
-      "personal branding"
-    ],
+    "tags": ["business", "bio", "linkedin", "positionnement", "redaction", "vente", "personnal branding"],
     "detail": {
-      "introduction": "Une bio professionnelle claire aide les autres à comprendre rapidement ce que tu fais, pour qui tu le fais et pourquoi c'est utile.",
-      "resultat_vise": "Sous 24 à 72 heures, tu auras une bio de 4 phrases prête à utiliser.",
-      "demarrage_rapide": "Complète cette phrase : J'aide [public précis] à [résultat concret].",
+      "introduction": "Quand on te demande ce que tu fais, tu hésites. Tu donnes ton titre. Tu ajoutes une explication. Tu finis par dire « c'est compliqué ». Résultat : la personne en face hoche la tête sans avoir compris.\n\nLe problème n'est pas la complexité de ton métier. C'est l'absence d'une formulation préparée. Une bio claire ne tient pas en un paragraphe vague. Elle tient en 4 phrases qui répondent à 4 questions précises.",
+      "resultat_vise": "Sous 24 à 72 heures, tu auras une bio professionnelle de 4 phrases que tu peux coller sur LinkedIn, ton site, ta signature de courriel et utiliser à l'oral sans hésiter.",
+      "demarrage_rapide": "Sur une feuille, complète cette phrase : « J'aide [qui exactement ?] à [quel résultat concret ?]. » Lis-la à voix haute. Si tu hésites sur le « qui » ou le « résultat », tu viens de localiser le travail à faire.",
       "avant_apres": {
-        "avant": "Ta bio est vague et difficile à recommander.",
-        "apres": "Ta bio explique clairement ton public, ton résultat, ta méthode et ta preuve."
+        "avant": "Bio LinkedIn en 4 paragraphes vagues avec des mots comme « passionné », « innovant », « accompagner ». Personne ne te recommande parce que personne ne sait à qui te recommander.",
+        "apres": "Bio en 4 phrases : qui, quoi, comment, preuve. Quand quelqu'un la lit, il sait exactement à qui te référer."
       },
       "methode": [
         {
-          "titre": "Pour qui",
-          "objectif": "Identifier le public précis.",
-          "explication": "Évite les publics trop larges. Nomme une situation claire.",
-          "action": "Écris ton public cible.",
-          "resultat": "Une phrase plus précise."
+          "titre": "Phrase 1 — Pour qui",
+          "objectif": "Identifier ton public sans flouter.",
+          "explication": "Décris la personne précise que tu sers. Pas « les entrepreneurs ». Plutôt « les travailleurs autonomes en début de carrière qui n'ont pas encore d'offre claire ». Si tu hésites entre 2 publics, choisis celui qui te paie le plus souvent ces 6 derniers mois.",
+          "action": "Écris ta phrase 1 avec un public précis et identifiable.",
+          "resultat": "Une phrase qui exclut clairement les personnes que tu ne sers pas."
         },
         {
-          "titre": "Quel résultat",
-          "objectif": "Formuler le bénéfice.",
-          "explication": "Décris ce que la personne obtient, pas seulement ce que tu fais.",
-          "action": "Écris le résultat observable.",
-          "resultat": "Une promesse claire et sobre."
+          "titre": "Phrase 2 — Quel résultat concret",
+          "objectif": "Formuler le bénéfice mesurable.",
+          "explication": "Décris le résultat que ton client obtient, pas la méthode que tu utilises. Pas « j'offre du coaching ». Plutôt « ils sortent avec une offre claire et un prix qu'ils osent demander ». Le résultat doit être observable.",
+          "action": "Écris ta phrase 2 en mettant le résultat avant la méthode.",
+          "resultat": "Une phrase qui donne envie parce qu'elle promet un changement concret."
         },
         {
-          "titre": "Comment",
-          "objectif": "Expliquer ta méthode.",
-          "explication": "Décris ton format ou tes étapes en mots simples.",
-          "action": "Écris ta méthode en une phrase.",
-          "resultat": "Une bio plus rassurante."
+          "titre": "Phrase 3 — Comment (méthode)",
+          "objectif": "Expliquer ta façon de faire en quelques mots.",
+          "explication": "Décris ta méthode en évitant les mots creux. Pas « avec une approche personnalisée ». Plutôt « en 3 séances structurées : diagnostic, formulation, test ». Si tu n'as pas de méthode nommée, décris simplement les grandes étapes.",
+          "action": "Écris ta phrase 3 avec des étapes ou un format précis.",
+          "resultat": "Une phrase qui rassure parce qu'on voit comment ça se passe."
         },
         {
-          "titre": "Preuve simple",
-          "objectif": "Ajouter de la crédibilité.",
-          "explication": "Ajoute un fait vérifiable sans exagérer.",
-          "action": "Écris une preuve neutre.",
-          "resultat": "Une bio plus crédible."
+          "titre": "Phrase 4 — Preuve simple",
+          "objectif": "Donner une preuve concrète sans vantardise.",
+          "explication": "Une phrase neutre qui montre que ce n'est pas du vide. Exemples : « J'accompagne ce type de profil depuis 4 ans » ou « Mes 12 derniers clients sortent avec leur offre publiée ». Évite les chiffres invérifiables.",
+          "action": "Écris ta phrase 4 avec un fait vérifiable simple.",
+          "resultat": "Une phrase qui clôt la bio en donnant confiance sans en faire trop."
         }
       ],
-      "exemple": "J'aide les travailleurs autonomes à clarifier leur offre. Ils repartent avec une phrase simple, un public précis et un angle clair. On travaille avec une grille en 4 étapes. Le résultat est une bio courte et utilisable.",
+      "exemple": "Avant : « Coach en développement personnel passionné par l'accompagnement holistique des entrepreneurs visionnaires. »\n\nAprès, en 4 phrases :\n1. J'aide les travailleurs autonomes en début de carrière qui n'ont pas encore d'offre claire.\n2. Ils sortent avec une offre que leurs clients comprennent et un prix qu'ils osent demander.\n3. On travaille en 3 séances : diagnostic de ce qui bloque, reformulation de l'offre, test sur 5 personnes.\n4. J'accompagne ce type de profil depuis 4 ans.",
       "outil": {
-        "titre": "Bio en 4 phrases",
-        "description": "Remplace les crochets.",
-        "contenu": "J'aide [public]. Ils obtiennent [résultat]. Je les aide avec [méthode]. [Preuve simple]."
+        "titre": "Modèle de bio en 4 phrases",
+        "description": "Remplace les crochets par tes éléments. Garde l'ordre et la simplicité.",
+        "contenu": "BIO PRO — VERSION 4 PHRASES\n\n1. POUR QUI\nJ'aide [public précis : métier, situation, niveau].\n\n2. QUEL RÉSULTAT\nIls obtiennent [résultat observable, pas la méthode].\n\n3. COMMENT\nOn travaille [format / étapes / outils, sans mots creux].\n\n4. PREUVE\n[Fait vérifiable simple : durée, nombre concret, format de pratique].\n\n--- VERSION FUSIONNÉE (à coller) ---\n[Phrase 1]. [Phrase 2]. [Phrase 3]. [Phrase 4]."
       },
       "checklist": [
-        "Définir le public.",
-        "Formuler le résultat.",
-        "Décrire la méthode.",
-        "Ajouter une preuve.",
-        "Lire à voix haute.",
-        "Publier la version 1.0."
+        "Définir un public précis (pas « les gens »).",
+        "Formuler un résultat observable (pas une méthode).",
+        "Décrire le format ou les étapes sans mots vagues.",
+        "Choisir une preuve neutre et vérifiable.",
+        "Lire la bio à voix haute pour vérifier qu'elle est fluide.",
+        "Coller la bio sur LinkedIn, le site et la signature de courriel."
       ],
-      "plan_action": "Jour 1 : écris les 4 phrases. Jour 2 : fais lire à une personne. Jour 3 : publie la version améliorée.",
+      "plan_action": "Jour 1 : écris les 4 phrases en suivant la grille. Compte 20 minutes.\n\nJour 2 : lis ta bio à voix haute à 2 personnes proches. Note leurs réactions sans te défendre.\n\nJour 3 : ajuste les 1 ou 2 phrases qui ont coincé. Colle la version finale partout (LinkedIn, site, signatures).",
       "erreurs_a_eviter": [
         {
-          "erreur": "Utiliser des mots vagues.",
-          "risque": "Personne ne comprend.",
-          "correction": "Remplace par des mots concrets."
+          "erreur": "Garder des mots vagues comme « passionné », « innovant », « holistique ».",
+          "risque": "La bio sonne pareille que toutes les autres et personne ne s'en souvient.",
+          "correction": "Remplace chaque mot vague par un mot concret. Si tu ne peux pas, supprime le mot."
         },
         {
-          "erreur": "Parler seulement de toi.",
-          "risque": "Le lecteur ne voit pas le bénéfice.",
-          "correction": "Mets le résultat client."
+          "erreur": "Décrire ta méthode au lieu du résultat.",
+          "risque": "Le lecteur ne voit pas ce qu'il y gagne et passe.",
+          "correction": "Mets toujours le résultat avant la méthode. Phrase 2 = bénéfice. Phrase 3 = comment."
         },
         {
-          "erreur": "Attendre une bio parfaite.",
-          "risque": "Tu ne publies jamais.",
-          "correction": "Publie une version simple."
+          "erreur": "Vouloir une bio « parfaite ».",
+          "risque": "Tu ne publies jamais et tu gardes l'ancienne version qui ne marche pas.",
+          "correction": "Publie une version 1.0 imparfaite. Tu pourras l'améliorer dans 3 mois avec du recul."
         }
       ],
       "bilan": [
-        "La bio est-elle claire ?",
-        "Le public est-il précis ?",
-        "Le résultat est-il observable ?",
-        "Peux-tu la lire sans hésiter ?"
+        "Ta bio est-elle compréhensible par quelqu'un qui ne connaît pas ton métier ?",
+        "Une personne qui la lit peut-elle te recommander à la bonne cible ?",
+        "Quelle phrase a été la plus difficile à écrire ? Pourquoi ?",
+        "Quelle réaction as-tu eue en la lisant à voix haute ?"
       ],
-      "conclusion": "Une bio claire n'a pas besoin d'être longue. Elle doit être compréhensible. Pour 5 $, tu reçois un petit système clair à appliquer rapidement."
+      "conclusion": "Une bio claire ne fait pas tout, mais elle ouvre des portes que les bios vagues ferment sans bruit. Quatre phrases simples bien écrites travaillent pour toi pendant que tu fais autre chose.\n\nPour 5 $, tu reçois un petit système clair à appliquer rapidement."
     }
   },
   {
@@ -517,85 +485,77 @@
     "priorite_catalogue": "moyenne",
     "potentiel_vente": "moyen",
     "bouton_cta": "Acheter pour 5 $",
-    "tags": [
-      "finances",
-      "budget",
-      "depenses",
-      "argent",
-      "suivi",
-      "epargne",
-      "clarte"
-    ],
+    "tags": ["finances", "budget", "depenses", "argent", "suivi", "epargne", "clarte"],
     "detail": {
-      "introduction": "Cette formation est éducative et générale. Elle aide à observer tes dépenses, sans remplacer un conseil financier personnalisé.",
-      "resultat_vise": "Sous 7 jours, tu auras une vision simple de tes dépenses et une fuite concrète à corriger.",
-      "demarrage_rapide": "Crée 3 colonnes : Essentiel, Confort, Plaisir. Note tes 5 dernières dépenses dans la bonne colonne.",
+      "introduction": "Cette formation est éducative et générale. Elle ne remplace pas un conseil financier personnalisé.\n\nTu sens que ton argent file. Tu n'arrives pas à expliquer pourquoi. Tu connais ton revenu, tu paies tes factures, mais entre les deux, l'argent disparaît.\n\nLe problème n'est pas un manque de discipline. C'est un manque de visibilité. Pendant 7 jours, tu vas noter chaque dépense dans 3 catégories simples. Tu repéreras au moins une fuite concrète, sans logiciel et sans se compliquer la vie.",
+      "resultat_vise": "Sous 7 jours, tu auras une vision claire de tes dépenses réelles et tu auras identifié au moins une fuite que tu peux choisir de corriger.",
+      "demarrage_rapide": "Prends une feuille ou ouvre une note. Crée 3 colonnes : « Essentiel », « Confort », « Plaisir ». Note les 5 dernières dépenses dont tu te souviens, dans la bonne colonne. Tu viens de commencer ton suivi.",
       "avant_apres": {
-        "avant": "Tu ne sais pas où passe ton argent.",
-        "apres": "Tu vois tes dépenses sur une page et tu repères une fuite."
+        "avant": "« Je ne sais pas où passe mon argent ». Tu paies, tu oublies, fin du mois tu es surpris du solde.",
+        "apres": "Tu vois sur une page tes 7 jours, dans 3 catégories. Tu peux pointer la fuite numéro 1 et décider d'agir."
       },
       "methode": [
         {
-          "titre": "Choisir un support simple",
-          "objectif": "Noter facilement.",
-          "explication": "Papier, note téléphone ou tableur simple : prends ce que tu ouvriras vraiment.",
-          "action": "Prépare ton support.",
-          "resultat": "Un tableau prêt."
+          "titre": "Choisir un format simple",
+          "objectif": "Éviter le piège du « bon » outil qui ne sera jamais ouvert.",
+          "explication": "Choisis le format que tu utiliseras vraiment chaque jour : une feuille papier dans ton portefeuille, une note téléphone, un tableur basique. Le critère n'est pas la beauté, c'est la facilité de remplissage en 30 secondes.",
+          "action": "Crée le support choisi avec les 3 colonnes et les 7 jours.",
+          "resultat": "Un support prêt à recevoir tes dépenses tous les jours."
         },
         {
-          "titre": "Classer en 3 catégories",
-          "objectif": "Simplifier l'observation.",
-          "explication": "Essentiel, Confort, Plaisir. Une dépense, une seule catégorie.",
-          "action": "Note chaque dépense.",
-          "resultat": "Une vision simple."
+          "titre": "Classer en 3 catégories simples",
+          "objectif": "Trier sans s'épuiser dans 12 sous-catégories.",
+          "explication": "Trois catégories suffisent : 1) ESSENTIEL = ce qui tombe si tu ne paies pas (loyer, facture, transport pour aller travailler, alimentation de base). 2) CONFORT = utile mais remplaçable (livraisons, abonnements, sorties). 3) PLAISIR = strict plaisir (café à emporter, achat coup de cœur, gadget). Une dépense, une seule catégorie.",
+          "action": "Note chaque dépense dès qu'elle a lieu, pas le soir.",
+          "resultat": "Un tableau qui se remplit naturellement sans effort de mémoire."
         },
         {
-          "titre": "Faire le bilan",
-          "objectif": "Repérer une fuite.",
-          "explication": "Additionne les catégories et choisis une seule dépense à réduire.",
-          "action": "Calcule les totaux.",
-          "resultat": "Une décision claire."
+          "titre": "Faire le bilan le jour 7",
+          "objectif": "Repérer la fuite numéro 1 sans jugement.",
+          "explication": "Le 7e jour, additionne chaque colonne. Calcule le pourcentage de chacune sur le total. Si le « Confort » dépasse 30 % ou si le « Plaisir » dépasse 15 %, tu as ta fuite. Choisis UNE seule dépense récurrente à réduire ou supprimer.",
+          "action": "Calcule les 3 totaux et identifie la fuite numéro 1.",
+          "resultat": "Une décision concrète et unique pour la semaine suivante."
         }
       ],
-      "exemple": "Karine note ses dépenses pendant 7 jours. Elle découvre que les cafés à emporter reviennent souvent. Elle choisit de réduire seulement cette fuite au lieu de tout changer.",
+      "exemple": "Karine fait l'exercice. Sur 7 jours, elle note : Essentiel 280 $, Confort 95 $, Plaisir 78 $. Total 453 $. Le « Plaisir » est à 17 % du total. Elle regarde le détail : 5 cafés à emporter à 6 $ = 30 $ en 7 jours. Sa fuite numéro 1 : les cafés. Décision : 1 café acheté par semaine au lieu de 5. Économie estimée : environ 100 $ par mois. Elle ne touche à rien d'autre. La clarté lui suffit pour décider.",
       "outil": {
-        "titre": "Tableau 7 jours",
-        "description": "À recopier.",
-        "contenu": "Jour | Essentiel | Confort | Plaisir | Notes. Total | ____ | ____ | ____. Fuite numéro 1 : ____. Décision : ____."
+        "titre": "Tableau de suivi 7 jours",
+        "description": "Recopie ce tableau sur une feuille ou dans une note. Une ligne par jour, 3 colonnes par catégorie.",
+        "contenu": "JOUR | ESSENTIEL | CONFORT | PLAISIR | NOTES\n----+-----------+---------+---------+-------\n  1 |           |         |         |\n  2 |           |         |         |\n  3 |           |         |         |\n  4 |           |         |         |\n  5 |           |         |         |\n  6 |           |         |         |\n  7 |           |         |         |\n----+-----------+---------+---------+-------\nTOT |     $     |    $    |    $    |\n  % |           |         |         |\n\nFUITE NUMÉRO 1 : ____________________\nDÉCISION POUR LA SEMAINE SUIVANTE : ____________________"
       },
       "checklist": [
-        "Préparer le support.",
-        "Noter chaque dépense.",
-        "Classer simplement.",
-        "Faire les totaux.",
-        "Repérer une fuite.",
-        "Choisir une action."
+        "Préparer un support simple avec 7 jours et 3 colonnes.",
+        "Garder le support sur soi ou ouvert sur le téléphone.",
+        "Noter chaque dépense au moment où elle a lieu.",
+        "Faire les totaux le 7e jour, sans jugement.",
+        "Identifier UNE seule fuite à corriger en priorité.",
+        "Décider d'une action concrète pour la semaine suivante."
       ],
-      "plan_action": "Jour 1 : prépare le tableau. Jours 2 à 6 : note chaque dépense. Jour 7 : fais le bilan.",
+      "plan_action": "Jour 1 : prépare le support et note les dépenses du jour.\n\nJour 2 à 6 : continue à noter, dès la transaction. Pas le soir.\n\nJour 7 : fais les totaux, identifie la fuite numéro 1, écris ta décision pour la semaine 8 à 14.",
       "erreurs_a_eviter": [
         {
-          "erreur": "Créer trop de catégories.",
-          "risque": "Tu abandonnes.",
-          "correction": "Reste à 3 catégories."
+          "erreur": "Vouloir trier en 10 catégories.",
+          "risque": "Tu abandonnes au jour 3 parce que c'est trop compliqué.",
+          "correction": "Reste à 3 catégories. La précision peut venir plus tard."
         },
         {
-          "erreur": "Te juger.",
-          "risque": "Tu fausses l'exercice.",
-          "correction": "Observe avant de corriger."
+          "erreur": "Te juger pendant le suivi.",
+          "risque": "Tu maquilles tes dépenses pour avoir l'air « sage » et tu fausses tout.",
+          "correction": "L'exercice est descriptif, pas correctif. Note la vérité, juge à la fin."
         },
         {
-          "erreur": "Corriger trop de choses.",
-          "risque": "Tu te surcharges.",
-          "correction": "Une seule fuite."
+          "erreur": "Vouloir corriger 5 fuites d'un coup.",
+          "risque": "Tu surcharges et tu abandonnes la 2e semaine.",
+          "correction": "Une seule fuite par semaine. Les autres attendent leur tour."
         }
       ],
       "bilan": [
-        "Quelle dépense t'a surpris ?",
-        "Quelle catégorie domine ?",
-        "Quelle fuite vas-tu corriger ?",
-        "Le support était-il simple ?"
+        "Quelle a été la dépense la plus surprenante de la semaine ?",
+        "Quelle catégorie représente le plus haut pourcentage ?",
+        "Quelle fuite as-tu choisi de corriger en premier ?",
+        "Le format choisi t'a-t-il vraiment permis de noter en 30 secondes ?"
       ],
-      "conclusion": "La clarté précède la décision. Pour 5 $, tu reçois un petit système clair à appliquer rapidement."
+      "conclusion": "Tu n'as pas besoin de devenir comptable. Tu as besoin de voir clair pendant 7 jours. La clarté précède la décision, et la décision précède le changement.\n\nPour 5 $, tu reçois un petit système clair à appliquer rapidement."
     }
   },
   {
@@ -610,12 +570,12 @@
     "prix_numerique": 5,
     "type": "mini-formation",
     "niveau": "micro",
-    "public_cible": "Personne qui repousse depuis trop longtemps un message difficile à envoyer.",
-    "resume_court": "Une structure simple en 4 parties pour écrire un message difficile clair, respectueux et sans excès d'excuses.",
+    "public_cible": "Personne qui repousse depuis trop longtemps un message difficile à envoyer (refus, demande, mise au point).",
+    "resume_court": "Une structure simple en 4 parties pour écrire un message difficile clair, respectueux, sans agressivité ni excès d'excuses.",
     "sous_titre": "Le mini-système éducatif pour envoyer le message que tu repousses depuis trop longtemps.",
     "promesse": "Contexte, demande, raison, ouverture : 4 parties, un message envoyé sans regret.",
     "resultat_concret": "Un message difficile rédigé, relu et prêt à envoyer en moins de 20 minutes.",
-    "resultat_attendu": "Tu peux dire ce que tu as à dire avec calme et clarté.",
+    "resultat_attendu": "Tu peux dire ce que tu as à dire avec calme et clarté, sans agresser ni te diminuer.",
     "resultat_periode": "24 à 72 heures",
     "angle_vente": "Le silence coûte plus que le message. Une structure simple suffit pour le rendre clair.",
     "duree_estimee": "10 à 20 minutes",
@@ -634,92 +594,84 @@
     "priorite_catalogue": "moyenne",
     "potentiel_vente": "moyen",
     "bouton_cta": "Acheter pour 5 $",
-    "tags": [
-      "relations",
-      "communication",
-      "message",
-      "limite",
-      "clarte",
-      "respect",
-      "ecriture"
-    ],
+    "tags": ["relations", "communication", "message", "limite", "clarte", "respect", "ecriture"],
     "detail": {
-      "introduction": "Cette formation est éducative et générale. Elle donne une structure pour écrire un message difficile sans agressivité et sans se perdre.",
-      "resultat_vise": "Sous 24 à 72 heures, tu auras un message difficile rédigé et prêt à envoyer.",
-      "demarrage_rapide": "Écris : ce que je veux vraiment dire, c'est que ________. Cette phrase est le cœur du message.",
+      "introduction": "Cette formation est éducative et générale. Elle ne remplace pas un accompagnement thérapeutique en cas de situation grave.\n\nTu as un message à envoyer depuis 3 jours, 3 semaines, 3 mois. Tu sais ce que tu veux dire mais chaque tentative se termine par un brouillon trop long, trop sec ou trop excusé. Tu effaces. Tu reportes. Le silence pèse.\n\nLe problème n'est pas le courage. C'est l'absence d'une structure. Avec 4 parties courtes, n'importe quel message difficile devient clair, respectueux et envoyable en 20 minutes.",
+      "resultat_vise": "Sous 24 à 72 heures, tu auras rédigé, relu et envoyé un message difficile, sans agressivité ni excès d'excuses.",
+      "demarrage_rapide": "Sur une feuille, complète cette phrase en 1 ligne : « Ce que je veux vraiment dire à [personne], c'est que [fait précis]. » C'est le cœur de ton message. Le reste est emballage.",
       "avant_apres": {
-        "avant": "Tu écris un long brouillon, tu t'excuses trop et tu n'envoies rien.",
-        "apres": "Tu écris 4 phrases courtes : contexte, demande, raison, ouverture."
+        "avant": "Brouillon de 4 paragraphes avec 12 « désolé », 3 mises en contexte et un message principal noyé. Tu effaces et tu reportes.",
+        "apres": "Message en 4 courtes parties : contexte (1 phrase), demande/refus (1 phrase claire), raison (1 phrase), ouverture (1 phrase). Tu envoies sans relire 20 fois."
       },
       "methode": [
         {
-          "titre": "Contexte court",
-          "objectif": "Situer la situation.",
-          "explication": "Une phrase factuelle suffit.",
-          "action": "Écris le contexte en une phrase.",
-          "resultat": "La personne comprend le sujet."
+          "titre": "Partie 1 — Contexte court",
+          "objectif": "Situer la conversation sans s'étendre.",
+          "explication": "Une phrase qui rappelle l'événement ou la situation concernée. Pas une justification, un simple repère temporel ou factuel. Exemple : « Je reviens vers toi suite à ta proposition de samedi dernier. »",
+          "action": "Écris ta phrase 1 : un seul fait pour situer.",
+          "resultat": "Le destinataire sait immédiatement de quoi tu parles."
         },
         {
-          "titre": "Demande claire",
-          "objectif": "Dire ce que tu veux.",
-          "explication": "Utilise un verbe direct et évite les détours.",
-          "action": "Écris ta demande ou ton refus.",
-          "resultat": "Le message principal est clair."
+          "titre": "Partie 2 — Demande ou refus clair",
+          "objectif": "Dire ce que tu veux ou ce que tu ne veux pas, sans contour.",
+          "explication": "Une phrase directe avec un verbe d'action. Pas « je pense que peut-être ce ne serait pas idéal ». Plutôt « je ne pourrai pas être présent » ou « je préfère que nous reprenions la discussion à tête reposée ». Un seul message principal.",
+          "action": "Écris ta phrase 2 avec un verbe direct et un seul message.",
+          "resultat": "Aucune ambiguïté possible sur ce que tu veux."
         },
         {
-          "titre": "Raison brève",
-          "objectif": "Expliquer sans accuser.",
-          "explication": "Reste dans le je et donne une seule raison.",
-          "action": "Écris une raison simple.",
-          "resultat": "Le ton reste calme."
+          "titre": "Partie 3 — Raison brève et neutre",
+          "objectif": "Donner une raison sans accuser ni se justifier.",
+          "explication": "Une phrase qui explique sans attaquer. Reste dans le « je » : ton ressenti, ta situation, ton besoin. Pas dans le « tu » accusateur. Exemple : « J'ai besoin de plus de temps pour prendre cette décision. » Une seule raison suffit.",
+          "action": "Écris ta phrase 3 en commençant par « je » et avec une seule raison.",
+          "resultat": "Le destinataire comprend sans se sentir attaqué."
         },
         {
-          "titre": "Ouverture courte",
-          "objectif": "Fermer avec respect.",
-          "explication": "Ajoute une phrase de fermeture sans rallonger.",
-          "action": "Termine le message.",
-          "resultat": "Le message est envoyable."
+          "titre": "Partie 4 — Ouverture courte",
+          "objectif": "Clore sans froideur, sans surcompensation.",
+          "explication": "Une phrase qui maintient le lien sans réouvrir le débat. Exemple : « Merci de comprendre, on en reparle si besoin la semaine prochaine. » Évite « j'espère que tu ne m'en voudras pas trop » : c'est de la surcompensation.",
+          "action": "Écris ta phrase 4 sans surenchère et sans froideur.",
+          "resultat": "Le message se ferme avec respect, sans malaise inutile."
         }
       ],
-      "exemple": "Je reviens vers toi à propos de l'invitation de samedi. Je ne pourrai finalement pas être présent. J'ai besoin de garder cette soirée pour me reposer. Merci de comprendre, on se reprend une prochaine fois.",
+      "exemple": "Situation : Élise doit décliner une invitation à un mariage qu'elle a déjà acceptée verbalement.\n\nAvant : 5 paragraphes, 11 « désolée », 3 mises en contexte. Elle ne l'envoie pas.\n\nAprès :\n1. Je reviens vers toi à propos de ton mariage du 12 juillet.\n2. Je ne pourrai finalement pas être présente.\n3. J'ai un engagement professionnel important qui tombe la même semaine et je préfère te le dire maintenant plutôt qu'au dernier moment.\n4. Je serai très contente de fêter ça avec toi à ton retour de voyage, dis-moi quand ça te conviendrait.\n\nQuatre phrases. Envoyé. Pas de regret.",
       "outil": {
-        "titre": "Message en 4 phrases",
-        "description": "À copier.",
-        "contenu": "1. Contexte : ________. 2. Demande/refus : ________. 3. Raison : ________. 4. Ouverture : ________."
+        "titre": "Modèle de message difficile en 4 phrases",
+        "description": "Remplace les crochets par tes éléments. Garde l'ordre et la brièveté.",
+        "contenu": "MESSAGE DIFFICILE — VERSION 4 PHRASES\n\n1. CONTEXTE COURT\n[1 phrase pour situer la situation, sans justifier]\n\n2. DEMANDE OU REFUS CLAIR\n[1 phrase avec un verbe direct, un seul message]\n\n3. RAISON BRÈVE\nJe [ressenti / situation / besoin, en 1 phrase]\n\n4. OUVERTURE\n[1 phrase qui maintient le lien sans réouvrir le débat]\n\n--- VÉRIFICATION AVANT ENVOI ---\n[ ] Aucun « désolé » répété plus d'une fois\n[ ] Aucune phrase qui commence par « tu »\n[ ] Une seule raison donnée\n[ ] Le message tient en moins de 5 lignes au total"
       },
       "checklist": [
-        "Identifier la situation.",
-        "Écrire le contexte.",
-        "Écrire la demande.",
-        "Donner une raison.",
-        "Ajouter l'ouverture.",
-        "Relire une fois puis envoyer."
+        "Identifier la personne et la situation précises.",
+        "Écrire la phrase 1 (contexte court).",
+        "Écrire la phrase 2 (demande ou refus clair).",
+        "Écrire la phrase 3 (raison brève en « je »).",
+        "Écrire la phrase 4 (ouverture sans surenchère).",
+        "Vérifier la liste avant envoi puis envoyer."
       ],
-      "plan_action": "Jour 1 : écris le message. Jour 2 : relis et ajuste. Jour 3 : envoie.",
+      "plan_action": "Jour 1 : applique la grille au message le plus urgent. Compte 20 minutes maximum.\n\nJour 2 : laisse reposer 24 heures. Relis une fois, ajuste si besoin.\n\nJour 3 : envoie. Note ce que tu ressens après l'envoi : c'est l'apprentissage le plus important.",
       "erreurs_a_eviter": [
         {
-          "erreur": "Trop t'excuser.",
-          "risque": "Le message perd sa clarté.",
-          "correction": "Un seul désolé maximum si nécessaire."
+          "erreur": "Empiler 3 « désolé » dans le même message.",
+          "risque": "Tu te diminues et tu attires une réponse condescendante.",
+          "correction": "Maximum un « désolé », et seulement s'il est sincère et précis."
         },
         {
-          "erreur": "Accuser l'autre.",
-          "risque": "La personne se ferme.",
-          "correction": "Reste dans le je."
+          "erreur": "Commencer une phrase par « tu n'as pas / tu es / tu fais ».",
+          "risque": "L'autre se ferme et le message est lu comme une attaque.",
+          "correction": "Reste dans le « je ». Ton ressenti et ta situation, pas un verdict sur l'autre."
         },
         {
-          "erreur": "Donner trop de raisons.",
-          "risque": "Tu sembles te justifier.",
-          "correction": "Une seule raison."
+          "erreur": "Empiler 3 raisons.",
+          "risque": "Plus tu te justifies, moins ton message a de poids.",
+          "correction": "Une seule raison. La plus vraie, la plus simple."
         }
       ],
       "bilan": [
-        "Le message tient-il en 5 lignes ?",
-        "La demande est-elle claire ?",
-        "Le ton reste-t-il calme ?",
-        "Es-tu prêt à l'envoyer ?"
+        "Le message tient-il en moins de 5 lignes ?",
+        "Aucune phrase ne commence par « tu » ?",
+        "Es-tu resté dans le « je » sans accuser ?",
+        "Quelle a été la phrase la plus difficile à écrire et pourquoi ?"
       ],
-      "conclusion": "Un message difficile peut être court, clair et respectueux. Pour 5 $, tu reçois un petit système clair à appliquer rapidement."
+      "conclusion": "Le silence prolongé pèse plus que le message envoyé. Quatre phrases simples bien posées suffisent à exprimer ce que tu repousses depuis trop longtemps.\n\nPour 5 $, tu reçois un petit système clair à appliquer rapidement."
     }
   },
   {
@@ -734,9 +686,9 @@
     "prix_numerique": 5,
     "type": "mini-formation",
     "niveau": "micro",
-    "public_cible": "Personne qui veut faire le point régulièrement sans tomber dans la rumination.",
-    "resume_court": "Trois questions simples pour faire le point sur ta semaine ou ton mois en 10 minutes.",
-    "sous_titre": "Le mini-système éducatif pour prendre du recul calmement.",
+    "public_cible": "Personne qui sent qu'elle a besoin de faire le point régulièrement mais qui repousse parce que c'est flou.",
+    "resume_court": "Trois questions simples pour faire le point sur ta semaine ou ton mois en 10 minutes, sans tomber dans la rumination.",
+    "sous_titre": "Le mini-système éducatif pour prendre du recul calmement sans tomber dans la rumination.",
     "promesse": "Garder, ajuster, ajouter : 3 questions, un bilan court qui donne du recul.",
     "resultat_concret": "Un bilan personnel de 10 minutes que tu peux refaire chaque semaine ou chaque mois.",
     "resultat_attendu": "Tu prends du recul sur tes choix sans te perdre dans des analyses interminables.",
@@ -758,85 +710,77 @@
     "priorite_catalogue": "moyenne",
     "potentiel_vente": "moyen",
     "bouton_cta": "Acheter pour 5 $",
-    "tags": [
-      "bonheur",
-      "bilan",
-      "recul",
-      "clarte",
-      "habitude",
-      "introspection",
-      "rituel"
-    ],
+    "tags": ["bonheur", "bilan", "recul", "clarte", "habitude", "introspection", "rituel"],
     "detail": {
-      "introduction": "Cette formation est éducative et générale. Elle propose un bilan court pour prendre du recul sans se perdre.",
-      "resultat_vise": "Sous 24 à 72 heures, tu auras fait un bilan structuré de 10 minutes.",
-      "demarrage_rapide": "Écris la date et réponds en une phrase : qu'est-ce qui mérite d'être gardé cette semaine ?",
+      "introduction": "Cette formation est éducative et générale. Elle ne remplace pas un accompagnement thérapeutique.\n\nTu sais que faire le point régulièrement t'aiderait. Tu sais aussi que dès que tu commences, tu plonges dans une rumination sans fin et tu ressors plus fatigué qu'avant.\n\nLe problème n'est pas l'introspection. C'est l'absence d'un cadre court. Trois questions, dix minutes, une note. C'est tout. Tu sors avec du recul, pas avec un poids supplémentaire.",
+      "resultat_vise": "Sous 24 à 72 heures, tu auras fait au moins un bilan court de 10 minutes structuré autour de 3 questions simples, et tu sauras à quel moment de la semaine ce rituel fonctionne pour toi.",
+      "demarrage_rapide": "Prends une feuille. Écris la date. Réponds en une phrase à : « Cette semaine, qu'est-ce qui mérite vraiment d'être gardé ? » Tu viens de faire le tiers du bilan.",
       "avant_apres": {
-        "avant": "Tu veux faire le point mais tu repousses ou tu rumines.",
-        "apres": "Tu réponds à 3 questions, tu fermes la note et tu repars avec une décision."
+        "avant": "Tu sais que tu devrais faire le point. Tu commences, tu glisses dans la rumination, tu arrêtes, tu ressors fatigué.",
+        "apres": "Tu écris pendant 10 minutes. Tu réponds à 3 questions. Tu fermes ton carnet. Tu repars avec une décision concrète."
       },
       "methode": [
         {
-          "titre": "À garder",
-          "objectif": "Voir ce qui fonctionne.",
-          "explication": "Commence par ce qui mérite d'être conservé.",
-          "action": "Écris une chose à garder.",
-          "resultat": "Tu pars du positif concret."
+          "titre": "Question 1 — À garder",
+          "objectif": "Reconnaître ce qui fonctionne déjà.",
+          "explication": "Avant de chercher ce qui ne va pas, identifie ce qui mérite d'être gardé. Ça peut être une habitude, un choix, une personne, un moment. Une seule réponse, courte. Cette question protège du biais négatif qui rend les bilans douloureux.",
+          "action": "Écris une seule chose qui mérite d'être gardée cette semaine.",
+          "resultat": "Tu commences le bilan en t'appuyant sur ce qui marche."
         },
         {
-          "titre": "À ajuster",
-          "objectif": "Choisir un changement précis.",
-          "explication": "Une seule chose à ajuster suffit.",
-          "action": "Écris un ajustement clair.",
-          "resultat": "Tu sais quoi tester."
+          "titre": "Question 2 — À ajuster",
+          "objectif": "Identifier un seul ajustement précis.",
+          "explication": "Une seule chose à ajuster, pas une liste. Évite les généralités du type « être plus discipliné ». Cible un ajustement précis : « finir mes journées avec 30 minutes sans écran », « préparer mes priorités la veille », « refuser les réunions du vendredi ».",
+          "action": "Écris un seul ajustement précis et concret.",
+          "resultat": "Tu sais exactement quel petit changement tester la semaine prochaine."
         },
         {
-          "titre": "À ajouter",
-          "objectif": "Introduire une petite expérimentation.",
-          "explication": "Ajoute quelque chose de faisable, pas un grand projet.",
-          "action": "Écris une action à ajouter.",
-          "resultat": "Tu repars avec une action simple."
+          "titre": "Question 3 — À ajouter",
+          "objectif": "Identifier une chose nouvelle à essayer.",
+          "explication": "Une chose à ajouter dans ta vie ou ta semaine. Pas un grand projet : une petite expérimentation. Exemples : « marcher 15 minutes par jour », « appeler une personne par semaine », « écrire 10 minutes le matin ». Si l'ajout te fait peur, divise-le par deux jusqu'à ce qu'il soit faisable.",
+          "action": "Écris une chose à ajouter, suffisamment petite pour être faite.",
+          "resultat": "Tu repars avec une expérimentation concrète à tester."
         }
       ],
-      "exemple": "À garder : ma marche du midi. À ajuster : couper les notifications plus tôt. À ajouter : écrire 5 minutes le matin.",
+      "exemple": "Carl fait son bilan chaque dimanche soir, 10 minutes maximum.\n\nCette semaine :\n• À garder : la marche du midi à l'extérieur, ça change l'après-midi.\n• À ajuster : couper les notifications dès 20 h, pas 21 h 30.\n• À ajouter : écrire 5 minutes au matin avant le téléphone, juste pour cette semaine.\n\nIl ferme le carnet. Pas de rumination. Lundi matin, il sait quoi tester.",
       "outil": {
-        "titre": "Bilan en 3 questions",
-        "description": "À refaire chaque semaine.",
-        "contenu": "Date : ________. À garder : ________. À ajuster : ________. À ajouter : ________. Prochain bilan : ________."
+        "titre": "Grille de bilan en 3 questions",
+        "description": "Recopie cette grille dans un carnet ou une note. Réponds en une phrase par question, jamais plus.",
+        "contenu": "BILAN — DATE : ____________\n\n1. À GARDER\n(ce qui mérite vraiment d'être conservé)\n→ ___________________________\n\n2. À AJUSTER\n(un seul ajustement précis et concret)\n→ ___________________________\n\n3. À AJOUTER\n(une petite expérimentation faisable)\n→ ___________________________\n\nDURÉE TOTALE : 10 minutes maximum\nPROCHAIN BILAN : ____________"
       },
       "checklist": [
-        "Choisir un moment fixe.",
-        "Limiter à 10 minutes.",
-        "Répondre en une phrase.",
-        "Fermer la note après le bilan.",
-        "Garder une seule décision.",
-        "Répéter chaque semaine."
+        "Choisir un moment fixe dans la semaine (dimanche soir, vendredi midi, lundi matin).",
+        "Garder une durée stricte de 10 minutes maximum.",
+        "Répondre en une phrase par question, jamais plus.",
+        "Refermer le carnet ou la note dès que les 3 réponses sont écrites.",
+        "Repartir avec une seule décision concrète pour la semaine suivante.",
+        "Refaire le rituel pendant 4 semaines avant de juger s'il marche."
       ],
-      "plan_action": "Jour 1 : fais ton premier bilan. Jour 2 : applique l'ajustement. Jour 7 : refais le bilan.",
+      "plan_action": "Jour 1 : choisis ton moment de bilan et fais une première version (10 minutes maximum).\n\nJour 2 : applique l'ajustement et l'ajout choisis. Note simplement si c'est faisable.\n\nJour 7 : refais le bilan à la même heure. Compare avec celui de la semaine précédente.",
       "erreurs_a_eviter": [
         {
-          "erreur": "Dépasser 10 minutes.",
-          "risque": "Tu rumines.",
-          "correction": "Mets un minuteur."
+          "erreur": "Dépasser 10 minutes par bilan.",
+          "risque": "Tu glisses dans la rumination et tu finis fatigué.",
+          "correction": "Mets un minuteur. Quand il sonne, ferme le carnet."
         },
         {
-          "erreur": "Lister trop d'ajustements.",
-          "risque": "Tu te surcharges.",
-          "correction": "Un seul ajustement."
+          "erreur": "Lister 5 choses à ajuster.",
+          "risque": "Tu te surcharges et tu n'appliques rien.",
+          "correction": "Une seule chose à ajuster. Les autres attendent."
         },
         {
-          "erreur": "Chercher un bilan profond.",
-          "risque": "Tu repousses.",
-          "correction": "Fais court et utile."
+          "erreur": "Vouloir un bilan « profond ».",
+          "risque": "Tu repousses parce que tu n'es jamais « prêt ».",
+          "correction": "Le bilan est court et utile, pas profond. La régularité fait la profondeur."
         }
       ],
       "bilan": [
-        "Quel moment fonctionne le mieux ?",
-        "L'ajustement était-il faisable ?",
-        "L'ajout était-il simple ?",
-        "Te sens-tu plus clair ?"
+        "Quel moment de la semaine fonctionne le mieux pour ce rituel ?",
+        "L'ajustement testé a-t-il été faisable cette semaine ?",
+        "L'ajout a-t-il été assez petit pour être réellement essayé ?",
+        "Te sens-tu plus clair après le bilan, ou plus encombré ?"
       ],
-      "conclusion": "Trois questions suffisent pour créer du recul. Pour 5 $, tu reçois un petit système clair à appliquer rapidement."
+      "conclusion": "Faire le point ne demande pas une retraite. Trois questions, dix minutes, une note. La régularité de ce rituel court fait beaucoup plus que des sessions longues et rares.\n\nPour 5 $, tu reçois un petit système clair à appliquer rapidement."
     }
   },
   {
@@ -852,7 +796,7 @@
     "type": "mini-formation",
     "niveau": "micro",
     "public_cible": "Personne sédentaire qui veut bouger un peu chaque jour sans s'inscrire à une salle.",
-    "resume_court": "Une méthode éducative simple pour installer une marche de 15 minutes par jour, à un horaire fixe.",
+    "resume_court": "Une méthode éducative simple pour installer une marche de 15 minutes par jour, à un horaire fixe, sans matériel ni motivation extérieure.",
     "sous_titre": "Le mini-système éducatif pour bouger 15 minutes par jour sans excuse possible.",
     "promesse": "Horaire fixe, parcours simple, déclencheur visible : 15 minutes intégrées sans effort de volonté.",
     "resultat_concret": "Une marche de 15 minutes installée à un horaire fixe, à partir de demain.",
@@ -875,349 +819,77 @@
     "priorite_catalogue": "moyenne",
     "potentiel_vente": "moyen",
     "bouton_cta": "Acheter pour 5 $",
-    "tags": [
-      "sante",
-      "marche",
-      "habitude",
-      "routine",
-      "energie",
-      "sedentarite",
-      "bien-etre"
-    ],
+    "tags": ["sante", "marche", "habitude", "routine", "energie", "sedentarite", "bien-etre"],
     "detail": {
-      "introduction": "Cette formation est éducative et générale. Elle ne remplace pas un avis médical. Elle t'aide à installer une marche simple et réaliste.",
-      "resultat_vise": "Sous 24 à 72 heures, tu auras commencé une marche de 15 minutes à un horaire fixe.",
-      "demarrage_rapide": "Choisis un moment déjà présent dans ta journée : après le dîner, après le travail ou après le souper. Accroche la marche à ce moment.",
+      "introduction": "Cette formation est éducative et générale. Elle ne remplace pas un avis médical, surtout en cas de pathologie ou de douleur particulière.\n\nTu sais que tu devrais bouger plus. Tu y penses chaque jour. Tu te dis que tu vas commencer « quand tu auras plus de temps » ou « quand tu seras moins fatigué ». Le problème : ces conditions n'arrivent jamais.\n\nLe vrai obstacle n'est pas le temps. C'est l'absence d'un déclencheur fixe. Avec 15 minutes par jour, à la même heure, après une action que tu fais déjà, la marche s'installe sans dépendre de ta motivation.",
+      "resultat_vise": "Sous 24 à 72 heures, tu auras commencé à marcher 15 minutes par jour à un horaire fixe, et tu sauras quel déclencheur fonctionne pour toi.",
+      "demarrage_rapide": "Choisis un moment de la journée que tu fais déjà sans réfléchir : pause de midi, retour du travail, après le souper. Annonce-toi à voix haute : « Je marche 15 minutes après [ce moment-là] dès demain. » C'est ton premier ancrage.",
       "avant_apres": {
-        "avant": "Tu te promets de marcher plus, mais rien n'est fixé.",
-        "apres": "Tu as un déclencheur, un parcours et un signal visible."
+        "avant": "Tu te promets de marcher « plus » et tu finis chaque jour assis. Le poids de la promesse non tenue ajoute de la culpabilité à la sédentarité.",
+        "apres": "Tu marches 15 minutes après ton dîner, à la même heure, sur le même trajet. Tu n'as plus à décider ni à te motiver."
       },
       "methode": [
         {
-          "titre": "Choisir un déclencheur",
-          "objectif": "Accrocher la marche à une habitude existante.",
-          "explication": "Après une action quotidienne stable, tu marches 15 minutes.",
-          "action": "Écris ton déclencheur.",
-          "resultat": "Tu sais quand partir."
+          "titre": "Choisir un déclencheur déjà existant",
+          "objectif": "Accrocher la marche à une habitude qui existe déjà.",
+          "explication": "Ne crée pas une nouvelle case dans ton agenda. Accroche la marche à une action que tu fais déjà sans y penser : sortir du bureau, finir le café du matin, finir le souper, sortir le chien. La règle : « après [action existante], je marche 15 minutes ».",
+          "action": "Identifie une action quotidienne stable et écris ta phrase de déclenchement.",
+          "resultat": "Tu n'as plus besoin de te rappeler de marcher : l'action existante fait office d'alarme."
         },
         {
-          "titre": "Choisir un parcours fixe",
-          "objectif": "Supprimer la décision du trajet.",
-          "explication": "Un seul trajet court évite de négocier avec toi-même.",
-          "action": "Choisis ton parcours.",
-          "resultat": "Le départ est plus facile."
+          "titre": "Choisir un parcours fixe et court",
+          "objectif": "Supprimer toute décision avant de partir.",
+          "explication": "Décide d'un seul parcours, un seul itinéraire. Pas trois selon l'humeur. Le parcours doit faire 15 minutes aller-retour, sans détour. Avoir UN parcours unique enlève l'étape « où vais-je marcher ? » qui consomme la motivation.",
+          "action": "Définis ton parcours unique sur une carte ou en pensée.",
+          "resultat": "Tu peux partir sans réfléchir, le trajet est automatique."
         },
         {
           "titre": "Préparer un signal visible",
-          "objectif": "Réduire la friction.",
-          "explication": "Chaussures visibles, manteau prêt, rappel simple.",
-          "action": "Prépare le matériel.",
-          "resultat": "Tu n'as plus d'obstacle inutile."
+          "objectif": "Lever les obstacles invisibles qui font reporter.",
+          "explication": "Pose tes chaussures de marche à la sortie, au lieu de les ranger dans le placard. Visible = utilisé. Si tu marches le matin, prépare la veille tes vêtements à côté du lit. Le signal physique remplace la motivation.",
+          "action": "Place ton matériel à un endroit visible avant la fin de la journée.",
+          "resultat": "Au moment du déclencheur, tout est prêt, aucune friction."
         }
       ],
-      "exemple": "Léa marche après le dîner, toujours le même trajet autour du parc. Ses chaussures sont visibles près de la porte. Après quelques jours, la décision devient plus automatique.",
+      "exemple": "Léa veut marcher chaque jour. Elle accroche la marche à « après le dîner du midi ». Parcours unique : tour du parc à côté du bureau, 15 minutes pile. Signal visible : ses chaussures de marche restent à côté de son sac, pas dans le placard. Jour 1 : elle hésite, elle y va. Jour 4 : c'est automatique, elle marche en pilote automatique pendant que ses collègues mangent leur dessert. Au bout de 14 jours, elle ne discute plus avec elle-même, elle marche.",
       "outil": {
-        "titre": "Plan de marche 15 minutes",
-        "description": "À remplir en 5 minutes.",
-        "contenu": "Déclencheur : après ________. Horaire : ________. Parcours : ________. Signal visible : ________. Suivi 14 jours : [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]."
+        "titre": "Plan de mise en place de la marche",
+        "description": "Remplis cette fiche en 5 minutes et garde-la visible la première semaine.",
+        "contenu": "MA MARCHE DE 15 MINUTES — PLAN\n\n1. DÉCLENCHEUR\nAprès [action quotidienne déjà existante] :\n→ ____________________________\n\n2. HORAIRE PRÉCIS\n[heure de référence] :\n→ ____________________________\n\n3. PARCOURS UNIQUE\nDe [point A] à [point B] (≈ 15 minutes aller-retour) :\n→ ____________________________\n\n4. SIGNAL VISIBLE\nMatériel posé à [endroit visible] :\n→ ____________________________\n\n5. MARQUEUR DE RÉUSSITE\nJe coche ☑ chaque jour réussi pendant 14 jours :\n[ ] [ ] [ ] [ ] [ ] [ ] [ ]\n[ ] [ ] [ ] [ ] [ ] [ ] [ ]"
       },
       "checklist": [
-        "Choisir un déclencheur.",
-        "Définir un parcours fixe.",
-        "Préparer le matériel.",
-        "Marcher 15 minutes.",
-        "Cocher chaque jour.",
-        "Ajuster après 7 jours."
+        "Identifier une action quotidienne stable comme déclencheur.",
+        "Choisir un seul parcours fixe de 15 minutes.",
+        "Sortir le matériel à un endroit visible la veille.",
+        "Marcher pendant 14 jours sans changer le plan.",
+        "Cocher chaque jour réussi sur un calendrier visible.",
+        "Évaluer après 14 jours et ajuster une seule variable si besoin."
       ],
-      "plan_action": "Jour 1 : remplis le plan et marche. Jours 2 à 6 : répète. Jour 7 : ajuste une seule variable si nécessaire.",
+      "plan_action": "Jour 1 : remplis le plan, prépare le matériel visible, fais ta première marche.\n\nJour 2 à 6 : marche au même horaire, même parcours, sans débat intérieur.\n\nJour 7 : fais un mini-bilan de 2 minutes. Le déclencheur a-t-il fonctionné ? Le parcours est-il agréable ? Ajuste une seule variable, pas plus.",
       "erreurs_a_eviter": [
         {
-          "erreur": "Commencer trop fort.",
-          "risque": "Tu abandonnes.",
-          "correction": "Reste à 15 minutes."
+          "erreur": "Vouloir marcher 30 ou 45 minutes dès le départ.",
+          "risque": "Tu abandonnes au jour 4 parce que c'est trop long à caser.",
+          "correction": "Reste à 15 minutes pendant 14 jours. Tu allongeras seulement si l'habitude tient."
         },
         {
-          "erreur": "Changer de parcours tous les jours.",
-          "risque": "Tu ajoutes une décision.",
-          "correction": "Garde un parcours fixe."
+          "erreur": "Changer de parcours selon l'humeur.",
+          "risque": "Tu ajoutes une décision quotidienne et la motivation s'épuise.",
+          "correction": "Un seul parcours pendant 14 jours. La variété arrivera après."
         },
         {
-          "erreur": "Compter sur la motivation.",
-          "risque": "Les jours fatigués, tu sautes.",
-          "correction": "Compte sur le déclencheur."
+          "erreur": "Compter sur ta motivation.",
+          "risque": "Les jours fatigués ou pluvieux, tu sautes et l'habitude s'effondre.",
+          "correction": "Compte sur le déclencheur et le matériel visible, pas sur ton humeur."
         }
       ],
       "bilan": [
-        "Combien de jours as-tu marché ?",
-        "Le déclencheur fonctionne-t-il ?",
-        "Le parcours est-il agréable ?",
-        "As-tu besoin d'ajuster une seule chose ?"
+        "Combien de jours sur 14 as-tu réussi à marcher ?",
+        "Ton déclencheur fonctionne-t-il vraiment ou faut-il en changer ?",
+        "Ton parcours est-il agréable ou faut-il le revoir ?",
+        "Te sens-tu plus énergique après la marche, ou plutôt fatigué ?"
       ],
-      "conclusion": "Marcher 15 minutes par jour demande un déclencheur, un parcours fixe et un signal visible. Pour 5 $, tu reçois un petit système clair à appliquer rapidement."
+      "conclusion": "Marcher 15 minutes par jour ne demande pas de motivation. Ça demande un déclencheur, un parcours fixe et un signal visible. Trois éléments simples qui rendent l'habitude presque automatique en deux semaines.\n\nPour 5 $, tu reçois un petit système clair à appliquer rapidement."
     }
-  },
-{
-  "id": "bus-matrice-vente-premium",
-  "code": "BUS-160-001",
-  "titre": "Matrice de vente premium",
-  "slug": "bus-matrice-vente-premium",
-  "url": "formation.html?id=bus-matrice-vente-premium",
-  "fichier_html": "formation.html",
-  "categorie": "Business",
-  "prix_affiche": "160 $",
-  "prix_numerique": 160,
-  "type": "formation premium autonome",
-  "niveau": "premium autonome",
-  "public_cible": "Créateur de produit digital, entrepreneur ou indépendant qui veut mieux présenter une offre premium.",
-  "resume_court": "Structure ton message de vente, ta valeur, tes objections et ta page produit avec une matrice claire et réutilisable.",
-  "sous_titre": "La méthode pour présenter une offre premium avec plus de clarté, de valeur et de cohérence.",
-  "promesse": "Construis une matrice de vente claire pour présenter ton offre premium sans improviser.",
-  "resultat_concret": "Une matrice complète avec message central, angle, bénéfices, objections, page produit et plan d’amélioration.",
-  "resultat_attendu": "Une structure de vente plus claire, plus cohérente et plus facile à réutiliser.",
-  "resultat_periode": "30 à 60 jours",
-  "angle_vente": "Une bonne offre peut sembler faible si sa valeur n’est pas clairement expliquée.",
-  "duree_estimee": "4 à 8 heures",
-  "statut": "prêt à publier",
-  "version": "1.0",
-  "date_creation": "2026-05-02",
-  "derniere_mise_a_jour": "2026-05-02",
-  "prochaine_mise_a_jour": "2027-05-02",
-  "formation_suivante": "Système de conversion avancé",
-  "prix_formation_suivante": 320,
-  "note_qualite": 94,
-  "note_rentabilite": 93,
-  "note_valeur_client": 95,
-  "note_simplicite": 90,
-  "note_integration_web": 96,
-  "priorite_catalogue": "haute",
-  "potentiel_vente": "élevé",
-  "bouton_cta": "Acheter pour 160 $",
-  "tags": [
-    "business",
-    "vente",
-    "offre",
-    "conversion",
-    "page-produit",
-    "objections",
-    "premium",
-    "message"
-  ],
-  "detail": {
-    "introduction": "Vendre devient difficile quand tout repose sur l’improvisation. Tu peux avoir une bonne offre, mais si ton message est flou, la personne en face ne comprend pas assez vite pourquoi elle devrait acheter. Elle hésite, compare, remet à plus tard ou quitte la page. Le problème n’est pas toujours l’offre. Très souvent, le problème est la présentation de l’offre. Cette formation t’aide à construire une matrice complète pour organiser ton message central, ton problème principal, ta promesse réaliste, tes bénéfices, tes objections, tes réponses, ton angle de vente, ta page produit et ton plan d’amélioration.",
-    "resultat_vise": "Sur 30 à 60 jours, tu peux obtenir une structure de vente plus claire, plus cohérente et plus facile à réutiliser pour présenter ton offre premium. Le résultat attendu est une matrice complète contenant ton message central, ton problème principal, ta promesse réaliste, tes bénéfices, tes objections, ta page produit et ton tableau de bord.",
-    "demarrage_rapide": "Pendant 30 minutes, réponds à ces cinq questions : qu’est-ce que ton offre aide réellement à résoudre ? Qui a le plus besoin de cette offre maintenant ? Quelle erreur cette personne fait souvent avant d’acheter ? Qu’est-ce qui rend ton offre plus simple, plus utile ou plus complète qu’une solution improvisée ? Quelle phrase pourrait faire comprendre la valeur de ton offre en moins de 10 secondes ?",
-    "avant_apres": {
-      "avant": "Ton offre est intéressante, mais difficile à expliquer. Ton prix semble élevé parce que la valeur n’est pas assez visible. Tes arguments sont dispersés. Ta page liste du contenu au lieu de vendre un résultat. Tu réponds aux objections au hasard.",
-      "apres": "Tu as une phrase centrale claire, un angle de vente précis, une structure d’arguments, des objections préparées, une page produit structurée et un tableau de bord pour améliorer ton message."
-    },
-    "methode": [
-      {
-        "titre": "Clarifier le message central",
-        "objectif": "Créer une phrase simple qui explique ton offre, ton public cible et le résultat attendu.",
-        "explication": "Le message central est la phrase qui permet à quelqu’un de comprendre rapidement ce que tu proposes. Une bonne phrase répond à trois questions : c’est pour qui, ça aide à résoudre quoi, et ça aide à obtenir quoi comme résultat observable.",
-        "schema": "Public cible + problème précis + résultat observable + méthode claire = message central.",
-        "exemple": "Cette formation aide les créateurs de produits digitaux à structurer leur message de vente pour présenter leur offre avec plus de clarté et moins d’improvisation.",
-        "action": "Remplis cette phrase : cette offre aide [public cible] à [résoudre un problème précis] pour [obtenir un résultat observable] grâce à [méthode ou structure].",
-        "resultat": "Tu obtiens une phrase centrale que tu peux utiliser dans une page produit, un courriel, une publication ou une conversation.",
-        "erreur": "Ne vise pas trois publics différents dans la même phrase."
-      },
-      {
-        "titre": "Définir le problème principal",
-        "objectif": "Identifier le problème que ton offre doit rendre évident.",
-        "explication": "Une vente commence avec une tension. La personne doit reconnaître un blocage concret. Un bon problème est concret, fréquent et visible.",
-        "schema": "Problème flou → client ne se reconnaît pas → intérêt faible. Problème précis → client se reconnaît → intérêt naturel.",
-        "exemple": "Beaucoup de créateurs ont une bonne offre, mais leur page produit explique surtout le contenu au lieu de montrer clairement la valeur pour le client.",
-        "action": "Écris une version simple, une version précise et une version commerciale du problème.",
-        "resultat": "Tu obtiens un problème principal que tu peux mettre en début de page produit.",
-        "erreur": "Ne crée pas dix problèmes principaux."
-      },
-      {
-        "titre": "Transformer les caractéristiques en valeur",
-        "objectif": "Faire passer ton offre d’une liste de contenus à une perception de valeur.",
-        "explication": "Une caractéristique décrit ce qui est inclus. Une valeur explique pourquoi c’est utile. Une offre premium doit montrer la valeur de chaque élément.",
-        "schema": "Contenu inclus → utilité concrète → résultat observable → valeur perçue.",
-        "exemple": "Un plan d’action 60 jours n’est pas seulement un document. C’est une structure qui aide à savoir quoi appliquer en premier et quoi améliorer ensuite.",
-        "action": "Liste les éléments inclus dans ton offre et explique l’utilité concrète de chacun.",
-        "resultat": "Tu obtiens une base d’arguments pour vendre la valeur réelle de ton offre.",
-        "erreur": "Ne dis pas seulement que ton offre est complète. Explique complète pour quoi, pour qui et dans quel but."
-      },
-      {
-        "titre": "Construire la promesse réaliste",
-        "objectif": "Formuler une promesse claire sans exagération.",
-        "explication": "Une promesse de vente n’est pas une garantie. C’est une direction claire. Elle doit être spécifique, crédible et liée à un effort réel.",
-        "schema": "Direction claire + résultat observable + crédibilité = promesse réaliste.",
-        "exemple": "Structure ton message de vente pour présenter ton offre avec plus de clarté et moins d’improvisation.",
-        "action": "Écris une promesse simple, une promesse complète et une promesse catalogue.",
-        "resultat": "Tu obtiens une promesse utilisable dans ton catalogue.",
-        "erreur": "Ne promets pas un résultat qui dépend du trafic, du budget ou du marché."
-      },
-      {
-        "titre": "Créer l’angle de vente",
-        "objectif": "Trouver l’idée principale qui rend ton offre désirable.",
-        "explication": "L’angle de vente est la façon de présenter ton offre. Il peut être basé sur la clarté, la valeur, les objections ou le système.",
-        "schema": "Offre → angle choisi → message répété → meilleure cohérence.",
-        "exemple": "Ne baisse pas la valeur de ton offre parce que ton message manque de structure. Construis une matrice qui rend ton offre plus claire, plus crédible et plus facile à présenter.",
-        "action": "Choisis un angle principal pour les 30 prochains jours.",
-        "resultat": "Ton offre a une direction commerciale claire.",
-        "erreur": "Ne change pas d’angle à chaque publication."
-      },
-      {
-        "titre": "Répondre aux objections",
-        "objectif": "Préparer des réponses utiles aux hésitations normales.",
-        "explication": "Une objection n’est pas toujours un refus. Souvent, c’est une question mal formulée. Répondre à une objection signifie clarifier, pas pousser.",
-        "schema": "Objection → question cachée → réponse calme → clarté.",
-        "exemple": "Si quelqu’un dit qu’il peut trouver ça gratuitement, la réponse est : oui, tu peux trouver de l’information gratuite. Ici, tu reçois une structure organisée, des outils copiables et un plan d’application.",
-        "action": "Liste cinq objections probables et écris une réponse calme pour chacune.",
-        "resultat": "Tu obtiens une banque de réponses pour ta page produit et tes messages.",
-        "erreur": "Ne réponds pas à une objection avec de la pression."
-      },
-      {
-        "titre": "Structurer la page produit",
-        "objectif": "Créer une page produit simple qui présente l’offre dans le bon ordre.",
-        "explication": "Une page produit premium doit commencer par le problème, le résultat attendu et la valeur. Le prix arrive après que la valeur soit comprise.",
-        "schema": "Attention → problème → résultat attendu → valeur → objections → prix → action.",
-        "exemple": "Titre : Matrice de vente premium. Sous-titre : Construis une structure claire pour présenter, expliquer et vendre une offre premium sans improviser.",
-        "action": "Rédige une mini-page produit avec titre, sous-titre, problème, résultat, inclusions, valeur, objections, prix et CTA.",
-        "resultat": "Tu obtiens une page claire à intégrer dans ton site.",
-        "erreur": "Ne mets pas le prix avant la valeur."
-      },
-      {
-        "titre": "Suivre et améliorer la matrice",
-        "objectif": "Mettre en place un système simple pour améliorer ton message après publication.",
-        "explication": "Une matrice de vente s’améliore avec les retours. Observe les questions, les objections, les hésitations, les clics et les passages mal compris.",
-        "schema": "Publier → observer → comprendre → ajuster → tester encore.",
-        "exemple": "Si plusieurs personnes demandent si la formation est adaptée aux débutants, ajoute une section Pour qui plus claire.",
-        "action": "Chaque semaine, améliore un seul bloc : titre, sous-titre, objections, CTA ou valeur.",
-        "resultat": "Ton message devient plus clair avec le temps.",
-        "erreur": "Ne réécris pas tout après un seul commentaire."
-      }
-    ],
-    "exemple": "Offre exemple : créer une page produit claire. Message faible : formation pour créer une page produit. Message amélioré : une formation pour aider les créateurs de produits digitaux à construire une page produit claire, crédible et orientée achat. Problème précis : beaucoup de créateurs décrivent ce que contient leur produit, mais n’expliquent pas assez clairement pourquoi le client devrait l’acheter maintenant. Promesse réaliste : construis une page produit qui explique clairement ton offre, sa valeur et les raisons d’acheter.",
-    "outils": [
-      {
-        "titre": "Matrice centrale de vente",
-        "contenu": "Nom de l’offre : ____\nPublic cible principal : ____\nProblème principal : ____\nConséquence du problème : ____\nRésultat attendu : ____\nPromesse réaliste : ____\nMéthode utilisée : ____\nÉléments inclus : ____\nValeur principale : ____\nObjection principale : ____\nRéponse à l’objection : ____\nCTA principal : ____"
-      },
-      {
-        "titre": "Formule du message central",
-        "contenu": "Cette offre aide [public cible] à [résoudre un problème précis] pour [obtenir un résultat observable] grâce à [méthode ou structure]."
-      },
-      {
-        "titre": "Script de page produit",
-        "contenu": "1. Titre :\n2. Sous-titre :\n3. Problème principal :\n4. Pourquoi ce problème bloque :\n5. Résultat attendu :\n6. Pour qui :\n7. Ce que tu obtiens :\n8. Pourquoi c’est utile :\n9. Objections fréquentes :\n10. Prix : 160 $\n11. CTA :\n12. Phrase rassurante :"
-      }
-    ],
-    "checklist": [
-      "Choisir une seule offre à travailler.",
-      "Écrire le nom exact de l’offre.",
-      "Définir le public cible principal.",
-      "Identifier le problème le plus urgent.",
-      "Décrire la conséquence du problème.",
-      "Écrire le résultat attendu sans promesse exagérée.",
-      "Formuler une phrase centrale claire.",
-      "Lister les éléments inclus dans l’offre.",
-      "Transformer chaque élément en valeur client.",
-      "Choisir un angle de vente principal.",
-      "Rédiger une promesse réaliste.",
-      "Écrire trois bénéfices concrets.",
-      "Lister cinq objections probables.",
-      "Préparer une réponse calme pour chaque objection.",
-      "Rédiger un message court de vente.",
-      "Rédiger un message long de vente.",
-      "Structurer une mini-page produit.",
-      "Vérifier que le prix arrive après la valeur.",
-      "Ajouter une phrase rassurante.",
-      "Créer un CTA simple.",
-      "Relire la page pour supprimer les phrases floues.",
-      "Remplacer les caractéristiques seules par des bénéfices.",
-      "Vérifier que la cible est claire.",
-      "Vérifier que la promesse reste réaliste.",
-      "Préparer un tableau de suivi.",
-      "Publier une première version.",
-      "Noter les questions reçues.",
-      "Noter les objections fréquentes.",
-      "Améliorer un bloc à la fois.",
-      "Refaire un bilan après 30 jours."
-    ],
-    "plan_action": "Jours 1 à 3 : clarifie l’offre, le public, le problème et le résultat attendu.\n\nJours 4 à 7 : transforme le contenu en bénéfices et rends la valeur plus visible.\n\nSemaine 2 : choisis ton angle de vente principal et rédige ton message court.\n\nSemaine 3 : prépare tes réponses aux objections.\n\nSemaine 4 : construis ta page produit complète.\n\nJours 31 à 45 : observe les questions, objections et hésitations.\n\nJours 46 à 60 : améliore le titre, la valeur, les objections et le CTA.",
-    "erreurs_a_eviter": [
-      {
-        "erreur": "Commencer par le prix.",
-        "risque": "Le client compare avant de comprendre la valeur.",
-        "correction": "Présente d’abord le problème, le résultat attendu et les éléments utiles."
-      },
-      {
-        "erreur": "Décrire seulement le contenu.",
-        "risque": "L’offre semble ordinaire.",
-        "correction": "Explique l’utilité de chaque élément."
-      },
-      {
-        "erreur": "Viser trop large.",
-        "risque": "Personne ne se reconnaît vraiment.",
-        "correction": "Choisis un public principal."
-      },
-      {
-        "erreur": "Promettre trop fort.",
-        "risque": "La promesse semble irréaliste.",
-        "correction": "Reste sur un résultat observable."
-      },
-      {
-        "erreur": "Ignorer les objections.",
-        "risque": "Les hésitations restent présentes.",
-        "correction": "Ajoute des réponses claires."
-      },
-      {
-        "erreur": "Changer d’angle trop souvent.",
-        "risque": "Le message devient incohérent.",
-        "correction": "Garde un angle plusieurs semaines."
-      },
-      {
-        "erreur": "Confondre urgence et pression.",
-        "risque": "La vente semble forcée.",
-        "correction": "Clarifie sans pousser."
-      },
-      {
-        "erreur": "Utiliser des phrases générales.",
-        "risque": "Le message devient banal.",
-        "correction": "Utilise des situations concrètes."
-      },
-      {
-        "erreur": "Ne pas suivre les retours.",
-        "risque": "Les mêmes erreurs reviennent.",
-        "correction": "Utilise un tableau de bord."
-      },
-      {
-        "erreur": "Attendre la page parfaite.",
-        "risque": "Rien ne sort.",
-        "correction": "Publie une version claire puis améliore."
-      }
-    ],
-    "bilan_30_jours": [
-      "Est-ce que le message central est clair en une phrase ?",
-      "Est-ce que le public cible est précis ?",
-      "Est-ce que le problème principal est concret ?",
-      "Est-ce que la valeur est visible avant le prix ?",
-      "Est-ce que les objections les plus probables sont traitées ?",
-      "Est-ce que le CTA est simple ?",
-      "Est-ce que la page produit semble cohérente ?",
-      "Quelles questions reviennent le plus souvent ?",
-      "Quel bloc mérite d’être simplifié ?",
-      "Quelle amélioration prioritaire peut être faite cette semaine ?"
-    ],
-    "bilan_60_jours": [
-      "Quel message a créé le plus d’intérêt ?",
-      "Quelle objection revient encore ?",
-      "Quelle partie de la page semble la moins claire ?",
-      "Quel bénéfice semble le plus fort ?",
-      "Quel élément inclus semble le plus utile ?",
-      "Est-ce que le prix est présenté après assez de valeur ?",
-      "Est-ce que la promesse reste réaliste ?",
-      "Est-ce que la cible doit être précisée ?",
-      "Est-ce que l’angle de vente doit être gardé ou ajusté ?",
-      "Quelle version améliorée publier maintenant ?",
-      "Quelle offre complémentaire pourrait être proposée ensuite ?",
-      "Quelle action simple peut rendre la page plus claire cette semaine ?"
-    ],
-    "conclusion": "La Matrice de vente premium t’aide à transformer une offre difficile à expliquer en structure claire, cohérente et réutilisable. Tu n’as pas besoin de forcer. Tu as besoin de clarifier. Une vente plus professionnelle commence souvent par une meilleure organisation du message : qui tu aides, quel problème tu simplifies, quelle valeur tu apportes, quelles objections tu anticipes et quelle action tu proposes. Pour 160 $, tu reçois une formation autonome complète, un système structuré, des outils prêts à utiliser et un plan d’action pour appliquer étape par étape sans partir de zéro. Utilise cette matrice une première fois, puis améliore-la avec les retours."
   }
-}
+]

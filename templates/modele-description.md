@@ -115,4 +115,3 @@ Pas une statistique inventée. Un personnage et une situation.]
 - 5 $ : « Pour 5 $, tu reçois un petit système clair à appliquer rapidement. »
 - 15 $ : phrase équivalente du prompt 15 $
 - etc.]
-
