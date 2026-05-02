@@ -63,13 +63,18 @@
   box-shadow: 0 0 0 3px rgba(245, 217, 130, 0.12);
 }
 .search-box::before {
-  content: "⌕";
+  content: "";
   position: absolute;
-  left: 16px;
+  left: 14px;
   top: 50%;
+  width: 18px;
+  height: 18px;
   transform: translateY(-50%);
-  color: var(--or-clair);
-  font-size: 1.1rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f5d982' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
 }
 
 .filter-select {

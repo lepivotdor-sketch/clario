@@ -39,6 +39,7 @@ self.addEventListener("install", function (event) {
   self.skipWaiting();
   event.waitUntil(
     caches.open(STATIC_CACHE).then(function (cache) {
+      // addAll échoue si UN fichier manque → on fait un add tolérant
       return Promise.all(PRECACHE_URLS.map(function (url) {
         return cache.add(url).catch(function (err) {
           console.warn("SW precache miss:", url, err);
@@ -63,21 +64,33 @@ self.addEventListener("activate", function (event) {
 self.addEventListener("fetch", function (event) {
   var req = event.request;
   if (req.method !== "GET") return;
+
   var url = new URL(req.url);
+
+  // On ne gère que la même origine (GitHub Pages)
   if (url.origin !== self.location.origin) return;
+
   var dest = req.destination;
+
+  // JSON / data : stale-while-revalidate
   if (url.pathname.indexOf("/data/") !== -1 || /\.json($|\?)/.test(url.pathname)) {
     event.respondWith(staleWhileRevalidate(req));
     return;
   }
+
+  // CSS / JS / images / fonts : cache-first
   if (dest === "style" || dest === "script" || dest === "image" || dest === "font") {
     event.respondWith(cacheFirst(req));
     return;
   }
+
+  // HTML : network-first (avec fallback cache + 404 offline)
   if (dest === "document" || req.headers.get("accept").indexOf("text/html") !== -1) {
     event.respondWith(networkFirstHtml(req));
     return;
   }
+
+  // Reste : cache-first défensif
   event.respondWith(cacheFirst(req));
 });
 
@@ -115,7 +128,9 @@ function staleWhileRevalidate(req) {
         if (res && res.status === 200) cache.put(req, res.clone());
         return res;
       }).catch(function () { return null; });
-      return cached || network || new Response("[]", { headers: { "Content-Type": "application/json" } });
+      return cached || network || new Response("[]", {
+        headers: { "Content-Type": "application/json" }
+      });
     });
   });
 }

@@ -1,20 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Clario — Mini-formations digitales">
   <defs>
-    <radialGradient id="bg1" cx="14%" cy="12%" r="60%"><stop offset="0%" stop-color="#f5d982" stop-opacity="0.35"/><stop offset="100%" stop-color="#050505" stop-opacity="0"/></radialGradient>
-    <radialGradient id="bg2" cx="85%" cy="80%" r="55%"><stop offset="0%" stop-color="#d8aa3d" stop-opacity="0.25"/><stop offset="100%" stop-color="#050505" stop-opacity="0"/></radialGradient>
-    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f5d982"/><stop offset="100%" stop-color="#d8aa3d"/></linearGradient>
-    <radialGradient id="logoGold" cx="35%" cy="30%" r="80%"><stop offset="0%" stop-color="#f5d982"/><stop offset="55%" stop-color="#d8aa3d"/><stop offset="100%" stop-color="#8c6418"/></radialGradient>
-    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#f5d982" stroke-opacity="0.05" stroke-width="1"/></pattern>
+    <radialGradient id="bg1" cx="14%" cy="12%" r="60%">
+      <stop offset="0%" stop-color="#f5d982" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bg2" cx="85%" cy="80%" r="55%">
+      <stop offset="0%" stop-color="#d8aa3d" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5d982"/>
+      <stop offset="100%" stop-color="#d8aa3d"/>
+    </linearGradient>
+    <radialGradient id="logoGold" cx="35%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#f5d982"/>
+      <stop offset="55%" stop-color="#d8aa3d"/>
+      <stop offset="100%" stop-color="#8c6418"/>
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#f5d982" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
   </defs>
+
   <rect width="1200" height="630" fill="#070707"/>
   <rect width="1200" height="630" fill="url(#grid)"/>
   <rect width="1200" height="630" fill="url(#bg1)"/>
   <rect width="1200" height="630" fill="url(#bg2)"/>
-  <g transform="translate(110 130)"><rect width="120" height="120" rx="32" fill="#050505" stroke="#f5d982" stroke-opacity="0.3" stroke-width="2"/><g transform="translate(28 28)"><path d="M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z" fill="url(#logoGold)"/><circle cx="32" cy="32" r="7" fill="#0a0702"/><circle cx="32" cy="32" r="4" fill="#f5d982"/></g></g>
+
+  <!-- Logo -->
+  <g transform="translate(110 130)">
+    <rect width="120" height="120" rx="32" fill="#050505" stroke="#f5d982" stroke-opacity="0.3" stroke-width="2"/>
+    <g transform="translate(28 28)">
+      <path d="M32 10L38 26L54 32L38 38L32 54L26 38L10 32L26 26Z" fill="url(#logoGold)"/>
+      <circle cx="32" cy="32" r="7" fill="#0a0702"/>
+      <circle cx="32" cy="32" r="4" fill="#f5d982"/>
+    </g>
+  </g>
+
+  <!-- Marque -->
   <text x="270" y="195" font-family="-apple-system, Segoe UI, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="8" fill="url(#goldText)">CLARIO</text>
   <text x="270" y="232" font-family="-apple-system, Segoe UI, Arial, sans-serif" font-size="20" letter-spacing="6" fill="#fff7df" fill-opacity="0.7">MINI-FORMATIONS DIGITALES</text>
+
+  <!-- Titre principal -->
   <text x="110" y="370" font-family="-apple-system, Segoe UI, Arial, sans-serif" font-size="68" font-weight="700" fill="#fff7df">Apprends vite.</text>
   <text x="110" y="450" font-family="-apple-system, Segoe UI, Arial, sans-serif" font-size="68" font-weight="700" fill="#fff7df">Applique aujourd’hui.</text>
   <text x="110" y="530" font-family="-apple-system, Segoe UI, Arial, sans-serif" font-size="68" font-weight="700" fill="url(#goldText)" font-style="italic">Avance pour de vrai.</text>
-  <g transform="translate(110 575)"><rect width="380" height="40" rx="20" fill="#050505" stroke="#f5d982" stroke-opacity="0.4" stroke-width="1"/><text x="22" y="26" font-family="-apple-system, Segoe UI, Arial, sans-serif" font-size="15" letter-spacing="3" fill="#f5d982">ACHAT UNIQUE — À PARTIR DE 5 $</text></g>
+
+  <!-- Tag bas -->
+  <g transform="translate(110 575)">
+    <rect width="380" height="40" rx="20" fill="#050505" stroke="#f5d982" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="22" y="26" font-family="-apple-system, Segoe UI, Arial, sans-serif" font-size="15" letter-spacing="3" fill="#f5d982">ACHAT UNIQUE — À PARTIR DE 5 $</text>
+  </g>
 </svg>
