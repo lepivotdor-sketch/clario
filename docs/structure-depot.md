@@ -96,3 +96,4 @@ et fusionner les résultats.
 
 Ces dossiers **ne doivent pas être déployés** sur GitHub Pages public.
 Tu peux les exclure via `.gitignore` ou les laisser dans le dépôt privé seulement.
+
