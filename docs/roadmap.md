@@ -65,3 +65,4 @@ Plan progressif pour passer de 0 à 400 formations sans casser la structure.
 - Note qualité moyenne (cible : ≥ 90/100).
 - Vitesse de chargement du catalogue (< 1 seconde sur 4G).
 - Taux de conversion catalogue → fiche → achat.
+
