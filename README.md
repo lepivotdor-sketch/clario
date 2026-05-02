@@ -60,3 +60,4 @@ Voir `docs/roadmap.md` pour le plan de développement progressif.
 ## Contact
 
 lepivotdor@gmail.com
+
