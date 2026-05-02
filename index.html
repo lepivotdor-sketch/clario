@@ -153,7 +153,91 @@
 </div>
       </div>
     </section>
+    
+<!-- DASHBOARD CACHÉ -->
+<section id="dashboard-cache" class="dashboard-cache">
+  <div class="container">
+    <div class="dashboard-lock" id="dashboardLock">
+      <small>Zone interne</small>
+      <h2>Tableau de bord Clario</h2>
+      <p>Entre le mot de passe pour voir les indicateurs internes.</p>
 
+      <div class="dashboard-form">
+        <input
+          type="password"
+          id="dashboardPassword"
+          placeholder="Mot de passe"
+          autocomplete="off"
+        />
+        <button class="btn btn-primary" type="button" onclick="ouvrirDashboard()">
+          Déverrouiller
+        </button>
+      </div>
+
+      <p class="dashboard-error" id="dashboardError"></p>
+    </div>
+
+    <div class="dashboard-content" id="dashboardContent" hidden>
+      <div class="section-title">
+        <small>Dashboard interne</small>
+        <h2>8 KPI essentiels</h2>
+        <p>Vue rapide pour suivre la progression du catalogue Clario.</p>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <strong>0</strong>
+          <span>Ventes totales</span>
+        </div>
+
+        <div class="kpi-card">
+          <strong>0 $</strong>
+          <span>Revenus générés</span>
+        </div>
+
+        <div class="kpi-card">
+          <strong>0</strong>
+          <span>Formations en ligne</span>
+        </div>
+
+        <div class="kpi-card">
+          <strong>0</strong>
+          <span>Visites du site</span>
+        </div>
+
+        <div class="kpi-card">
+          <strong>0 %</strong>
+          <span>Taux de conversion</span>
+        </div>
+
+        <div class="kpi-card">
+          <strong>0</strong>
+          <span>Clics catalogue</span>
+        </div>
+
+        <div class="kpi-card">
+          <strong>0</strong>
+          <span>Accès activés</span>
+        </div>
+
+        <div class="kpi-card">
+          <strong>0</strong>
+          <span>Demandes support</span>
+        </div>
+      </div>
+
+      <div class="dashboard-note">
+        <strong>Note interne :</strong>
+        Cette zone est seulement masquée côté navigateur. Ne pas y placer de données sensibles,
+        de mots de passe réels, de clés API, de données clients ou d’informations privées.
+      </div>
+
+      <button class="btn btn-secondary" type="button" onclick="fermerDashboard()">
+        Verrouiller
+      </button>
+    </div>
+  </div>
+</section>
     <!-- CTA -->
     <section class="cta" id="demarrer">
       <div class="container">
