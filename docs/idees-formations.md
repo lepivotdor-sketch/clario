@@ -40,7 +40,7 @@ Chaque ligne est un slot pré-réservé. Marque `[X]` quand la formation est pub
 
 ## Business — BUS-001 à BUS-050
 
-- [x] **BUS-001** : Écrire ta bio pro claire en 20 minutes *(5 $, publié)*
+- [ ] BUS-001 : *réservé*
 - [ ] BUS-002 : Construire ton offre claire en 1 page
 - [ ] BUS-003 : Trouver ton angle de vente qui vend
 - [ ] BUS-004 : Écrire une page de vente courte qui convertit
@@ -99,8 +99,8 @@ Chaque ligne est un slot pré-réservé. Marque `[X]` quand la formation est pub
 
 - Catégories : **8**
 - IDs réservés : **400** (50 × 8)
-- Publiées (1 mai 2026) : **8**
-- Restantes à produire : **392**
+- Publiées (1 mai 2026) : **7**
+- Restantes à produire : **393**
 
 ## Convention de remplissage
 
