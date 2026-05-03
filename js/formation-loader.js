@@ -94,6 +94,14 @@
       return;
     }
 
+    // Blocklist défensive : IDs explicitement non-disponibles publiquement,
+    // quel que soit l'état du JSON.
+    var BLOCKLIST = ["bus-bio-pro-claire-20-minutes"];
+    if (BLOCKLIST.indexOf(id.toLowerCase()) !== -1) {
+      showError("Formation introuvable.");
+      return;
+    }
+
     robustFetch("data/formations.json")
       .then(function (r) { return r.json(); })
       .then(function (data) {
