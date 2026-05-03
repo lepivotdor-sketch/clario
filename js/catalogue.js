@@ -2,9 +2,10 @@
    CLARIO - catalogue.js
    Charge data/formations.json, rend la grille, gère filtres et recherche.
 
-   Compatibilité :
-   - Schéma riche (resume_court, sous_titre, prix_affiche, prix_numerique...)
-   - Schéma simple (description, prix...)
+   Version « architecture publique ». Le JSON ne contient que des champs
+   de vente : id, titre, categorie, prix, niveau, duree, resume_court,
+   sous_titre, promesse, resultat_vise_court, public_cible, inclus_public,
+   lien_achat, statut. Aucun contenu pédagogique n'est rendu ici.
    ===================================================================== */
 
 (function () {
@@ -36,7 +37,6 @@
     } catch (e) { /* quota / privé : on ignore */ }
   }
 
-  // Debounce simple, utile pour la recherche
   function debounce(fn, wait) {
     var t = null;
     return function () {
@@ -46,7 +46,6 @@
     };
   }
 
-  // Cache de résultats filtrés (clé = signature de STATE)
   var FILTER_CACHE = { key: null, list: null };
   function cacheKey() {
     return STATE.categorie + "|" + STATE.prix + "|" + STATE.niveau + "|" + STATE.recherche;
@@ -63,14 +62,19 @@
   }
 
   function getPrixNumerique(f) {
-    if (typeof f.prix_numerique === "number") return f.prix_numerique;
     if (typeof f.prix === "number") return f.prix;
-    var n = parseFloat(f.prix_numerique || f.prix);
-    return isNaN(n) ? null : n;
+    if (typeof f.prix === "string") {
+      var m = f.prix.match(/\d+(?:[.,]\d+)?/);
+      if (m) {
+        var n = parseFloat(m[0].replace(",", "."));
+        return isNaN(n) ? null : n;
+      }
+    }
+    return null;
   }
 
   function formatPrix(f) {
-    if (f.prix_affiche) return f.prix_affiche;
+    if (typeof f.prix === "string" && f.prix.trim()) return f.prix;
     var n = getPrixNumerique(f);
     return n != null ? (n + " $") : "—";
   }
@@ -78,14 +82,9 @@
   function isPublished(f) {
     if (!f) return false;
     var s = (f.statut || "").toLowerCase();
-    // Compatible avec "publié", "publie", "en_ligne", "en ligne"
     return /publi|en.?ligne/.test(s);
   }
 
-  /**
-   * fetch avec timeout (8 s) et 2 retries exponentiels (250 ms, 750 ms).
-   * Renvoie une promesse résolue avec la Response, sinon rejette.
-   */
   function robustFetch(url, opts) {
     opts = opts || {};
     var timeoutMs = opts.timeout || 8000;
@@ -102,7 +101,7 @@
         .catch(function (err) {
           clearTimeout(to);
           if (i >= attempts) throw err;
-          var wait = 250 * Math.pow(3, i); // 250, 750 ms
+          var wait = 250 * Math.pow(3, i);
           return new Promise(function (res) { setTimeout(res, wait); }).then(function () {
             return attempt(i + 1);
           });
@@ -115,7 +114,7 @@
 
   function init() {
     var grid = document.getElementById("formation-grid");
-    if (!grid) return; // page sans catalogue
+    if (!grid) return;
 
     robustFetch("data/formations.json")
       .then(function (r) { return r.json(); })
@@ -123,18 +122,13 @@
         if (!Array.isArray(data)) throw new Error("Le JSON formations.json doit être un tableau.");
         ALL_FORMATIONS = data.filter(isPublished);
 
-        // Tri stable : priorité catalogue puis catégorie puis titre
         ALL_FORMATIONS.sort(function (a, b) {
-          var pa = priorityWeight(a.priorite_catalogue);
-          var pb = priorityWeight(b.priorite_catalogue);
-          if (pa !== pb) return pa - pb;
           var ca = (a.categorie || "").toLowerCase();
           var cb = (b.categorie || "").toLowerCase();
           if (ca !== cb) return ca < cb ? -1 : 1;
           return (a.titre || "").localeCompare(b.titre || "", "fr");
         });
 
-        // Lecture des paramètres URL (?cat=ia&prix=5)
         var params = new URLSearchParams(window.location.search);
         if (params.get("cat")) STATE.categorie = params.get("cat").toLowerCase();
         if (params.get("prix")) STATE.prix = params.get("prix");
@@ -158,14 +152,6 @@
           init();
         });
       });
-  }
-
-  function priorityWeight(p) {
-    var t = (p || "").toLowerCase();
-    if (t === "haute" || t === "high") return 0;
-    if (t === "moyenne" || t === "medium") return 1;
-    if (t === "basse" || t === "low") return 2;
-    return 1;
   }
 
   /* ---------- FILTRES ---------- */
@@ -224,7 +210,6 @@
 
   /* ---------- FILTRAGE ---------- */
 
-  // Map préfixe -> mot clé contenu dans la catégorie
   var PREF_MAP = {
     "ia": "ia",
     "pro": "productivit",
@@ -257,9 +242,8 @@
   function matchesRecherche(f) {
     if (!STATE.recherche) return true;
     var hay = [
-      f.titre, f.sous_titre, f.resume_court, f.description,
-      f.public_cible, f.categorie, f.code, f.id,
-      (f.tags || []).join(" "),
+      f.titre, f.sous_titre, f.resume_court, f.promesse,
+      f.public_cible, f.categorie, f.id,
     ].filter(Boolean).join(" ").toLowerCase();
     return hay.indexOf(STATE.recherche) !== -1;
   }
@@ -316,7 +300,7 @@
         return {
           "@type": "ListItem",
           "position": i + 1,
-          "url": origin + "formation.html?id=" + encodeURIComponent(f.id || f.code || ""),
+          "url": origin + "formation.html?id=" + encodeURIComponent(f.id || ""),
           "name": f.titre || ""
         };
       })
@@ -347,12 +331,11 @@
 
   function cardHTML(f) {
     var includes = [];
-    if (f.duree_estimee || f.duree) includes.push("Durée : " + (f.duree_estimee || f.duree));
-    if (f.resultat_periode) includes.push("Résultat sous " + f.resultat_periode);
+    if (f.duree) includes.push("Durée : " + f.duree);
     if (f.niveau) includes.push("Niveau " + f.niveau);
 
-    var url = f.url || ("formation.html?id=" + encodeURIComponent(f.id || f.code || ""));
-    var summary = f.resume_court || f.description || f.sous_titre || "";
+    var url = "formation.html?id=" + encodeURIComponent(f.id || "");
+    var summary = f.resume_court || f.sous_titre || "";
 
     return (
       '<article class="formation-card">' +
