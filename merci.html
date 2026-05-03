@@ -42,7 +42,28 @@
     }
     .merci-card p { color: var(--gris); margin-bottom: 12px; }
     .merci-actions { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .merci-formation {
+      margin: 18px auto 4px;
+      padding: 14px 18px;
+      max-width: 420px;
+      border-radius: 12px;
+      background: rgba(245,217,130,0.06);
+      border: 1px solid var(--ligne-or);
+      color: var(--ivoire);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .merci-formation[hidden] { display: none; }
+    .merci-formation-label {
+      display: block;
+      color: var(--or-clair);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
   </style>
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="eZr3YmUnJhc5ngk4DngVKw" async></script>
 </head>
 <body>
   <header class="topbar">
@@ -62,10 +83,18 @@
         <div class="merci-card">
           <div class="merci-icon">✓</div>
           <h1>Merci pour ton achat.</h1>
-          <p>Ta formation est en route. Tu vas recevoir l'accès complet par courriel dans les prochaines minutes.</p>
+          <p>Ton paiement a été reçu.</p>
+          <p>Ta mini-formation Clario est en route. Tu vas recevoir les instructions d'accès par courriel si elles sont configurées, dans les prochaines minutes.</p>
+
+          <!-- Bloc dynamique : titre de la formation achetée (si l'URL contient ?formation=ID) -->
+          <div id="merci-formation" class="merci-formation" hidden aria-live="polite">
+            <span class="merci-formation-label">Formation achetée :</span>
+            <strong id="merci-formation-titre"></strong>
+          </div>
+
           <p class="muted" style="font-size:0.88rem; margin-top:14px">Si tu ne vois rien dans 15 minutes, vérifie ton dossier de courriels indésirables ou écris à <a href="mailto:lepivotdor@gmail.com" style="color:var(--or-clair)">lepivotdor@gmail.com</a>.</p>
           <div class="merci-actions">
-            <a class="btn btn-primary" href="formations.html">Voir d'autres formations</a>
+            <a class="btn btn-primary" href="formations.html">Retour au catalogue</a>
             <a class="btn btn-secondary" href="index.html">Retour à l'accueil</a>
           </div>
         </div>
@@ -82,5 +111,40 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script>
+    /* Affichage optionnel du titre acheté quand l'URL contient ?formation=ID.
+       Aucune confirmation technique de paiement : c'est uniquement une vue
+       de courtoisie après retour Stripe. Si l'ID est absent ou invalide,
+       on garde simplement le message général. */
+    (function () {
+      "use strict";
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var fid = (params.get("formation") || "").trim();
+        if (!fid) return;
+        // Filtre minimaliste pour éviter d'afficher n'importe quoi
+        if (!/^[a-zA-Z0-9_\-]{2,64}$/.test(fid)) return;
+        fetch("data/formations.json", { cache: "no-cache" })
+          .then(function (r) { return r.ok ? r.json() : []; })
+          .then(function (data) {
+            if (!Array.isArray(data)) return;
+            var f = data.find(function (x) {
+              var idLower = fid.toLowerCase();
+              return (x.id || "").toLowerCase() === idLower
+                  || (x.code || "").toLowerCase() === idLower
+                  || (x.slug || "").toLowerCase() === idLower;
+            });
+            if (!f || !f.titre) return;
+            var box = document.getElementById("merci-formation");
+            var t = document.getElementById("merci-formation-titre");
+            if (box && t) {
+              t.textContent = String(f.titre);
+              box.hidden = false;
+            }
+          })
+          .catch(function () { /* on garde le message général */ });
+      } catch (e) { /* silencieux */ }
+    })();
+  </script>
 </body>
 </html>
