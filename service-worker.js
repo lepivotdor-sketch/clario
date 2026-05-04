@@ -7,7 +7,10 @@
    Bump CACHE_VERSION à chaque déploiement majeur.
    ===================================================================== */
 
-const CACHE_VERSION = "clario-v1-2026-05-02";
+// IMPORTANT : bumper cette version à chaque déploiement majeur, ou
+// quand on veut forcer tous les navigateurs à jeter leur ancien cache
+// (notamment après une correction de sécurité ou de fuite).
+const CACHE_VERSION = "clario-v3-2026-05-04-stripe";
 const STATIC_CACHE = "clario-static-" + CACHE_VERSION;
 const RUNTIME_CACHE = "clario-runtime-" + CACHE_VERSION;
 
