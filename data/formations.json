@@ -390,5 +390,162 @@
     "bouton_cta": "Acheter pour 5 $",
     "contenu_verrouille": true,
     "avis_legal": "Contenu éducatif uniquement. Ne constitue pas un avis médical personnalisé."
-  }
+  },
+  {
+  "id": "ia-chatgpt-express-5-heures-semaine",
+  "code": "IA-002",
+  "titre": "ChatGPT Express : gagne 5 heures par semaine sans devenir technicien",
+  "slug": "ia-chatgpt-express-5-heures-semaine",
+  "url": "formation.html?id=ia-chatgpt-express-5-heures-semaine",
+  "stripe_link": "https://buy.stripe.com/dRmbIT2YoaPRfn8dF2cbC0a",
+  "success_url": "merci.html?formation=ia-chatgpt-express-5-heures-semaine",
+  "categorie": "IA",
+  "prix_affiche": "25 $",
+  "prix_numerique": 25,
+  "type": "mini-système",
+  "niveau": "mini-système",
+  "duree_estimee": "45 à 90 minutes",
+  "statut": "publié",
+  "statut_stripe": "Connecté",
+  "pret_a_vendre": true,
+  "version": "1.0",
+  "date_creation": "2026-05-05",
+  "derniere_mise_a_jour": "2026-05-05",
+  "prochaine_mise_a_jour": "2027-05-05",
+  "titre_page": "ChatGPT Express — Gagne 5 heures par semaine | Clario",
+  "meta_description": "Apprends à déléguer tes tâches répétitives à ChatGPT avec un mini-système clair en 3 méthodes. Aucune compétence technique requise. Objectif : premiers gains de temps dès la première semaine selon ton usage.",
+  "promesse": "3 méthodes simples pour déléguer tes tâches chronophages à ChatGPT et récupérer du temps chaque semaine.",
+  "resume_court": "Tu perds des heures chaque semaine sur des tâches répétitives que ChatGPT pourrait faire pour toi. Ce mini-système te donne 3 méthodes concrètes pour automatiser tes brouillons, résumés et recherches sans jargon technique.",
+  "sous_titre": "Le mini-système pour entrepreneurs et créateurs qui veulent du résultat avec ChatGPT, pas un cours d'informatique.",
+  "preview": "La plupart des gens tapent une question vague dans ChatGPT, reçoivent une réponse moyenne et concluent que l'IA ne sert à rien. Le problème n'est pas l'outil. C'est la façon de l'utiliser. Cette formation te donne un cadre simple en 3 méthodes pour transformer ChatGPT en assistant fiable qui rédige, synthétise et organise à ta place. Pas de prompt engineering complexe. Pas de tutoriels de 6 heures. Juste un système clair que tu appliques dès aujourd'hui.",
+  "probleme_resolu": "Tu passes des heures sur des tâches d'écriture, de recherche et d'organisation que tu pourrais déléguer, mais tu ne sais pas comment utiliser ChatGPT efficacement sans expertise technique.",
+  "resultat_attendu": "Objectif : récupérer jusqu'à 5 heures par semaine selon ton usage et les tâches que tu choisis de déléguer à ChatGPT.",
+  "resultat_concret": "Un système personnel en place pour confier tes tâches répétitives à ChatGPT de manière fiable et reproductible.",
+  "resultat_periode": "7 à 14 jours",
+  "pour_qui": [
+    "Entrepreneurs solo qui perdent du temps sur la rédaction et la recherche",
+    "Créateurs de contenu qui veulent produire plus vite sans sacrifier la qualité",
+    "Professionnels curieux qui veulent utiliser ChatGPT sans savoir par où commencer",
+    "Toute personne qui a essayé ChatGPT sans obtenir de résultat satisfaisant"
+  ],
+  "pas_pour_qui": [
+    "Les développeurs qui cherchent un cours avancé de prompt engineering",
+    "Les personnes qui veulent remplacer entièrement leur travail par l'IA",
+    "Ceux qui cherchent des résultats garantis sans aucun effort personnel"
+  ],
+  "benefices": [
+    "Confier tes tâches d'écriture répétitives à ChatGPT avec un résultat utilisable",
+    "Synthétiser rapidement des documents longs sans lire chaque ligne",
+    "Générer des idées structurées quand tu ne sais pas par où commencer",
+    "Vérifier les réponses de l'IA pour éviter les erreurs avant utilisation",
+    "Installer une routine quotidienne courte et reproductible avec ChatGPT"
+  ],
+  "livrables_publics": [
+    "Mini-système complet en 3 méthodes avec exemples concrets",
+    "Bibliothèque de prompts prêts à copier pour tes cas d'usage courants",
+    "Checklist de vérification anti-hallucination",
+    "Plan d'application sur 7 à 14 jours",
+    "Liste des erreurs fréquentes et comment les éviter"
+  ],
+  "modules_publics": [
+    {
+      "numero": 1,
+      "titre": "Identifier",
+      "apercu": "Trouver quelles tâches méritent d'être déléguées à ChatGPT, et lesquelles non."
+    },
+    {
+      "numero": 2,
+      "titre": "Formuler",
+      "apercu": "Écrire des demandes qui produisent un résultat utilisable du premier coup."
+    },
+    {
+      "numero": 3,
+      "titre": "Vérifier",
+      "apercu": "Contrôler et améliorer les réponses avant de les utiliser."
+    },
+    {
+      "numero": 4,
+      "titre": "Automatiser",
+      "apercu": "Installer une routine stable pour gagner du temps chaque semaine."
+    }
+  ],
+  "plan_public": [
+    "Comprendre où ChatGPT peut réellement te faire gagner du temps",
+    "Apprendre à structurer des demandes plus claires et plus utiles",
+    "Installer une routine simple pour utiliser ChatGPT sans complexité"
+  ],
+  "checklist_publique": [
+    "Identifier les tâches répétitives à simplifier",
+    "Préparer des demandes plus claires",
+    "Utiliser ChatGPT avec plus de régularité",
+    "Vérifier la qualité des réponses obtenues",
+    "Garder seulement ce qui te fait vraiment gagner du temps"
+  ],
+  "exemples_utilisation": [
+    "Préparer un message professionnel plus rapidement",
+    "Résumer une information importante",
+    "Structurer des idées avant de passer à l'action",
+    "Créer une première version de contenu",
+    "Clarifier une tâche avant de l'exécuter"
+  ],
+  "objections": [
+    {
+      "question": "Je n'y connais rien en technologie, est-ce que c'est pour moi ?",
+      "reponse": "Oui. Cette formation est conçue pour les non-techniciens. Tu n'as besoin que d'un navigateur web et de savoir taper au clavier."
+    },
+    {
+      "question": "ChatGPT invente des choses, comment faire confiance ?",
+      "reponse": "C'est exactement pour ça qu'un module entier est consacré à la vérification. Tu apprends à repérer et corriger les erreurs avant d'utiliser quoi que ce soit."
+    },
+    {
+      "question": "Pourquoi payer 25 $ quand YouTube est gratuit ?",
+      "reponse": "Tu paies pour un système structuré et prêt à appliquer, pas pour de l'information dispersée. En 45 à 90 minutes, tu as un cadre clair au lieu de passer des heures à trier des vidéos contradictoires."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Est-ce que j'ai besoin d'un abonnement ChatGPT Plus ?",
+      "reponse": "Non. Le système fonctionne avec la version gratuite de ChatGPT."
+    },
+    {
+      "question": "Combien de temps dure la formation ?",
+      "reponse": "Entre 45 à 90 minutes de lecture et d'application. Le plan s'étale sur 7 à 14 jours pour installer le système durablement."
+    },
+    {
+      "question": "Comment est-ce que je reçois la formation ?",
+      "reponse": "Par courriel, immédiatement après ton achat. Aucun compte à créer."
+    },
+    {
+      "question": "Est-ce que ça fonctionne aussi avec d'autres IA comme Claude ?",
+      "reponse": "Les principes s'appliquent à tout assistant IA textuel, mais les exemples sont optimisés pour ChatGPT."
+    }
+  ],
+  "garantie": "Achat unique, accès immédiat par courriel. Aucun abonnement, aucun renouvellement automatique.",
+  "mode_acces": "Livraison par courriel après achat. Aucun compte requis.",
+  "bouton_cta": "Acheter pour 25 $",
+  "angle_vente": "Gain de temps immédiat et accessibilité totale pour les non-techniciens",
+  "tags": [
+    "ia",
+    "chatgpt",
+    "productivite",
+    "automatisation",
+    "gain-de-temps",
+    "redaction",
+    "prompts",
+    "entrepreneur",
+    "contenu"
+  ],
+  "note_qualite": 94,
+  "note_rentabilite": 96,
+  "note_valeur_client": 95,
+  "note_simplicite": 97,
+  "note_integration_web": 95,
+  "note_clarte": 96,
+  "note_potentiel_catalogue": 98,
+  "priorite_catalogue": "Haute",
+  "potentiel_vente": "Très fort",
+  "formation_suivante": "L'assistant IA personnel : organise tes idées, tes tâches et tes décisions",
+  "prix_formation_suivante": 50,
+  "contenu_verrouille": true
+}
 ]
