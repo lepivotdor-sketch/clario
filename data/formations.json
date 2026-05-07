@@ -539,7 +539,7 @@
         "niveau":  "standard",
         "duree_estimee":  "45 minutes",
         "statut":  "publié",
-        "description_courte":  "Mini-formation Clario pour apprendre à utiliser l’IA afin de gagner du temps dans l’organisation, les tâches répétitives et les décisions du quotidien."
+        "description_courte":  "Mini-formation Clario : 5 prompts IA réutilisables et une routine 7 jours pour économiser 30 à 90 min par semaine."
     },
     {
         "id":  "apprendre-plus-vite-avec-ia",
@@ -555,6 +555,6 @@
         "niveau":  "standard",
         "duree_estimee":  "45 minutes",
         "statut":  "publié",
-        "description_courte":  "Mini-formation Clario pour apprendre à utiliser l’IA afin de résumer, structurer, mémoriser et appliquer plus rapidement les notions importantes."
+        "description_courte":  "Mini-formation Clario : décompose un sujet en 5 questions, obtiens des explications calibrées et teste-toi par quiz en 7 jours."
     }
 ]
