@@ -508,5 +508,21 @@
         "duree_estimee":  "2 à 3 heures",
         "statut":  "publié",
         "description_courte":  "Mini-formation Clario pour structurer une offre premium, clarifier sa proposition de valeur, renforcer ses arguments de vente et construire une matrice de décision commerciale plus solide."
+    },
+    {
+        "id":  "assistant-ia-personnel",
+        "code":  "IA-003",
+        "titre":  "L\u0027assistant IA personnel",
+        "slug":  "assistant-ia-personnel",
+        "url":  "formation.html?id=assistant-ia-personnel",
+        "stripe_link":  "https://buy.stripe.com/9B66ozbuUbTV8YKasQcbC0d",
+        "success_url":  "merci.html?formation=assistant-ia-personnel",
+        "categorie":  "IA",
+        "prix_affiche":  "50 $",
+        "prix_numerique":  50,
+        "niveau":  "premium",
+        "duree_estimee":  "2 à 3 heures",
+        "statut":  "publié",
+        "description_courte":  "Mini-formation Clario pour créer, structurer et utiliser un assistant IA personnel capable d\u0027aider dans l\u0027organisation, la productivité, les décisions et les tâches quotidiennes."
     }
 ]
