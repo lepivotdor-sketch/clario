@@ -540,5 +540,21 @@
         "duree_estimee":  "45 minutes",
         "statut":  "publié",
         "description_courte":  "Mini-formation Clario pour apprendre à utiliser l’IA afin de gagner du temps dans l’organisation, les tâches répétitives et les décisions du quotidien."
+    },
+    {
+        "id":  "apprendre-plus-vite-avec-ia",
+        "code":  "APP-002",
+        "titre":  "Apprendre plus vite avec l’IA",
+        "slug":  "apprendre-plus-vite-avec-ia",
+        "url":  "formation.html?id=apprendre-plus-vite-avec-ia",
+        "stripe_link":  "https://buy.stripe.com/28E28j6aA3npgrc1WkcbC0f",
+        "success_url":  "merci.html?formation=apprendre-plus-vite-avec-ia",
+        "categorie":  "Apprentissage",
+        "prix_affiche":  "25 $",
+        "prix_numerique":  25,
+        "niveau":  "standard",
+        "duree_estimee":  "45 minutes",
+        "statut":  "publié",
+        "description_courte":  "Mini-formation Clario pour apprendre à utiliser l’IA afin de résumer, structurer, mémoriser et appliquer plus rapidement les notions importantes."
     }
 ]
