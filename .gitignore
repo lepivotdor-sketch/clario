@@ -1,0 +1,10 @@
+_private_local/
+_private_local/**
+*.bak
+*.backup
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Rapports internes potentiellement sensibles
+scripts/rapport-check.md

@@ -1,93 +1,105 @@
-
-# scripts/check-clario.ps1
-# Rôle : Valider data/formations.json et vérifier les règles de sécurité avant publication.
-
+﻿#requires -Version 5.1
 $ErrorActionPreference = 'Stop'
+$root = Split-Path -Parent $PSScriptRoot
+$jsonPath = Join-Path $root 'data\formations.json'
+$catPath  = Join-Path $root 'data\categories.json'
+$prixPath = Join-Path $root 'data\prix.json'
+$reportPath = Join-Path $root 'scripts\rapport-check.md'
 
-Function Test-JsonValidity {
-    Param (
-        [string]$Path
+$errors = New-Object System.Collections.Generic.List[string]
+$warnings = New-Object System.Collections.Generic.List[string]
+
+function Read-Utf8Json($path) {
+    $raw = [System.IO.File]::ReadAllText($path, [System.Text.Encoding]::UTF8)
+    return $raw | ConvertFrom-Json
+}
+
+# 1. Validité JSON
+if (-not (Test-Path $jsonPath)) { $errors.Add("formations.json introuvable"); }
+try { $data = Read-Utf8Json $jsonPath } catch { $errors.Add("JSON invalide : $_"); }
+
+if ($errors.Count -eq 0) {
+    # Référentiels
+    $catsOK = (Read-Utf8Json $catPath).nom
+    $prixOK = (Read-Utf8Json $prixPath).prix_numerique
+
+    # 2. Champs obligatoires
+    $required = 'id','code','titre','categorie','prix_numerique','stripe_link','slug','url'
+    foreach ($f in $data) {
+        foreach ($r in $required) {
+            if (-not $f.$r) { $errors.Add("[$($f.code)] champ manquant : $r") }
+        }
+        # 3. Lien Stripe
+        if ($f.stripe_link -and $f.stripe_link -notlike 'https://buy.stripe.com/*') {
+            $errors.Add("[$($f.code)] lien Stripe invalide : $($f.stripe_link)")
+        }
+        # Catégorie officielle
+        if ($f.categorie -and $catsOK -notcontains $f.categorie) {
+            $errors.Add("[$($f.code)] catégorie non officielle : $($f.categorie)")
+        }
+        # Prix autorisé
+        if ($f.prix_numerique -and $prixOK -notcontains $f.prix_numerique) {
+            $errors.Add("[$($f.code)] prix non autorisé : $($f.prix_numerique)")
+        }
+    }
+
+    # Doublons id / code
+    $dupId   = $data | Group-Object id   | Where-Object Count -gt 1
+    $dupCode = $data | Group-Object code | Where-Object Count -gt 1
+    foreach ($g in $dupId)   { $errors.Add("doublon id : $($g.Name)") }
+    foreach ($g in $dupCode) { $errors.Add("doublon code : $($g.Name)") }
+
+    # 4. Sécurité contenu public — bloquant : vrais signaux dangereux
+    $blocked = @(
+        '_private_local','accès privé','texte client complet',
+        'contenu pédagogique complet','exercices complets',
+        'formation complète privée','livrable privé','html privé',
+        'markdown privé','fichier privé'
     )
-    Write-Host "- Vérification de la validité JSON de '$Path'..."
-    Try {
-        Get-Content -Raw $Path | ConvertFrom-Json | Out-Null
-        Write-Host "  [OK] Le fichier JSON est valide."
-        return $true
-    }
-    Catch {
-        Write-Host "  [ERREUR] Le fichier JSON est invalide : $($_.Exception.Message)"
-        return $false
-    }
-}
-
-Function Test-FormationFields {
-    Param (
-        [array]$Formations
-    )
-    Write-Host "- Vérification des champs obligatoires et de la sécurité des formations..."
-    $isValid = $true
-    $requiredFields = @('code', 'id', 'titre', 'prix_numerique', 'categorie', 'description_courte', 'stripe_link')
-    $forbiddenKeywords = @('modules complets', 'méthode complète', 'exercices complets', 'contenu pédagogique complet', 'texte client complet', 'accès privé', '_private_local')
-
-    For ($i = 0; $i -lt $Formations.Count; $i++) {
-        $formation = $Formations[$i]
-        $formationName = $formation.titre -replace '[^a-zA-Z0-9]', '_' # Pour un nom de formation plus propre dans les logs
-        Write-Host "  Vérification de la formation '$formationName' (index $i)..."
-
-        # Vérification des champs obligatoires
-        ForEach ($field in $requiredFields) {
-            If (-not $formation.($field)) {
-                Write-Host "    [ERREUR] Champ obligatoire '$field' manquant ou vide."
-                $isValid = $false
-            }
-        }
-
-        # Vérification du stripe_link
-        If ($formation.stripe_link -notlike 'https://buy.stripe.com/*') {
-            Write-Host "    [ERREUR] 'stripe_link' invalide pour '$formationName'. Doit commencer par 'https://buy.stripe.com/'."
-            $isValid = $false
-        }
-
-        # Vérification des champs privés interdits
-        $formationJson = $formation | ConvertTo-Json -Compress
-        ForEach ($keyword in $forbiddenKeywords) {
-            If ($formationJson -match "`"$([regex]::Escape($keyword))`"") {
-                Write-Host "    [ERREUR] Mot-clé privé interdit '$keyword' trouvé dans la formation '$formationName'."
-                $isValid = $false
-            }
+    $softBlocked = @('méthode complète','modules complets')
+    $rawText = [System.IO.File]::ReadAllText($jsonPath, [System.Text.Encoding]::UTF8)
+    foreach ($b in $blocked) {
+        if ($rawText -match [regex]::Escape($b)) {
+            $errors.Add("contenu sensible détecté : '$b'")
         }
     }
-    If ($isValid) {
-        Write-Host "  [OK] Toutes les formations respectent les règles de champs et de sécurité."
-    }
-    return $isValid
-}
-
-# --- Exécution du script ---
-$formationsFilePath = "./data/formations.json"
-$overallStatus = $true
-
-Write-Host "\n=== Démarrage de la vérification Clario ===\n"
-
-# 1. Vérifier la validité du JSON
-If (-not (Test-JsonValidity -Path $formationsFilePath)) {
-    $overallStatus = $false
-}
-
-If ($overallStatus) {
-    $formations = Get-Content -Raw $formationsFilePath | ConvertFrom-Json
-    # 2. Vérifier les champs des formations et les mots-clés interdits
-    If (-not (Test-FormationFields -Formations $formations)) {
-        $overallStatus = $false
+    foreach ($b in $softBlocked) {
+        if ($rawText -match [regex]::Escape($b)) {
+            $warnings.Add("expression à surveiller : '$b' (marketing OK, ne pas exposer le contenu réel)")
+        }
     }
 }
 
-Write-Host "\n=== Rapport de vérification ==="
-If ($overallStatus) {
-    Write-Host "[RÉUSSITE] Le fichier data/formations.json est OK pour publication."
-    Exit 0 # Succès
+# 5. Rapport .md
+$now = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
+$status = if ($errors.Count -eq 0) { 'RÉUSSITE' } else { 'ÉCHEC' }
+$md = @()
+$md += "# Rapport check-clario"
+$md += ""
+$md += "- Date : $now"
+$md += "- Statut : **$status**"
+$md += "- Erreurs : $($errors.Count)"
+$md += "- Avertissements : $($warnings.Count)"
+$md += ""
+if ($errors.Count -gt 0) {
+    $md += "## Erreurs"
+    foreach ($e in $errors) { $md += "- $e" }
+    $md += ""
 }
-Else {
-    Write-Host "[ÉCHEC] Le fichier data/formations.json contient des erreurs. À corriger avant publication."
-    Exit 1 # Échec
+if ($warnings.Count -gt 0) {
+    $md += "## Avertissements"
+    foreach ($w in $warnings) { $md += "- $w" }
+}
+[System.IO.File]::WriteAllLines($reportPath, $md, (New-Object System.Text.UTF8Encoding($false)))
+
+# Sortie console
+if ($errors.Count -eq 0) {
+    Write-Host "[REUSSITE] data/formations.json OK pour publication." -ForegroundColor Green
+    Write-Host "Rapport : scripts/rapport-check.md"
+    exit 0
+} else {
+    Write-Host "[ECHEC] $($errors.Count) erreur(s) :" -ForegroundColor Red
+    foreach ($e in $errors) { Write-Host "  - $e" -ForegroundColor Red }
+    Write-Host "Rapport : scripts/rapport-check.md"
+    exit 1
 }

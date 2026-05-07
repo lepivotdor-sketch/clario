@@ -1,51 +1,48 @@
-
-# scripts/publish-json.ps1
-# Rôle : Publier uniquement data/formations.json après validation sécurisée.
-
+﻿#requires -Version 5.1
 $ErrorActionPreference = 'Stop'
+$root = Split-Path -Parent $PSScriptRoot
+$jsonPath = Join-Path $root 'data\formations.json'
+$backupDir = Join-Path $root '_archive\backups-formations'
+$checkScript = Join-Path $PSScriptRoot 'check-clario.ps1'
 
-Write-Host "\n=== Démarrage de la publication sécurisée du catalogue Clario ===\n"
+# 1. Vérification obligatoire
+& powershell -ExecutionPolicy Bypass -File $checkScript
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "[ANNULE] Vérification échouée. Publication interrompue." -ForegroundColor Red
+    exit 1
+}
 
-# 1. Exécuter le script de vérification
-Write-Host "- Exécution de la vérification de sécurité (scripts/check-clario.ps1)..."
-Try {
-    & "./scripts/check-clario.ps1"
-    If ($LASTEXITCODE -ne 0) {
-        Write-Host "[ÉCHEC] La vérification de sécurité a échoué. Publication annulée."
-        Exit 1
+# 2. Backup automatique
+if (-not (Test-Path $backupDir)) { New-Item -ItemType Directory -Path $backupDir -Force | Out-Null }
+$stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+$backupPath = Join-Path $backupDir "formations-$stamp.json"
+Copy-Item $jsonPath $backupPath
+Write-Host "Backup : $backupPath" -ForegroundColor Cyan
+
+# 3. Git — publication ciblée uniquement
+Push-Location $root
+try {
+    git rev-parse --is-inside-work-tree *> $null
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "[INFO] Pas un dépôt Git. Backup créé, publication Git ignorée." -ForegroundColor Yellow
+        exit 0
     }
-    Write-Host "[OK] La vérification de sécurité a réussi."
+
+    git add data/formations.json
+    $staged = git diff --cached --name-only
+    if (-not $staged) {
+        Write-Host "[INFO] Aucun changement à publier." -ForegroundColor Yellow
+        exit 0
+    }
+
+    $msg = "chore(data): mise à jour catalogue public ($stamp)"
+    git commit -m $msg
+    if ($LASTEXITCODE -ne 0) { throw "git commit a échoué" }
+
+    git push origin main
+    if ($LASTEXITCODE -ne 0) { throw "git push a échoué" }
+
+    Write-Host "[REUSSITE] data/formations.json publié." -ForegroundColor Green
+} finally {
+    Pop-Location
 }
-Catch {
-    Write-Host "[ERREUR] Impossible d'exécuter scripts/check-clario.ps1 : $($_.Exception.Message)"
-    Exit 1
-}
-
-# 2. Préparer la publication Git
-Write-Host "\n- Préparation des changements Git..."
-
-# Afficher le statut Git (pour information)
-Write-Host "  Statut Git actuel :"
-git status --short
-
-# Ajouter uniquement data/formations.json
-Write-Host "  Ajout de data/formations.json à l'index Git..."
-git add data/formations.json
-
-# Vérifier si des changements ont été ajoutés (pour éviter un commit vide)
-$stagedChanges = git diff --cached --name-only
-If ($stagedChanges -notcontains "data/formations.json") {
-    Write-Host "[INFO] Aucune modification à data/formations.json n'a été détectée ou ajoutée. Publication non nécessaire."
-    Exit 0
-}
-
-# Committer les changements
-Write-Host "  Commit des changements..."
-git commit -m "Mise à jour catalogue Clario"
-
-# Pousser vers origin main
-Write-Host "  Push des changements vers origin main..."
-git push origin main
-
-Write-Host "\n[RÉUSSITE] data/formations.json a été publié avec succès."
-Exit 0

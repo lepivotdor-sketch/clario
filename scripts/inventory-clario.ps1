@@ -1,94 +1,42 @@
+﻿#requires -Version 5.1
+$ErrorActionPreference = 'Stop'
+$root = Split-Path -Parent $PSScriptRoot
+$jsonPath = Join-Path $root 'data\formations.json'
+$readyPath = Join-Path $root '_private_local\roadmap\clario-formations-pretes.md'
 
-# scripts/inventory-clario.ps1
-# Rôle : Lire data/formations.json et _private_local/roadmap/clario-formations-pretes.md pour afficher un inventaire et des recommandations.
+if (-not (Test-Path $jsonPath)) { Write-Host "[ERREUR] data/formations.json introuvable" -ForegroundColor Red; exit 1 }
 
-$ErrorActionPreference = "Continue" # Permet de continuer même si _private_local/roadmap/clario-formations-pretes.md n'existe pas
+$raw = [System.IO.File]::ReadAllText($jsonPath, [System.Text.Encoding]::UTF8)
+$data = $raw | ConvertFrom-Json
 
-Write-Host "\n=== Inventaire des formations Clario ===\n"
+$total = $data.Count
+$avecStripe = ($data | Where-Object { $_.stripe_link -like 'https://buy.stripe.com/*' }).Count
+$sansStripe = ($data | Where-Object { -not $_.stripe_link }).Count
+$stripeInvalide = ($data | Where-Object { $_.stripe_link -and $_.stripe_link -notlike 'https://buy.stripe.com/*' }).Count
 
-$formationsFilePath = "./data/formations.json"
-$privateRoadmapPath = "./_private_local/roadmap/clario-formations-pretes.md"
-
-# Vérifier l'existence de data/formations.json
-If (-not (Test-Path $formationsFilePath)) {
-    Write-Host "[ERREUR] Le fichier data/formations.json est introuvable. Impossible de générer l'inventaire."
-    Exit 1
-}
-
-# Lire et parser data/formations.json
-Try {
-    $publicFormations = Get-Content -Raw $formationsFilePath | ConvertFrom-Json
-} Catch {
-    Write-Host "[ERREUR] Erreur lors de la lecture ou du parsing de data/formations.json : $($_.Exception.Message)"
-    Exit 1
-}
-
-$totalPublicFormations = $publicFormations.Count
-$formationsEnVente = 0
-$formationsSansStripe = 0
-$formationsAvecStripeInvalide = 0
-$publishedFormationIds = @()
-
-ForEach ($formation in $publicFormations) {
-    $publishedFormationIds += $formation.id
-
-    If ($formation.stripe_link -and ($formation.stripe_link -like "https://buy.stripe.com/*")) {
-        $formationsEnVente++
-    } ElseIf (-not $formation.stripe_link) {
-        $formationsSansStripe++
-    } Else {
-        $formationsAvecStripeInvalide++
+$pretesNonPubliees = 0
+if (Test-Path $readyPath) {
+    $ready = [System.IO.File]::ReadAllText($readyPath, [System.Text.Encoding]::UTF8)
+    $idsPub = $data.id
+    $matches = [regex]::Matches($ready, '(?m)^\s*[-*]\s*([a-z0-9-]+)')
+    foreach ($m in $matches) {
+        if ($idsPub -notcontains $m.Groups[1].Value) { $pretesNonPubliees++ }
     }
 }
 
-# Lire _private_local/roadmap/clario-formations-pretes.md
-$readyPrivateFormationIds = @()
-If (Test-Path $privateRoadmapPath) {
-    Write-Host "- Lecture de la feuille de route privée des formations prêtes..."
-    $privateRoadmapContent = Get-Content -Path $privateRoadmapPath
-    # Supposons que les IDs sont sur des lignes séparées ou dans des listes Markdown (- id)
-    $privateRoadmapContent | ForEach-Object {
-        If ($_ -match "^\s*[-*]?\s*([a-zA-Z0-9-]+)") {
-            $readyPrivateFormationIds += $Matches[1]
-        }
-    }
-} Else {
-    Write-Host "[INFO] Le fichier $privateRoadmapPath est introuvable. Aucune formation privée prête ne sera prise en compte."
+Write-Host ""
+Write-Host "=== Inventaire Clario ===" -ForegroundColor Cyan
+Write-Host "Total formations publiques : $total"
+Write-Host "  - Avec Stripe valide     : $avecStripe"
+Write-Host "  - Sans Stripe            : $sansStripe"
+Write-Host "  - Stripe invalide        : $stripeInvalide"
+Write-Host "Prêtes non publiées        : $pretesNonPubliees"
+Write-Host ""
+
+if ($sansStripe -gt 0 -or $stripeInvalide -gt 0) {
+    Write-Host "Action : corriger les liens Stripe avant publication." -ForegroundColor Yellow
+} elseif ($pretesNonPubliees -gt 0) {
+    Write-Host "Action : ajouter les formations prêtes au catalogue public." -ForegroundColor Yellow
+} else {
+    Write-Host "Action : exécuter check-clario.ps1 puis publish-json.ps1" -ForegroundColor Green
 }
-
-# Identifier les formations privées prêtes mais non publiées
-$privateReadyNotPublished = @()
-ForEach ($privateId in $readyPrivateFormationIds) {
-    If ($publishedFormationIds -notcontains $privateId) {
-        $privateReadyNotPublished += $privateId
-    }
-}
-
-Write-Host "\n--- Résumé ---"
-Write-Host "Nombre total de formations publiques : $totalPublicFormations"
-Write-Host "  - Formations en vente (lien Stripe valide) : $formationsEnVente"
-Write-Host "  - Formations sans lien Stripe : $formationsSansStripe"
-Write-Host "  - Formations avec lien Stripe invalide : $formationsAvecStripeInvalide"
-
-If ($privateReadyNotPublished.Count -gt 0) {
-    Write-Host "Formations privées prêtes mais non publiées : $($privateReadyNotPublished.Count)"
-    Write-Host "  - IDs : $($privateReadyNotPublished -join ", ")"
-} Else {
-    Write-Host "Aucune formation privée prête identifiée comme non publiée."
-}
-
-Write-Host "\n--- Prochaine action recommandée ---"
-If ($formationsAvecStripeInvalide -gt 0) {
-    Write-Host "1. Corriger les liens Stripe invalides dans data/formations.json."
-} ElseIf ($formationsSansStripe -gt 0) {
-    Write-Host "1. Ajouter des liens Stripe aux formations sans lien dans data/formations.json pour les mettre en vente."
-} ElseIf ($privateReadyNotPublished.Count -gt 0) {
-    Write-Host "1. Examiner les formations privées prêtes ($($privateReadyNotPublished -join ", ")) et envisager leur publication dans data/formations.json."
-} Else {
-    Write-Host "1. Toutes les formations publiques sont en ordre. Pensez à créer de nouvelles formations ou à mettre à jour les existantes."
-}
-Write-Host "2. Exécuter scripts/check-clario.ps1 régulièrement pour maintenir la qualité des données."
-Write-Host "3. Utiliser scripts/publish-json.ps1 pour publier les mises à jour de data/formations.json en toute sécurité."
-
-Write-Host "\n=== Inventaire terminé ==="
-Exit 0
