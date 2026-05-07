@@ -524,5 +524,21 @@
         "duree_estimee":  "2 à 3 heures",
         "statut":  "publié",
         "description_courte":  "Mini-formation Clario pour créer, structurer et utiliser un assistant IA personnel capable d\u0027aider dans l\u0027organisation, la productivité, les décisions et les tâches quotidiennes."
+    },
+    {
+        "id":  "automatiser-son-quotidien-avec-ia",
+        "code":  "IA-004",
+        "titre":  "Automatiser son quotidien avec l’IA",
+        "slug":  "automatiser-son-quotidien-avec-ia",
+        "url":  "formation.html?id=automatiser-son-quotidien-avec-ia",
+        "stripe_link":  "https://buy.stripe.com/14A4grbuU9LNa2OdF2cbC0e",
+        "success_url":  "merci.html?formation=automatiser-son-quotidien-avec-ia",
+        "categorie":  "IA",
+        "prix_affiche":  "25 $",
+        "prix_numerique":  25,
+        "niveau":  "standard",
+        "duree_estimee":  "45 minutes",
+        "statut":  "publié",
+        "description_courte":  "Mini-formation Clario pour apprendre à utiliser l’IA afin de gagner du temps dans l’organisation, les tâches répétitives et les décisions du quotidien."
     }
 ]
