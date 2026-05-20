@@ -394,7 +394,7 @@
     {
         "id":  "ia-chatgpt-express-5-heures",
         "code":  "IA-002",
-        "titre":  "ChatGPT Express : gagne 5 heures par semaine",
+        "titre":  "Gagne 5 heures par semaine avec ChatGPT — sans devenir technicien.",
         "slug":  "ia-chatgpt-express-5-heures",
         "url":  "formation.html?id=ia-chatgpt-express-5-heures",
         "stripe_link":  "https://buy.stripe.com/dRmbIT2YoaPRfn8dF2cbC0a",
@@ -410,7 +410,7 @@
         "date_creation":  "2026-05-06",
         "derniere_mise_a_jour":  "2026-05-06",
         "prochaine_mise_a_jour":  "2027-05-06",
-        "promesse":  "3 prompts experts, 3 tâches déléguées : 5 heures libérées par semaine sans apprendre à coder.",
+        "promesse":  "À la fin de cette mini-formation, tu utilises ChatGPT comme un pro discret : tu sais quoi taper, tu obtiens une réponse utilisable du premier coup, et tu mesures noir sur blanc les heures que tu récupères chaque semaine.",
         "resume_court":  "Crée 3 systèmes de prompts personnalisés pour déléguer tes tâches répétitives à ChatGPT et libérer 5 heures nettes par semaine.",
         "sous_titre":  "La méthode pour passer de l\u0027utilisation occasionnelle de l\u0027IA à la délégation systématique.",
         "preview":  "Une méthode en 3 modules pour transformer ChatGPT d\u0027un simple gadget en assistant exécutif. Délègue les tâches répétitives sans apprendre à coder, en construisant des prompts experts sauvegardés une fois pour toutes.",
@@ -438,7 +438,7 @@
                      "productivite",
                      "gain de temps"
                  ],
-        "bouton_cta":  "Acheter pour 25 $",
+        "bouton_cta":  "Récupère tes 5 heures cette semaine — 25 $CA, accès à vie.",
         "contenu_verrouille":  true,
         "public_cible":  "Personnes qui utilisent déjà l\u0027IA à l\u0027occasion et veulent passer à la délégation systématique de leurs tâches répétitives d\u0027écriture."
     },
